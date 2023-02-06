@@ -1645,6 +1645,18 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 1
   m_Constraints: 0
+--- !u!114 &1140016063
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1140016056}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b9a281e73cafb408c9ddee944aff0035, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1214083048 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7095444711487979210, guid: 7e71032ab7c7c444691ef1cb4eb2eb66, type: 3}
@@ -3580,6 +3592,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1646763899}
     m_Modifications:
+    - target: {fileID: 1381012022078807399, guid: 21017c03846cc4e3dba982c38ec81bcf, type: 3}
+      propertyPath: m_DrawMode
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1404478388950037808, guid: 21017c03846cc4e3dba982c38ec81bcf, type: 3}
       propertyPath: m_Name
       value: Red Splitter
