@@ -5,7 +5,7 @@ using UnityEngine;
 public class TiltMaze : MonoBehaviour
 { 
     public float speed;
-   
+    public Transform customPivot;
 
     void Start()
     {
@@ -17,12 +17,12 @@ public class TiltMaze : MonoBehaviour
     {
         if (Input.GetKey(KeyCode.LeftArrow))
         {
-            transform.RotateAround(transform.position, Vector3.forward, speed * Time.deltaTime);
+            transform.RotateAround(new Vector3(-6.47f, 0.316f, 0f), Vector3.forward, speed * Time.deltaTime);
         }
       
         if (Input.GetKey(KeyCode.RightArrow))
         {
-            transform.RotateAround(transform.position, -Vector3.forward, speed * Time.deltaTime);
+            transform.RotateAround(new Vector3(-6.47f, 0.316f, 0f), -Vector3.forward, speed * Time.deltaTime);
         }
 
     }
