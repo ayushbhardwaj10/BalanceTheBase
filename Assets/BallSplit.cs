@@ -21,6 +21,7 @@ public class BallSplit : MonoBehaviour
         Debug.Log("Code Ran");
         SpriteRenderer renderer = GetComponent<SpriteRenderer>();
         collision.gameObject.GetComponent<SpriteRenderer>().color = renderer.color;
-        Instantiate(collision.gameObject);
+        Instantiate(collision.gameObject, collision.transform.position, collision.transform.rotation);
+        Destroy(gameObject);
     }
 }
