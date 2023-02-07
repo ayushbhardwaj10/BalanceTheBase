@@ -3,7 +3,11 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - BlueBall
+  - RedBall
+  - BlueSplitter
+  - RedSplitter
   layers:
   - Default
   - TransparentFX
