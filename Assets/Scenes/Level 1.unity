@@ -1566,6 +1566,7 @@ GameObject:
   - component: {fileID: 1055700995}
   - component: {fileID: 1055700996}
   - component: {fileID: 1055700997}
+  - component: {fileID: 1055700998}
   m_Layer: 0
   m_Name: Pivot
   m_TagString: Untagged
@@ -1656,6 +1657,18 @@ SpriteRenderer:
   m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 1
+--- !u!114 &1055700998
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1055700994}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 45ac3e57418b64a92acb8f6840608135, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1096458333
 PrefabInstance:
   m_ObjectHideFlags: 0
