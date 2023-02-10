@@ -38,7 +38,8 @@ public class GamesManager : MonoBehaviour
     {
 
         Debug.Log("GamesManager:NewGame::");
-        SceneManager.LoadScene("Level 1");
+        //SceneManager.LoadScene("Level 1");
+        SceneManager.LoadScene("Level Manager");
 
     }
 
