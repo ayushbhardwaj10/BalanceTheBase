@@ -20,12 +20,13 @@ public class BallSplit : MonoBehaviour
 
     void OnCollisionEnter2D(Collision2D collision)
     {
-        Debug.Log("Code Ran");
+        Debug.Log(gameObject);
+        //First destrory and then instantiate
+        Destroy(gameObject);
+
         SpriteRenderer renderer = GetComponent<SpriteRenderer>();
         collision.gameObject.GetComponent<SpriteRenderer>().color = renderer.color;
         Instantiate(collision.gameObject, collision.transform.position, collision.transform.rotation);
-        AnalyticsManager._instance.analytics_split_record(1, DateTime.Now, renderer.tag, collision.gameObject.tag);
-
-        Destroy(gameObject);
+        // AnalyticsManager._instance.analytics_split_record(1, DateTime.Now, renderer.tag, collision.gameObject.tag);
     }
 }
