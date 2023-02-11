@@ -203,6 +203,7 @@ GameObject:
   m_Component:
   - component: {fileID: 180825153}
   - component: {fileID: 180825154}
+  - component: {fileID: 180825155}
   m_Layer: 0
   m_Name: OuterWall
   m_TagString: Untagged
@@ -250,6 +251,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 20
   customPivot: {x: 0, y: 0, z: 0}
+--- !u!114 &180825155
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 180825152}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5923098ab0ace4796b4e38b5b3b7f858, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &316753202
 GameObject:
   m_ObjectHideFlags: 0
@@ -1000,6 +1013,14 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3403021144088372002, guid: d46e2c61841134ff5947b361b4ea5749, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8277886357829581080, guid: d46e2c61841134ff5947b361b4ea5749, type: 3}
+      propertyPath: m_TagString
+      value: BlueSplitterTriangle
+      objectReference: {fileID: 0}
+    - target: {fileID: 8277886357829581080, guid: d46e2c61841134ff5947b361b4ea5749, type: 3}
+      propertyPath: m_StaticEditorFlags
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
