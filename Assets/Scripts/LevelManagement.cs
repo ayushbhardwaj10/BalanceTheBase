@@ -9,6 +9,9 @@ public class LevelManagement : MonoBehaviour
         SceneManager.LoadScene("Level 1");
 
     }
+    public void restartLevel() {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+    }
     // Start is called before the first frame update
     void Start()
     {
