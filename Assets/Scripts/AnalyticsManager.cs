@@ -11,8 +11,11 @@ public class AnalyticsManager : MonoBehaviour
     public int _sessionId;
 
 
-    [SerializeField] private string time_taken_url = @"https://docs.google.com/forms/u/1/d/e/1FAIpQLSfCftSEPZP0b24aGzJZnTR5ccFCkhhiUvQG_ddy7_yDonjy5g/formResponse";
-    [SerializeField] private string split_record_url = @"https://docs.google.com/forms/u/1/d/e/1FAIpQLSdHoIbw4HHcJezfd5MVJRBupJOwur0xOc5lfmEPC60SEABq1w/formResponse";
+    [SerializeField] private string time_taken_url = @"https://docs.google.com/forms/u/1/d/e/1FAIpQLScaIHhPlLRkFO-Jja0Eq32Wl4THz28OhYFS-uoVHWFrNGy5Bg/formResponse";
+    [SerializeField] private string split_record_url = @"https://docs.google.com/forms/u/1/d/e/1FAIpQLSeSj3Ef-ZS6Jq55OJweJLh0pUBj1U8PKTh-4XAbyuhcQOtZEw/formResponse";
+
+
+    
 
     private void Awake()
     {
@@ -21,26 +24,27 @@ public class AnalyticsManager : MonoBehaviour
         DontDestroyOnLoad(this.gameObject);
     }
 
-    public void analytics_time_taken(int level, int time_taken)
+
+    public void analytics_time_takenn(string level, int timeTaken, string gameStatus)
     {
-        WWWForm form = new WWWForm();
-        form.AddField("entry.955126917", _sessionId);
-        form.AddField("entry.75752132", level);
-        form.AddField("entry.1110799340", time_taken);
-
-        Debug.Log("AnalyticsManager:analytics_time_taken");
-
-        StartCoroutine(Post(form, time_taken_url));
+        WWWForm form_1 = new WWWForm();
+        form_1.AddField("entry.1716623696", _sessionId.ToString());
+        form_1.AddField("entry.1672803728", level);
+        form_1.AddField("entry.796460226", timeTaken.ToString());
+        form_1.AddField("entry.269785053", gameStatus);
+        Debug.Log("Analytics : time taken ");
+        StartCoroutine(Post(form_1, time_taken_url));
 
     }
-    public void analytics_split_record(int level, DateTime collisionTime,string splitterColor, string ballColor)
+
+    public void analytics_split_record(string level, DateTime collisionTime,string splitterColor, string ballColor)
     {
         WWWForm form = new WWWForm();
-        form.AddField("entry.192462917", _sessionId);
-        form.AddField("entry.483204020", level.ToString());
-        form.AddField("entry.849229179", collisionTime.ToString());
-        form.AddField("entry.1020257333", splitterColor);
-        form.AddField("entry.1644182129", ballColor);
+        form.AddField("entry.1053949501", _sessionId.ToString());
+        form.AddField("entry.1840337228", level);
+        form.AddField("entry.1488388670", collisionTime.ToString());
+        form.AddField("entry.184202295", splitterColor);
+        form.AddField("entry.1484592871", ballColor);
         Debug.Log("AnalyticsManager:analytics_split_record");
         StartCoroutine(Post(form, split_record_url));
 
