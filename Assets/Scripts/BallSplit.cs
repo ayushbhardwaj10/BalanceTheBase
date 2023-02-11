@@ -2,14 +2,18 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System;
+using UnityEngine.SceneManagement;
 
 public class BallSplit : MonoBehaviour
 {
-    // Start is called before the first frame update
-    //private static int num_times_ballsplit = 0;
+
+    string levelName;
+
     void Start()
     {
         
+        levelName = SceneManager.GetActiveScene().name;
+
     }
 
     // Update is called once per frame
@@ -27,6 +31,6 @@ public class BallSplit : MonoBehaviour
         SpriteRenderer renderer = GetComponent<SpriteRenderer>();
         collision.gameObject.GetComponent<SpriteRenderer>().color = renderer.color;
         Instantiate(collision.gameObject, collision.transform.position, collision.transform.rotation);
-        // AnalyticsManager._instance.analytics_split_record(1, DateTime.Now, renderer.tag, collision.gameObject.tag);
+        AnalyticsManager._instance.analytics_split_record(levelName, DateTime.Now, renderer.tag, collision.gameObject.tag);
     }
 }
