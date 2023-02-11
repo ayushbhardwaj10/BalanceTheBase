@@ -1015,6 +1015,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8277886357829581080, guid: d46e2c61841134ff5947b361b4ea5749, type: 3}
+      propertyPath: m_TagString
+      value: BlueSplitterTriangle
+      objectReference: {fileID: 0}
+    - target: {fileID: 8277886357829581080, guid: d46e2c61841134ff5947b361b4ea5749, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d46e2c61841134ff5947b361b4ea5749, type: 3}
 --- !u!4 &1133147714 stripped

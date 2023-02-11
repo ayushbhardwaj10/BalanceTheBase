@@ -13,8 +13,8 @@ public class CheckLosingConditionL3 : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (GameObject.FindGameObjectsWithTag("BlueSplitter").Length == 1 &&
-            GameObject.FindGameObjectsWithTag("RedSplitter").Length == 1 &&
+        // Add losing popup
+        if (!GameObject.FindWithTag("BlueSplitterTriangle") && !GameObject.FindWithTag("RedSplitterTriangle") &&
             GameObject.FindGameObjectsWithTag("RedBall").Length != GameObject.FindGameObjectsWithTag("BlueBall").Length)
         {
             Debug.Log("You lose");
