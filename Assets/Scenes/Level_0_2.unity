@@ -266,6 +266,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5923098ab0ace4796b4e38b5b3b7f858, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  losingPopup: {fileID: 548918332}
 --- !u!1 &187288167
 GameObject:
   m_ObjectHideFlags: 0
@@ -611,7 +612,7 @@ GameObject:
   - component: {fileID: 548918334}
   m_Layer: 5
   m_Name: Lost Popup
-  m_TagString: Untagged
+  m_TagString: LosePopup
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -962,7 +963,7 @@ GameObject:
   - component: {fileID: 773749699}
   m_Layer: 5
   m_Name: Win popup
-  m_TagString: Untagged
+  m_TagString: WinPopup
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
