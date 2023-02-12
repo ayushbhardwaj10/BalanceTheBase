@@ -8,6 +8,8 @@ TagManager:
   - RedBall
   - BlueSplitter
   - RedSplitter
+  - BlueSplitterTriangle
+  - RedSplitterTriangle
   layers:
   - Default
   - TransparentFX
