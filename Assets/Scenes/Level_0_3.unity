@@ -1968,6 +1968,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 20
+  minSpeed: 20
+  maxSpeed: 100
+  acceleration: 20
   customPivot: {x: -0.11, y: -2.97, z: -10}
 --- !u!4 &1584473807
 Transform:
