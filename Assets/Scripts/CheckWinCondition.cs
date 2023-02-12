@@ -5,21 +5,25 @@ using UnityEngine;
 
 public class CheckWinCondition : MonoBehaviour
 {
-   // Start is called before the first frame update
+     List <GameObject> currentCollisions = new List <GameObject> ();
+    
+    void OnCollisionEnter2D(Collision2D collision){
+        if("BlueBall".Equals(collision.gameObject.tag) || "RedBall".Equals(collision.gameObject.tag)){
+        currentCollisions.Add(collision.gameObject);
+        }
+        int len = currentCollisions.Count ;
+        if (( len == (GameObject.FindGameObjectsWithTag("BlueBall").Length + 
+        GameObject.FindGameObjectsWithTag("RedBall").Length)) && (GameObject.FindGameObjectsWithTag("BlueBall").Length == GameObject.FindGameObjectsWithTag("RedBall").Length )){
+            Debug.Log("You Win");
+        }
+    }
+
+    void OnCollisionExit2D (Collision2D collision) {
+         // Remove the GameObject collided with from the list.
+         currentCollisions.Remove (collision.gameObject);
+    }
+ 
+}
+
   
 
-
-   // Update is called once per frame
-   void Update()
-   {
-       Debug.Log("ccc"+GoalRegion.count);
-       if(GameObject.FindGameObjectsWithTag("RedBall").Length == GameObject.FindGameObjectsWithTag("BlueBall").Length &&
-       GoalRegion.count == (GameObject.FindGameObjectsWithTag("RedBall").Length + GameObject.FindGameObjectsWithTag("BlueBall").Length)){
-           Debug.Log(GoalRegion.count);
-           Debug.Log("You Win!");
-           Time.timeScale = 0;
-
-
-       }
-   }
-}
