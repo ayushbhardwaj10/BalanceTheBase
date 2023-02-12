@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class CheckLosingConditionL3 : MonoBehaviour
 {
+    public GameObject losingPopup;
     // Start is called before the first frame update
     void Start()
     {
@@ -18,6 +19,7 @@ public class CheckLosingConditionL3 : MonoBehaviour
             GameObject.FindGameObjectsWithTag("RedBall").Length != GameObject.FindGameObjectsWithTag("BlueBall").Length)
         {
             Debug.Log("You lose");
+            losingPopup.SetActive(true);
         }
     }
 }

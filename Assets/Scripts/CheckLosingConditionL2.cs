@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 
 public class CheckLosingConditionL2 : MonoBehaviour
 {
+    public GameObject losingPopup;
     // Start is called before the first frame update
     System.DateTime startTime, endTime;
     string levelName;
@@ -34,6 +35,8 @@ public class CheckLosingConditionL2 : MonoBehaviour
             int timeTakenn = (int)(endTime - startTime).TotalSeconds;
             
             AnalyticsManager._instance.analytics_time_takenn(levelName, timeTakenn, "Lost");
+
+            losingPopup.SetActive(true);
         }
     }
 }
