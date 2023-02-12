@@ -2205,7 +2205,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2f1ac6a2c023048198da1b8ef157a2c5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 12
+  speed: 20
+  minSpeed: 20
+  maxSpeed: 100
+  acceleration: 20
   customPivot: {x: -6.47, y: 0.316, z: 0}
 --- !u!212 &1055700997
 SpriteRenderer:
