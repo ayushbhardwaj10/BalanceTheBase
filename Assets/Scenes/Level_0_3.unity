@@ -780,7 +780,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 74b0caf126a784738a53c0666421ff6a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  winningPopup: {fileID: 0}
+  winningPopup: {fileID: 1911222661}
 --- !u!1001 &372467048
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2252,7 +2252,6 @@ GameObject:
   - component: {fileID: 1584473806}
   - component: {fileID: 1584473808}
   - component: {fileID: 1584473809}
-  - component: {fileID: 1584473810}
   m_Layer: 0
   m_Name: OuterWall
   m_TagString: Untagged
@@ -2334,19 +2333,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   losingPopup: {fileID: 1496954393}
---- !u!114 &1584473810
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1584473805}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 74b0caf126a784738a53c0666421ff6a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  winningPopup: {fileID: 1911222661}
 --- !u!1001 &1585311351
 PrefabInstance:
   m_ObjectHideFlags: 0

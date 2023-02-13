@@ -37,6 +37,8 @@ public class CheckWinCondition : MonoBehaviour
             l++;
             Debug.Log("You Win");
             endTime = DateTime.Now;
+            winningPopup.SetActive(true);
+
             AnalyticsManager._instance.analytics_time_takenn(levelName, (int)(endTime - startTime).TotalSeconds, "Win");
             if (l < 5)
             {
@@ -45,7 +47,6 @@ public class CheckWinCondition : MonoBehaviour
             
 
 
-            //winningPopup.SetActive(true);
         }
    }
 
