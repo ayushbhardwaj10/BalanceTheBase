@@ -19,6 +19,8 @@ public class CheckLosingCondition : MonoBehaviour
         {
             Debug.Log("You lose");
             losingPopup.SetActive(true);
+            //added to get out of Update
+            this.enabled = false;
         }
     }
 }
