@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: -8929636357561651640}
   - component: {fileID: -3111019335479142800}
   m_Layer: 0
-  m_Name: Green Wall
+  m_Name: Pink Wall
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -77,7 +77,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
-  m_Color: {r: 0.29017782, g: 0.8018868, b: 0.07943218, a: 1}
+  m_Color: {r: 0.8679245, g: 0.42168033, b: 0.7468505, a: 1}
   m_FlipX: 1
   m_FlipY: 0
   m_DrawMode: 0
