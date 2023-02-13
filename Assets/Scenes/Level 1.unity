@@ -2169,6 +2169,8 @@ GameObject:
   - component: {fileID: 1055700995}
   - component: {fileID: 1055700996}
   - component: {fileID: 1055700997}
+  - component: {fileID: 1055700998}
+  - component: {fileID: 1055700999}
   m_Layer: 0
   m_Name: Pivot
   m_TagString: Untagged
@@ -2262,6 +2264,32 @@ SpriteRenderer:
   m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 1
+--- !u!114 &1055700998
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1055700994}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: af33c0704779d4428a2e961b7b933535, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  losingPopup: {fileID: 1782622885}
+--- !u!114 &1055700999
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1055700994}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 74b0caf126a784738a53c0666421ff6a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  winningPopup: {fileID: 1160477145}
 --- !u!1001 &1096458333
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2435,7 +2463,7 @@ GameObject:
   - component: {fileID: 1160477147}
   m_Layer: 5
   m_Name: Win popup
-  m_TagString: Untagged
+  m_TagString: WinPopup
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3499,6 +3527,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 74b0caf126a784738a53c0666421ff6a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  winningPopup: {fileID: 0}
 --- !u!1 &1620885238
 GameObject:
   m_ObjectHideFlags: 0
@@ -3958,7 +3987,7 @@ GameObject:
   - component: {fileID: 1782622887}
   m_Layer: 5
   m_Name: Lost Popup
-  m_TagString: Untagged
+  m_TagString: LosePopup
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

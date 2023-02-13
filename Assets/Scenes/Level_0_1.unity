@@ -1336,6 +1336,8 @@ GameObject:
   - component: {fileID: 1048419379}
   - component: {fileID: 1048419380}
   - component: {fileID: 1048419381}
+  - component: {fileID: 1048419382}
+  - component: {fileID: 1048419383}
   m_Layer: 0
   m_Name: Pivot
   m_TagString: Untagged
@@ -1389,6 +1391,32 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   losingPopup: {fileID: 0}
+--- !u!114 &1048419382
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1048419378}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: af33c0704779d4428a2e961b7b933535, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  losingPopup: {fileID: 41336427}
+--- !u!114 &1048419383
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1048419378}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 74b0caf126a784738a53c0666421ff6a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  winningPopup: {fileID: 1430241400}
 --- !u!1 &1119656449
 GameObject:
   m_ObjectHideFlags: 0
@@ -2841,3 +2869,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 74b0caf126a784738a53c0666421ff6a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  winningPopup: {fileID: 0}

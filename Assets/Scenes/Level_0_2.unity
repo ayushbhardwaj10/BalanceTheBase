@@ -204,6 +204,8 @@ GameObject:
   - component: {fileID: 180825153}
   - component: {fileID: 180825154}
   - component: {fileID: 180825155}
+  - component: {fileID: 180825156}
+  - component: {fileID: 180825157}
   m_Layer: 0
   m_Name: OuterWall
   m_TagString: Untagged
@@ -266,7 +268,32 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5923098ab0ace4796b4e38b5b3b7f858, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &180825156
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 180825152}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: af33c0704779d4428a2e961b7b933535, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
   losingPopup: {fileID: 548918332}
+--- !u!114 &180825157
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 180825152}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 74b0caf126a784738a53c0666421ff6a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  winningPopup: {fileID: 773749697}
 --- !u!1 &187288167
 GameObject:
   m_ObjectHideFlags: 0
@@ -2454,6 +2481,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 74b0caf126a784738a53c0666421ff6a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  winningPopup: {fileID: 0}
 --- !u!1 &2104527868
 GameObject:
   m_ObjectHideFlags: 0
