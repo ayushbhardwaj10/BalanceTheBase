@@ -6,7 +6,7 @@
             {
                 "type": "System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089",
                 "key": "buildOutputDirList",
-                "value": "{\"m_Value\":\"/Users/ayushbhardwaj/Ayush/Projects/BalanceTheBase/build1;/Users/sreeyuhs/Documents/USC/Unity_Projects/Builds/OTEE_L02_0211;/Users/sreeyuhs/Documents/USC/Unity_Projects/Builds/OTEE_P2_0206;/Users/sreeyuhs/Documents/USC/Unity_Projects/Builds/OTEE_P1_0206;;;;;;\"}"
+                "value": "{\"m_Value\":\"/Users/ayushbhardwaj/Ayush/Projects/BalanceTheBase/build;/Users/ayushbhardwaj/Ayush/Projects/BalanceTheBase/build1;/Users/sreeyuhs/Documents/USC/Unity_Projects/Builds/OTEE_L02_0211;/Users/sreeyuhs/Documents/USC/Unity_Projects/Builds/OTEE_P2_0206;/Users/sreeyuhs/Documents/USC/Unity_Projects/Builds/OTEE_P1_0206;;;;;\"}"
             },
             {
                 "type": "System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089",
