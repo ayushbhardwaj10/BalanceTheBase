@@ -18,7 +18,7 @@ public class CheckWinCondition : MonoBehaviour
     }
 
 
-    void OnCollisionEnter2D(Collision2D collision){
+    IEnumerator OnCollisionEnter2D(Collision2D collision){
        if("BlueBall".Equals(collision.gameObject.tag) || "RedBall".Equals(collision.gameObject.tag)){
        currentCollisions.Add(collision.gameObject);
        }
@@ -38,7 +38,7 @@ public class CheckWinCondition : MonoBehaviour
             Debug.Log("You Win");
             endTime = DateTime.Now;
             winningPopup.SetActive(true);
-
+            yield return new WaitForSeconds(4);
             AnalyticsManager._instance.analytics_time_takenn(levelName, (int)(endTime - startTime).TotalSeconds, "Win");
             if (l < 5)
             {
