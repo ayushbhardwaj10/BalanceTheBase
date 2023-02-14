@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using System;
 using UnityEngine.SceneManagement;
+using System.Threading.Tasks;
 
 public class CheckLosingCondition : MonoBehaviour
 {
@@ -10,6 +11,13 @@ public class CheckLosingCondition : MonoBehaviour
     DateTime startTime, endTime;
     string levelName;
 
+    public void DisableLoosingPopup()
+    {
+        Debug.Log("close popup loose");
+        losingPopup.SetActive(false);
+    }
+
+    // Start is called before the first frame update
     void Start()
     {
         startTime = DateTime.Now;
