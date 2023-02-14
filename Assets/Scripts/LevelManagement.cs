@@ -6,8 +6,19 @@ using UnityEngine.SceneManagement;
 public class LevelManagement : MonoBehaviour
 {
     public void levelChangeTo01() {
+        SceneManager.LoadScene("Level_0_1");
+    }
+    public void levelChangeTo02()
+    {
         SceneManager.LoadScene("Level_0_2");
-
+    }
+    public void levelChangeTo03()
+    {
+        SceneManager.LoadScene("Level_0_3");
+    }
+    public void levelChangeToLevelManager()
+    {
+        SceneManager.LoadScene("Level Manager");
     }
     public void restartLevel() {
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
