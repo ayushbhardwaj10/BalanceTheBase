@@ -16,6 +16,10 @@ public class LevelManagement : MonoBehaviour
     {
         SceneManager.LoadScene("Level_0_3");
     }
+    public void levelChangeTo04()
+    {
+        SceneManager.LoadScene("Level_0_4");
+    }
     public void levelChangeToLevelManager()
     {
         SceneManager.LoadScene("Level Manager");
