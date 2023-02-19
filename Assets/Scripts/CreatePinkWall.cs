@@ -28,7 +28,8 @@ public class CreatePinkWall : MonoBehaviour
     }
 
     void OnCollisionEnter2D(Collision2D collision){
-        if("BlueBall".Equals(collision.gameObject.tag) || "RedBall".Equals(collision.gameObject.tag)){
+        
+        if("PinkBallBlueBall".Equals(collision.gameObject.tag) || "PinkBallRedBall".Equals(collision.gameObject.tag)){
         gameObject.GetComponent<SpriteRenderer> ().color = pinkColor;
         check = true;
         }
