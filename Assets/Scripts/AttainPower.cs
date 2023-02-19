@@ -17,7 +17,6 @@ public class AttainPower : MonoBehaviour
     }
 
     void OnCollisionEnter2D(Collision2D collision){
-    
         Debug.Log("inside");
         gameObject.SetActive(false);
     }

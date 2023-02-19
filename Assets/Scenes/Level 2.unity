@@ -931,7 +931,7 @@ GameObject:
   - component: {fileID: 522450552}
   m_Layer: 0
   m_Name: star
-  m_TagString: Untagged
+  m_TagString: PowerUp_Star
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1203,8 +1203,8 @@ GameObject:
   - component: {fileID: 730900574}
   - component: {fileID: 730900573}
   m_Layer: 0
-  m_Name: Square (8)
-  m_TagString: Untagged
+  m_Name: White_Pink_Wall
+  m_TagString: Right_Down_White_Pink
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1642,8 +1642,8 @@ GameObject:
   - component: {fileID: 1075502461}
   - component: {fileID: 1075502460}
   m_Layer: 0
-  m_Name: Square (5)
-  m_TagString: Untagged
+  m_Name: White_Pink_Wall
+  m_TagString: Left_Up_White_Pink
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3040,8 +3040,8 @@ GameObject:
   - component: {fileID: 1402973936}
   - component: {fileID: 1402973935}
   m_Layer: 0
-  m_Name: Square (6)
-  m_TagString: Untagged
+  m_Name: White_Pink_Wall
+  m_TagString: Right_Up_White_Pink
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4150,8 +4150,8 @@ GameObject:
   - component: {fileID: 1894643089}
   - component: {fileID: 1894643088}
   m_Layer: 0
-  m_Name: Square (7)
-  m_TagString: Untagged
+  m_Name: White_Pink_Wall
+  m_TagString: Left_Down_White_Pink
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4492,8 +4492,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 1.61, y: -2.67}
-  m_SizeDelta: {x: 800, y: 392.1662}
+  m_AnchoredPosition: {x: 0.2938, y: -2.67}
+  m_SizeDelta: {x: 696.7664, y: 392.1662}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &2094788898
 GameObject:
