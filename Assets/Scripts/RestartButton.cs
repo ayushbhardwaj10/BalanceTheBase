@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using System;
 
 public class RestartButton : MonoBehaviour
 {
@@ -19,6 +20,8 @@ public class RestartButton : MonoBehaviour
 
    public void RestartLevel()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        string levelName = SceneManager.GetActiveScene().name;
+        SceneManager.LoadScene(levelName);
+        AnalyticsManager._instance.analytics_levelwise_restart(levelName, DateTime.Now);
     }
 }

@@ -20,6 +20,10 @@ public class LevelManagement : MonoBehaviour
     {
         SceneManager.LoadScene("Level_0_4");
     }
+    public void levelChangeTo2()
+    {
+        SceneManager.LoadScene("Level_2");
+    }
     public void levelChangeToLevelManager()
     {
         SceneManager.LoadScene("Level Manager");

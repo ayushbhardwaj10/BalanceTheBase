@@ -22,7 +22,7 @@ public class AttainPower : MonoBehaviour
     void OnTriggerEnter2D(Collider2D other) 
     {
         Debug.Log ("Triggered");
-        gameObject.SetActive(false);
+         gameObject.SetActive(false);
         if(redColor == (other.gameObject.GetComponent<SpriteRenderer>().color)){
         other.gameObject.tag="PinkBallRedBall";
         }
@@ -30,10 +30,7 @@ public class AttainPower : MonoBehaviour
         {
             other.gameObject.tag="PinkBallBlueBall";
             Debug.Log("");
-        }
-
-
-        
+        }        
     }
 
 }
