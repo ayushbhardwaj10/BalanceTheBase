@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 8704673383557698888}
   - component: {fileID: 8704673383557698890}
   - component: {fileID: 8704673383557698889}
+  - component: {fileID: 1050130056708059974}
   m_Layer: 0
   m_Name: Blinking Splitter
   m_TagString: Untagged
@@ -148,3 +149,15 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 7
+--- !u!114 &1050130056708059974
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8704673383557698885}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b9a281e73cafb408c9ddee944aff0035, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
