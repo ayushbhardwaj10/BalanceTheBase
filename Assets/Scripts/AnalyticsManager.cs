@@ -13,6 +13,7 @@ public class AnalyticsManager : MonoBehaviour
 
     [SerializeField] private string time_taken_url = @"https://docs.google.com/forms/u/1/d/e/1FAIpQLScaIHhPlLRkFO-Jja0Eq32Wl4THz28OhYFS-uoVHWFrNGy5Bg/formResponse";
     [SerializeField] private string split_record_url = @"https://docs.google.com/forms/u/1/d/e/1FAIpQLSeSj3Ef-ZS6Jq55OJweJLh0pUBj1U8PKTh-4XAbyuhcQOtZEw/formResponse";
+    [SerializeField] private string levelwise_restart_url = @"https://docs.google.com/forms/u/1/d/e/1FAIpQLSfElxX9E7dRQOx6hiTfRiTiEiRH9k_nF7L4Ht4is_JGynTM-A/formResponse";
 
 
     
@@ -49,6 +50,17 @@ public class AnalyticsManager : MonoBehaviour
         StartCoroutine(Post(form, split_record_url));
 
     }
+
+    public void analytics_levelwise_restart(string level, DateTime dateTime)
+    {
+        WWWForm form_2 = new WWWForm();
+        form_2.AddField("entry.1522385615", _sessionId.ToString());
+        form_2.AddField("entry.127452655", dateTime.ToString());
+        form_2.AddField("entry.1558926028",level);
+        Debug.Log("Analytics : Levelwise restart");
+        StartCoroutine(Post(form_2,levelwise_restart_url));
+    }
+
 
     private IEnumerator Post(WWWForm form, string URL)
     {
