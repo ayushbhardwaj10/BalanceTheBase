@@ -17,6 +17,8 @@ TagManager:
   - Left_Down_White_Pink
   - Right_Up_White_Pink
   - Right_Down_White_Pink
+  - PinkBallBlueBall
+  - PinkBallRedBall
   layers:
   - Default
   - TransparentFX
