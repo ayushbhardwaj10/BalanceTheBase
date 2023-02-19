@@ -137,7 +137,7 @@ GameObject:
   - component: {fileID: 46575524}
   m_Layer: 0
   m_Name: Circle
-  m_TagString: Untagged
+  m_TagString: RedBall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -199,7 +199,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
-  m_Color: {r: 0.8301887, g: 0.13627622, b: 0.13627622, a: 1}
+  m_Color: {r: 0.90588236, g: 0.1882353, b: 0.09019608, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -645,6 +645,11 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 7
+--- !u!1 &347568911 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8704673383557698885, guid: 6755ad41612114deeb003ae36529d50c, type: 3}
+  m_PrefabInstance: {fileID: 8704673384743110432}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &499837289
 GameObject:
   m_ObjectHideFlags: 0
@@ -657,6 +662,7 @@ GameObject:
   - component: {fileID: 499837291}
   - component: {fileID: 499837293}
   - component: {fileID: 499837292}
+  - component: {fileID: 499837294}
   m_Layer: 0
   m_Name: Triangle
   m_TagString: Untagged
@@ -780,6 +786,18 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 7
+--- !u!114 &499837294
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 499837289}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b9a281e73cafb408c9ddee944aff0035, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &507304522
 GameObject:
   m_ObjectHideFlags: 0
@@ -927,8 +945,9 @@ GameObject:
   - component: {fileID: 522450551}
   - component: {fileID: 522450550}
   - component: {fileID: 522450549}
-  - component: {fileID: 522450553}
   - component: {fileID: 522450552}
+  - component: {fileID: 522450554}
+  - component: {fileID: 522450553}
   m_Layer: 0
   m_Name: star
   m_TagString: PowerUp_Star
@@ -1050,7 +1069,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 1
-  m_Mass: 0.0015459876
+  m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 1
@@ -1059,8 +1078,20 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 7
---- !u!60 &522450553
-PolygonCollider2D:
+--- !u!114 &522450553
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 522450547}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b9ac24e54c15c419da176f781cd8f69f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!61 &522450554
+BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -1069,7 +1100,7 @@ PolygonCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -1082,13 +1113,9 @@ PolygonCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Points:
-    m_Paths:
-    - - {x: 0, y: 1}
-      - {x: -0.95105654, y: 0.30901697}
-      - {x: -0.5877852, y: -0.80901706}
-      - {x: 0.58778536, y: -0.80901694}
-      - {x: 0.9510565, y: 0.30901712}
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1}
+  m_EdgeRadius: 0
 --- !u!1 &592764978
 GameObject:
   m_ObjectHideFlags: 0
@@ -1202,6 +1229,7 @@ GameObject:
   - component: {fileID: 730900572}
   - component: {fileID: 730900574}
   - component: {fileID: 730900573}
+  - component: {fileID: 730900575}
   m_Layer: 0
   m_Name: White_Pink_Wall
   m_TagString: Right_Down_White_Pink
@@ -1323,6 +1351,19 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &730900575
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 730900570}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 954775f5a24984bbaa9208b0ebbd21c0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 20
 --- !u!1 &835145504
 GameObject:
   m_ObjectHideFlags: 0
@@ -1640,6 +1681,7 @@ GameObject:
   - component: {fileID: 1075502459}
   - component: {fileID: 1075502461}
   - component: {fileID: 1075502460}
+  - component: {fileID: 1075502462}
   m_Layer: 0
   m_Name: White_Pink_Wall
   m_TagString: Left_Up_White_Pink
@@ -1761,6 +1803,19 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 7
+--- !u!114 &1075502462
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1075502457}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 954775f5a24984bbaa9208b0ebbd21c0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 20
 --- !u!1 &1127379286
 GameObject:
   m_ObjectHideFlags: 0
@@ -2332,6 +2387,30 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 8704673383557698886, guid: 6755ad41612114deeb003ae36529d50c, type: 3}
   m_PrefabInstance: {fileID: 8704673384743110432}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1202197095
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 347568911}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 019ccb6fedcde4fd6affd3c3d84a65e1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1202197096
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 347568911}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b9a281e73cafb408c9ddee944aff0035, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1224613116
 GameObject:
   m_ObjectHideFlags: 0
@@ -2743,6 +2822,7 @@ GameObject:
   - component: {fileID: 1402973934}
   - component: {fileID: 1402973936}
   - component: {fileID: 1402973935}
+  - component: {fileID: 1402973937}
   m_Layer: 0
   m_Name: White_Pink_Wall
   m_TagString: Right_Up_White_Pink
@@ -2864,6 +2944,19 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &1402973937
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1402973932}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 954775f5a24984bbaa9208b0ebbd21c0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 20
 --- !u!1 &1438057030
 GameObject:
   m_ObjectHideFlags: 0
@@ -4173,6 +4266,7 @@ GameObject:
   - component: {fileID: 1894643087}
   - component: {fileID: 1894643089}
   - component: {fileID: 1894643088}
+  - component: {fileID: 1894643090}
   m_Layer: 0
   m_Name: White_Pink_Wall
   m_TagString: Left_Down_White_Pink
@@ -4294,6 +4388,19 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 7
+--- !u!114 &1894643090
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1894643085}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 954775f5a24984bbaa9208b0ebbd21c0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 20
 --- !u!1 &1952832434
 GameObject:
   m_ObjectHideFlags: 0
@@ -4306,9 +4413,10 @@ GameObject:
   - component: {fileID: 1952832436}
   - component: {fileID: 1952832438}
   - component: {fileID: 1952832437}
+  - component: {fileID: 1952832439}
   m_Layer: 0
   m_Name: Circle
-  m_TagString: Untagged
+  m_TagString: BlueBall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4370,7 +4478,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
-  m_Color: {r: 0.07780345, g: 0.54905057, b: 0.8773585, a: 1}
+  m_Color: {r: 0.09019608, g: 0.6, b: 0.90588236, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -4417,6 +4525,18 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &1952832439
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1952832434}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1683231de1a9249928270ebb100a9a0f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1975488937
 GameObject:
   m_ObjectHideFlags: 0
@@ -4530,6 +4650,35 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a05afa3f75db94f75ba33d8035ddbe6d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!1 &2003043475 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8704673383557698885, guid: 6755ad41612114deeb003ae36529d50c, type: 3}
+  m_PrefabInstance: {fileID: 1590102173}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &2003043476
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2003043475}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 019ccb6fedcde4fd6affd3c3d84a65e1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &2003043477
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2003043475}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b9a281e73cafb408c9ddee944aff0035, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1001 &8704673384743110432
