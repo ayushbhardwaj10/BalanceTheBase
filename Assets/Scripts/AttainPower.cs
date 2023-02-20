@@ -29,7 +29,6 @@ public class AttainPower : MonoBehaviour
         else if(blueColor == (other.gameObject.GetComponent<SpriteRenderer>().color))
         {
             other.gameObject.tag="PinkBallBlueBall";
-            Debug.Log("");
         }        
     }
 
