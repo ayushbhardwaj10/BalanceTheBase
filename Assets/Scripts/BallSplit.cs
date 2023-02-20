@@ -24,6 +24,16 @@ public class BallSplit : MonoBehaviour
 
     void OnCollisionEnter2D(Collision2D collision)
     {
+<<<<<<< Updated upstream
+=======
+        // Nothing should happen if colliding with a non-player object (anything other than red/blue balls)
+        if(!("BlueBall".Equals(collision.gameObject.tag) || "RedBall".Equals(collision.gameObject.tag) || "PinkBallRedBall".Equals(collision.gameObject.tag) ||
+        "PinkBallBlueBall".Equals(collision.gameObject.tag)))
+        {
+            return;
+        }
+
+>>>>>>> Stashed changes
        Color redColor = new Vector4(0.7830189f, 0.1578784f, 0.1071111f,1.0f);
        Color blueColor = new Vector4(0.09019608f, 0.6f, 0.9058824f,1.0f);
 
