@@ -33,7 +33,10 @@ public class CheckLosingCondition : MonoBehaviour
             Debug.Log("You lose");   
             this.enabled = false; //added to get out of Update - IMPORTANT
             endTime = DateTime.Now;
-            AnalyticsManager._instance.analytics_time_takenn(levelName, (int)(endTime - startTime).TotalSeconds, "Lost");
+            int time_taken = (int)(endTime - startTime).TotalSeconds;
+            AnalyticsManager._instance.analytics_time_takenn(levelName, time_taken, "Lost");
+
+           // AnalyticsManager._instance.user_ratings_calculator(time_taken, levelName,"Lost");
             losingPopup.SetActive(true);
         }
     }
