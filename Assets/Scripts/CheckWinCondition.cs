@@ -39,7 +39,11 @@ public class CheckWinCondition : MonoBehaviour
             endTime = DateTime.Now;
             winningPopup.SetActive(true);
             yield return new WaitForSeconds(4);
-            AnalyticsManager._instance.analytics_time_takenn(levelName, (int)(endTime - startTime).TotalSeconds, "Win");
+            int time_taken = (int)(endTime - startTime).TotalSeconds;
+            AnalyticsManager._instance.analytics_time_takenn(levelName, time_taken, "Win");
+
+           // AnalyticsManager._instance.user_ratings_calculator(time_taken, levelName,"Win");
+
             if (l < 5)
             {
                 SceneManager.LoadScene("Level_0_" + l.ToString());

@@ -10,6 +10,12 @@ public class AnalyticsManager : MonoBehaviour
     public static AnalyticsManager _instance;
     public int _sessionId;
 
+    //user_levelwise_ratings - this <level,rating>
+    //ratings<rating number, rating value>
+    private Dictionary<int, string> ratings = new Dictionary<int, string>();
+    private Dictionary<string, string> user_levelwise_ratings = new Dictionary<string, string>();
+
+    
 
     [SerializeField] private string time_taken_url = @"https://docs.google.com/forms/u/1/d/e/1FAIpQLScaIHhPlLRkFO-Jja0Eq32Wl4THz28OhYFS-uoVHWFrNGy5Bg/formResponse";
     [SerializeField] private string split_record_url = @"https://docs.google.com/forms/u/1/d/e/1FAIpQLSeSj3Ef-ZS6Jq55OJweJLh0pUBj1U8PKTh-4XAbyuhcQOtZEw/formResponse";
@@ -22,7 +28,22 @@ public class AnalyticsManager : MonoBehaviour
     {
         _instance = this;
         _sessionId = UnityEngine.Random.Range(0, 1000000);
+
+        ratings.Add(3, "3 Star");
+        ratings.Add(2, "2 Star");
+        ratings.Add(1, "1 Star");
+        foreach (KeyValuePair<int,string>rating in ratings)
+        {
+            Debug.Log("key " + rating.Key + " value " + rating.Value);
+        }
+        //Debug.Log("User Ratings "+ ratings);
+
         DontDestroyOnLoad(this.gameObject);
+    }
+
+    private void OnDestroy()
+    {
+        user_levelwise_ratings.Clear();
     }
 
 
@@ -61,7 +82,6 @@ public class AnalyticsManager : MonoBehaviour
         StartCoroutine(Post(form_2,levelwise_restart_url));
     }
 
-
     private IEnumerator Post(WWWForm form, string URL)
     {
         using (UnityWebRequest www = UnityWebRequest.Post(URL, form))
@@ -77,6 +97,201 @@ public class AnalyticsManager : MonoBehaviour
             }
         }
     }
+
+    public string user_ratings_calculator(int timeTaken, string levelname,string gameStatus)
+    {
+        int level_number = int.Parse(levelname.Split("_")[1]);
+        string level = "Level_" + levelname.Split("_")[1];
+
+        int points = 0;
+        if(gameStatus == "Win")
+        {
+            points += 5;
+        }
+        else
+        {
+            points += -5;
+        }
+        switch (level)
+        {
+
+
+            case "Level_0":
+
+           
+                if (timeTaken < 15 && points > 0)
+                {
+                    if (!user_levelwise_ratings.ContainsKey(levelname))
+                    {
+                        user_levelwise_ratings[levelname] = ratings[3];
+                    }
+                    else
+                    {
+                        user_levelwise_ratings.Add(levelname, ratings[3]);
+                    }
+                    
+
+                }
+                else if (timeTaken >= 15 && timeTaken < 25 && points > 0)
+                {
+                    if (!user_levelwise_ratings.ContainsKey(levelname))
+                    {
+                        user_levelwise_ratings[levelname] = ratings[2];
+                    }
+                    else
+                    {
+                        user_levelwise_ratings.Add(levelname, ratings[2]);
+                    }
+                    
+                }
+                else
+                {
+                    if (!user_levelwise_ratings.ContainsKey(levelname) || points < 0)
+                    {
+                        user_levelwise_ratings[levelname] = ratings[1];
+                    }
+                    else
+                    {
+                        user_levelwise_ratings.Add(levelname, ratings[1]);
+                    }
+                    
+                }
+                Debug.Log("In Level_0 " + user_levelwise_ratings);
+                break;
+            case "Level_1":
+                if (timeTaken < 10)
+                {
+                    if (!user_levelwise_ratings.ContainsKey(levelname))
+                    {
+                        user_levelwise_ratings[levelname] = ratings[3];
+                    }
+                    else
+                    {
+                        user_levelwise_ratings.Add(levelname, ratings[3]);
+                    }
+
+
+                }
+                else if (timeTaken >= 10 && timeTaken < 20)
+                {
+                    if (!user_levelwise_ratings.ContainsKey(levelname))
+                    {
+                        user_levelwise_ratings[levelname] = ratings[2];
+                    }
+                    else
+                    {
+                        user_levelwise_ratings.Add(levelname, ratings[2]);
+                    }
+
+                }
+                else
+                {
+                    if (!user_levelwise_ratings.ContainsKey(levelname))
+                    {
+                        user_levelwise_ratings[levelname] = ratings[1];
+                    }
+                    else
+                    {
+                        user_levelwise_ratings.Add(levelname, ratings[1]);
+                    }
+
+                }
+                Debug.Log("In Level_0 " + user_levelwise_ratings);
+                break;
+            case "Level_3":
+                if (timeTaken < 10)
+                {
+                    if (!user_levelwise_ratings.ContainsKey(levelname))
+                    {
+                        user_levelwise_ratings[levelname] = ratings[3];
+                    }
+                    else
+                    {
+                        user_levelwise_ratings.Add(levelname, ratings[3]);
+                    }
+
+
+                }
+                else if (timeTaken >= 10 && timeTaken < 20)
+                {
+                    if (!user_levelwise_ratings.ContainsKey(levelname))
+                    {
+                        user_levelwise_ratings[levelname] = ratings[2];
+                    }
+                    else
+                    {
+                        user_levelwise_ratings.Add(levelname, ratings[2]);
+                    }
+
+                }
+                else
+                {
+                    if (!user_levelwise_ratings.ContainsKey(levelname))
+                    {
+                        user_levelwise_ratings[levelname] = ratings[1];
+                    }
+                    else
+                    {
+                        user_levelwise_ratings.Add(levelname, ratings[1]);
+                    }
+
+                }
+                Debug.Log("In Level_0 " + user_levelwise_ratings);
+                break;
+            case "Level_4":
+                if (timeTaken < 10)
+                {
+                    if (!user_levelwise_ratings.ContainsKey(levelname))
+                    {
+                        user_levelwise_ratings[levelname] = ratings[3];
+                    }
+                    else
+                    {
+                        user_levelwise_ratings.Add(levelname, ratings[3]);
+                    }
+
+
+                }
+                else if (timeTaken >= 10 && timeTaken < 20)
+                {
+                    if (!user_levelwise_ratings.ContainsKey(levelname))
+                    {
+                        user_levelwise_ratings[levelname] = ratings[2];
+                    }
+                    else
+                    {
+                        user_levelwise_ratings.Add(levelname, ratings[2]);
+                    }
+
+                }
+                else
+                {
+                    if (!user_levelwise_ratings.ContainsKey(levelname))
+                    {
+                        user_levelwise_ratings[levelname] = ratings[1];
+                    }
+                    else
+                    {
+                        user_levelwise_ratings.Add(levelname, ratings[1]);
+                    }
+
+                }
+                Debug.Log("In Level_0 " + user_levelwise_ratings);
+                break;
+            
+            default:
+                Debug.Log("Unknown Level");
+                break;
+        }
+
+        foreach (KeyValuePair<string, string> urating in user_levelwise_ratings)
+        {
+            Debug.Log("key " + urating.Key + " value " + urating.Value);
+        }
+
+        return "";
+    }
+
 
 
 
