@@ -27,6 +27,7 @@ public class CheckWinCondition : MonoBehaviour
 
        if ((len == (GameObject.FindGameObjectsWithTag("BlueBall").Length +
        GameObject.FindGameObjectsWithTag("RedBall").Length)) &&
+       !GameObject.FindWithTag("PinkBall_BlueBall") && !GameObject.FindWithTag("PinkBall_RedBall") &&
        (GameObject.FindGameObjectsWithTag("BlueBall").Length == GameObject.FindGameObjectsWithTag("RedBall").Length )) {
             
 

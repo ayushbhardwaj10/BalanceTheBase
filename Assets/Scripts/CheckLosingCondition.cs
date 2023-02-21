@@ -28,9 +28,11 @@ public class CheckLosingCondition : MonoBehaviour
     void Update()
     {
         if (!GameObject.FindWithTag("BlueSplitterTriangle") && !GameObject.FindWithTag("RedSplitterTriangle") &&
+            !GameObject.FindWithTag("BlinkingSplitter") &&
             GameObject.FindGameObjectsWithTag("RedBall").Length != GameObject.FindGameObjectsWithTag("BlueBall").Length)
         {
-            Debug.Log("You lose");   
+            Debug.Log("You lose");
+            losingPopup.SetActive(true);
             this.enabled = false; //added to get out of Update - IMPORTANT
             endTime = DateTime.Now;
             int time_taken = (int)(endTime - startTime).TotalSeconds;
@@ -38,7 +40,6 @@ public class CheckLosingCondition : MonoBehaviour
 
             int user_rating = GamesManager._instance.calculate_user_ratings(GamesManager.LOST, levelName, time_taken);
             Debug.Log("User rating is " + user_rating);
-            losingPopup.SetActive(true);
         }
     }
 }
