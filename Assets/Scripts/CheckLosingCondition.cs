@@ -29,6 +29,7 @@ public class CheckLosingCondition : MonoBehaviour
     {
         if (!GameObject.FindWithTag("BlueSplitterTriangle") && !GameObject.FindWithTag("RedSplitterTriangle") &&
             !GameObject.FindWithTag("BlinkingSplitter") &&
+            !GameObject.FindWithTag("PinkBall_BlueBall") && !GameObject.FindWithTag("PinkBall_RedBall") &&
             GameObject.FindGameObjectsWithTag("RedBall").Length != GameObject.FindGameObjectsWithTag("BlueBall").Length)
         {
             Debug.Log("You lose");
