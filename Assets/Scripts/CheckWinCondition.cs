@@ -55,7 +55,7 @@ public class CheckWinCondition : MonoBehaviour
 
 
             //Auto Level Movement
-            if (inner_level > 3 )
+            if (inner_level > 3 && outer_level != 2) //outer_level condition will change based on each level added
             {
                 outer_level++;
                 inner_level = 1;
