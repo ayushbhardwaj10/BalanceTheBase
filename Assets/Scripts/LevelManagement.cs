@@ -20,12 +20,21 @@ public class LevelManagement : MonoBehaviour
     {
         SceneManager.LoadScene("Level_0_4");
     }
-    public void levelChangeTo2()
+    public void levelChangeTo11()
     {
-        SceneManager.LoadScene("Level_2");
+        SceneManager.LoadScene("Level_1_1");
+    }
+    public void levelChangeTo12()
+    {
+        SceneManager.LoadScene("Level_1_2");
+    }
+    public void levelChangeTo13()
+    {
+        SceneManager.LoadScene("Level_1_3");
     }
     public void levelChangeToLevelManager()
     {
+        Debug.Log("level manager called");
         SceneManager.LoadScene("Level Manager");
     }
     public void restartLevel() {

@@ -26,8 +26,8 @@ public class BallSplit : MonoBehaviour
     {
 
         // Nothing should happen if colliding with a non-player object (anything other than red/blue balls)
-        if(!("BlueBall".Equals(collision.gameObject.tag) || "RedBall".Equals(collision.gameObject.tag) || "PinkBallRedBall".Equals(collision.gameObject.tag) ||
-        "PinkBallBlueBall".Equals(collision.gameObject.tag)))
+        if(!("BlueBall".Equals(collision.gameObject.tag) || "RedBall".Equals(collision.gameObject.tag) || "PinkBall_RedBall".Equals(collision.gameObject.tag) ||
+        "PinkBall_BlueBall".Equals(collision.gameObject.tag)))
         {
             return;
         }
@@ -45,6 +45,7 @@ public class BallSplit : MonoBehaviour
         collision.gameObject.GetComponent<SpriteRenderer>().color = renderer.color;
         var go = Instantiate(collision.gameObject, collision.transform.position, collision.transform.rotation);
 
+        if(collision.gameObject.tag!="PinkBall_RedBall" && collision.gameObject.tag!="PinkBall_BlueBall"){
         if(blueColor==(collision.gameObject.GetComponent<SpriteRenderer>().color)){
        collision.gameObject.tag="BlueBall";
         } else if(redColor==(collision.gameObject.GetComponent<SpriteRenderer>().color)){
@@ -56,6 +57,7 @@ public class BallSplit : MonoBehaviour
            go.gameObject.tag = "BlueBall";
        } else if(redColor==(go.GetComponent<SpriteRenderer>().color)){
            go.gameObject.tag = "RedBall";
+       }
        }
 
        
