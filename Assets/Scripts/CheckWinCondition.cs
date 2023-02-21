@@ -27,23 +27,50 @@ public class CheckWinCondition : MonoBehaviour
 
        if ((len == (GameObject.FindGameObjectsWithTag("BlueBall").Length +
        GameObject.FindGameObjectsWithTag("RedBall").Length)) &&
+       !GameObject.FindWithTag("PinkBall_BlueBall") && !GameObject.FindWithTag("PinkBall_RedBall") &&
        (GameObject.FindGameObjectsWithTag("BlueBall").Length == GameObject.FindGameObjectsWithTag("RedBall").Length )) {
             
 
             string levelName = SceneManager.GetActiveScene().name;
             string []levelSplit = levelName.Split("_");
 
-            int l = Int32.Parse(levelSplit[2]);
-            l++;
+            int inner_level = Int32.Parse(levelSplit[2]);
+            int outer_level = Int32.Parse(levelSplit[1]);
+            
             Debug.Log("You Win");
             endTime = DateTime.Now;
+            
             winningPopup.SetActive(true);
             yield return new WaitForSeconds(4);
-            AnalyticsManager._instance.analytics_time_takenn(levelName, (int)(endTime - startTime).TotalSeconds, "Win");
-            if (l < 5)
+            int time_taken = (int)(endTime - startTime).TotalSeconds;
+
+            
+            int user_rating = GamesManager._instance.calculate_user_ratings(GamesManager.WIN, levelName, time_taken);
+            Debug.Log("User rating is " + user_rating);
+
+            //Analytics for time taken
+            AnalyticsManager._instance.analytics_time_takenn(levelName, time_taken, GamesManager.WIN);
+            //Analytics for user ratings
+            AnalyticsManager._instance.analytics_user_ratings(levelName,time_taken,user_rating,GamesManager.WIN);
+
+
+            //Auto Level Movement
+            inner_level++;
+            if(levelName == "Level_0_4")
             {
-                SceneManager.LoadScene("Level_0_" + l.ToString());
+                outer_level++;
+                inner_level = 1;
             }
+            string load_scene = "Level_" + outer_level.ToString() + "_" + inner_level.ToString();
+            
+            Debug.Log("Auto Load scene " + load_scene);
+            if (load_scene != "Level_1_4")
+            {
+                
+                SceneManager.LoadScene(load_scene);
+                
+            }
+
             
 
 

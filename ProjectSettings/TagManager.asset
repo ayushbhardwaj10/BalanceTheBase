@@ -12,6 +12,14 @@ TagManager:
   - RedSplitterTriangle
   - WinPopup
   - LosePopup
+  - PowerUp_Star
+  - Left_Up_White_Pink
+  - Left_Down_White_Pink
+  - Right_Up_White_Pink
+  - Right_Down_White_Pink
+  - PinkBall_RedBall
+  - PinkBall_BlueBall
+  - BlinkingSplitter
   layers:
   - Default
   - TransparentFX
