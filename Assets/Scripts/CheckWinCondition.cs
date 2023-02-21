@@ -36,7 +36,7 @@ public class CheckWinCondition : MonoBehaviour
 
             int inner_level = Int32.Parse(levelSplit[2]);
             int outer_level = Int32.Parse(levelSplit[1]);
-            inner_level++;
+            
             Debug.Log("You Win");
             endTime = DateTime.Now;
             
@@ -55,20 +55,16 @@ public class CheckWinCondition : MonoBehaviour
 
 
             //Auto Level Movement
-            if (inner_level > 3 && outer_level != 2) //outer_level condition will change based on each level added
-            {
-                outer_level++;
-                inner_level = 1;
-
-            }
+            inner_level++;
             if(levelName == "Level_0_4")
             {
                 outer_level++;
                 inner_level = 1;
             }
             string load_scene = "Level_" + outer_level.ToString() + "_" + inner_level.ToString();
+            
             Debug.Log("Auto Load scene " + load_scene);
-            if (inner_level < 5)
+            if (load_scene != "Level_1_4")
             {
                 
                 SceneManager.LoadScene(load_scene);
