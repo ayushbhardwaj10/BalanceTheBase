@@ -33,21 +33,36 @@ public class CheckWinCondition : MonoBehaviour
             string levelName = SceneManager.GetActiveScene().name;
             string []levelSplit = levelName.Split("_");
 
-            int l = Int32.Parse(levelSplit[2]);
-            l++;
+            int inner_level = Int32.Parse(levelSplit[2]);
+            int outer_level = Int32.Parse(levelSplit[1]);
+            inner_level++;
             Debug.Log("You Win");
             endTime = DateTime.Now;
             winningPopup.SetActive(true);
             yield return new WaitForSeconds(4);
             int time_taken = (int)(endTime - startTime).TotalSeconds;
-            AnalyticsManager._instance.analytics_time_takenn(levelName, time_taken, "Win");
+            AnalyticsManager._instance.analytics_time_takenn(levelName, time_taken, GamesManager.WIN);
 
-           // AnalyticsManager._instance.user_ratings_calculator(time_taken, levelName,"Win");
+            
+            int user_rating = GamesManager._instance.calculate_user_ratings(GamesManager.WIN, levelName, time_taken);
+            Debug.Log("User rating is " + user_rating);
 
-            if (l < 5)
+           
+            if (inner_level > 4)
             {
-                SceneManager.LoadScene("Level_0_" + l.ToString());
+                outer_level++;
+                inner_level = 1;
+
             }
+            string load_scene = "Level_" + outer_level.ToString() + "_" + inner_level.ToString();
+            Debug.Log("Auto Load scene " + load_scene);
+            if (inner_level < 5)
+            {
+                
+                SceneManager.LoadScene(load_scene);
+                
+            }
+
             
 
 
