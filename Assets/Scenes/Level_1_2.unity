@@ -3312,7 +3312,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 74b0caf126a784738a53c0666421ff6a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  winningPopup: {fileID: 0}
+  winningPopup: {fileID: 966494171}
 --- !u!1001 &1841261146
 PrefabInstance:
   m_ObjectHideFlags: 0
