@@ -19,6 +19,7 @@ TagManager:
   - Right_Down_White_Pink
   - PinkBall_RedBall
   - PinkBall_BlueBall
+  - BlinkingSplitter
   layers:
   - Default
   - TransparentFX
