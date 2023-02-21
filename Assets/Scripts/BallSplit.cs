@@ -45,6 +45,20 @@ public class BallSplit : MonoBehaviour
         collision.gameObject.GetComponent<SpriteRenderer>().color = renderer.color;
         var go = Instantiate(collision.gameObject, collision.transform.position, collision.transform.rotation);
 
+        if(collision.gameObject.tag=="PinkBall_RedBall"){
+            if(gameObject.tag == "BlueSplitterTriangle"){
+                collision.gameObject.tag = "PinkBall_BlueBall";
+                go.gameObject.tag = "PinkBall_BlueBall";
+            }
+        } else if(collision.gameObject.tag=="PinkBall_BlueBall"){
+            Debug.Log("hh");
+            if(gameObject.tag == "RedSplitterTriangle"){
+                Debug.Log("gg");
+                collision.gameObject.tag = "PinkBall_RedBall";
+                go.gameObject.tag = "PinkBall_RedBall";
+            }
+        }
+    
         if(collision.gameObject.tag!="PinkBall_RedBall" && collision.gameObject.tag!="PinkBall_BlueBall"){
         if(blueColor==(collision.gameObject.GetComponent<SpriteRenderer>().color)){
        collision.gameObject.tag="BlueBall";
