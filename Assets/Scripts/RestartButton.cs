@@ -24,7 +24,7 @@ public class RestartButton : MonoBehaviour
 
         
         string levelName = SceneManager.GetActiveScene().name;
-        SceneManager.LoadScene(levelName);
+        
 
         if (GamesManager.level_restart_map.ContainsKey(levelName))
         {
@@ -34,7 +34,7 @@ public class RestartButton : MonoBehaviour
         {
             GamesManager.level_restart_map.Add(levelName, 1);
         }
-   
+        SceneManager.LoadScene(levelName);
         AnalyticsManager._instance.analytics_levelwise_restart(levelName, DateTime.Now);
     }
 }
