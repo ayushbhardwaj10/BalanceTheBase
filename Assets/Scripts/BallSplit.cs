@@ -26,8 +26,8 @@ public class BallSplit : MonoBehaviour
     {
 
         // Nothing should happen if colliding with a non-player object (anything other than red/blue balls)
-        if(!("BlueBall".Equals(collision.gameObject.tag) || "RedBall".Equals(collision.gameObject.tag) || "PinkBallRedBall".Equals(collision.gameObject.tag) ||
-        "PinkBallBlueBall".Equals(collision.gameObject.tag)))
+        if(!("BlueBall".Equals(collision.gameObject.tag) || "RedBall".Equals(collision.gameObject.tag) || "PinkBall_RedBall".Equals(collision.gameObject.tag) ||
+        "PinkBall_BlueBall".Equals(collision.gameObject.tag)))
         {
             return;
         }
@@ -57,6 +57,6 @@ public class BallSplit : MonoBehaviour
            go.gameObject.tag = "RedBall";
        }
 
-        AnalyticsManager._instance.analytics_split_record(levelName, DateTime.Now, renderer.tag, collision.gameObject.tag);
+        AnalyticsManager._instance.analytics_split_record(levelName, DateTime.Now, renderer.tag, ballColorBeforeCollision);
     }
 }
