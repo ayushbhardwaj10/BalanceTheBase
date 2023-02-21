@@ -3944,6 +3944,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Blinking Splitter
       objectReference: {fileID: 0}
+    - target: {fileID: 8704673383557698885, guid: 6755ad41612114deeb003ae36529d50c, type: 3}
+      propertyPath: m_TagString
+      value: BlinkingSplitter
+      objectReference: {fileID: 0}
     - target: {fileID: 8704673383557698886, guid: 6755ad41612114deeb003ae36529d50c, type: 3}
       propertyPath: m_RootOrder
       value: 19

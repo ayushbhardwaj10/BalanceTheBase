@@ -26,7 +26,7 @@ public class AttainPower : MonoBehaviour
        if("RedBall" == (other.gameObject.tag)){
        other.gameObject.tag="PinkBall_RedBall";
        }
-       else if("Blueball" == (other.gameObject.tag))
+       else if("BlueBall" == (other.gameObject.tag))
        {
            other.gameObject.tag="PinkBall_BlueBall";
        }       

@@ -28,9 +28,12 @@ public class CheckLosingCondition : MonoBehaviour
     void Update()
     {
         if (!GameObject.FindWithTag("BlueSplitterTriangle") && !GameObject.FindWithTag("RedSplitterTriangle") &&
+            !GameObject.FindWithTag("BlinkingSplitter") &&
+            !GameObject.FindWithTag("PinkBall_BlueBall") && !GameObject.FindWithTag("PinkBall_RedBall") &&
             GameObject.FindGameObjectsWithTag("RedBall").Length != GameObject.FindGameObjectsWithTag("BlueBall").Length)
         {
-            Debug.Log("You lose");   
+            Debug.Log("You lose");
+            losingPopup.SetActive(true);
             this.enabled = false; //added to get out of Update - IMPORTANT
             endTime = DateTime.Now;
             int time_taken = (int)(endTime - startTime).TotalSeconds;
