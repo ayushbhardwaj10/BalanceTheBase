@@ -38,6 +38,7 @@ public class CheckWinCondition : MonoBehaviour
             inner_level++;
             Debug.Log("You Win");
             endTime = DateTime.Now;
+            
             winningPopup.SetActive(true);
             yield return new WaitForSeconds(4);
             int time_taken = (int)(endTime - startTime).TotalSeconds;
