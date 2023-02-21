@@ -42,18 +42,28 @@ public class CheckWinCondition : MonoBehaviour
             winningPopup.SetActive(true);
             yield return new WaitForSeconds(4);
             int time_taken = (int)(endTime - startTime).TotalSeconds;
-            AnalyticsManager._instance.analytics_time_takenn(levelName, time_taken, GamesManager.WIN);
 
             
             int user_rating = GamesManager._instance.calculate_user_ratings(GamesManager.WIN, levelName, time_taken);
             Debug.Log("User rating is " + user_rating);
 
-           
-            if (inner_level > 4)
+            //Analytics for time taken
+            AnalyticsManager._instance.analytics_time_takenn(levelName, time_taken, GamesManager.WIN);
+            //Analytics for user ratings
+            AnalyticsManager._instance.analytics_user_ratings(levelName,time_taken,user_rating,GamesManager.WIN);
+
+
+            //Auto Level Movement
+            if (inner_level > 3 )
             {
                 outer_level++;
                 inner_level = 1;
 
+            }
+            if(levelName == "Level_0_4")
+            {
+                outer_level++;
+                inner_level = 1;
             }
             string load_scene = "Level_" + outer_level.ToString() + "_" + inner_level.ToString();
             Debug.Log("Auto Load scene " + load_scene);

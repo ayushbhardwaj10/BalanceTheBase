@@ -34,10 +34,14 @@ public class CheckLosingCondition : MonoBehaviour
             this.enabled = false; //added to get out of Update - IMPORTANT
             endTime = DateTime.Now;
             int time_taken = (int)(endTime - startTime).TotalSeconds;
-            AnalyticsManager._instance.analytics_time_takenn(levelName, time_taken, GamesManager.LOST);
-
             int user_rating = GamesManager._instance.calculate_user_ratings(GamesManager.LOST, levelName, time_taken);
             Debug.Log("User rating is " + user_rating);
+
+            //Analytics for time taken
+            AnalyticsManager._instance.analytics_time_takenn(levelName, time_taken, GamesManager.LOST);
+
+            //Analytics for user ratings
+            AnalyticsManager._instance.analytics_user_ratings(levelName, time_taken, user_rating, GamesManager.LOST);
             losingPopup.SetActive(true);
         }
     }
