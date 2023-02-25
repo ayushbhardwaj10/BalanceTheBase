@@ -20,12 +20,10 @@ public class GamesManager : MonoBehaviour
     public static int level = 1;
     public static int restartTimes = 0;
     public static Dictionary<string, int> level_restart_map = new Dictionary<string, int>();
+    public static Dictionary<string, SplitterDetails> splitter_details_map = new Dictionary<string, SplitterDetails>();
 
-    
-
-
+   
     public static GamesManager _instance;
-
 
     public static GamesManager Instance
     {
@@ -56,7 +54,6 @@ public class GamesManager : MonoBehaviour
 
     }
 
-
     private void OnDestroy()
     {
         foreach (var restart_map in level_restart_map)
@@ -64,7 +61,6 @@ public class GamesManager : MonoBehaviour
             Debug.Log("in destroy ,restart map, k : " + restart_map.Key + " v: " + restart_map.Value);
         }
     }
-
 
     public int calculate_user_ratings(string game_status,string levelName,int timeTaken)
     {
@@ -83,35 +79,27 @@ public class GamesManager : MonoBehaviour
         if(retry <= 3 && game_status == WIN)
         {
             star_rating = per_level_time_benchmark(levelName,timeTaken);
-            Debug.Log("In loop 1");
+            
         }else if(retry < 3 && game_status == LOST)
         {
             star_rating = (int)RATING.Two_Star;
-            Debug.Log("In loop 2");
-
         }
         else if(retry == 3 && game_status == LOST)
         {
             star_rating = (int) RATING.One_Star;
-            Debug.Log("In loop 3");
-
         }
         else if (retry > 3 && game_status == LOST)
         {
             star_rating = (int)RATING.Zero_Star;
-            Debug.Log("In loop 4");
-
         }
         else if(retry > 3 && game_status == WIN)
         {
             star_rating = per_level_time_benchmark(levelName, timeTaken);
-            Debug.Log("In loop 5");
         }
 
         return star_rating;
 
     }
-
 
     private int per_level_time_benchmark(string levelName,int time_taken)
     {
@@ -152,4 +140,7 @@ public class GamesManager : MonoBehaviour
         }
         return star_rating;
     }
+
+    
+
 }

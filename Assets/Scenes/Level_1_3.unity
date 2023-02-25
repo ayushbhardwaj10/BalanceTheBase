@@ -479,6 +479,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8452338277806963341, guid: 21017c03846cc4e3dba982c38ec81bcf, type: 3}
+      propertyPath: m_Name
+      value: R1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8452338277806963341, guid: 21017c03846cc4e3dba982c38ec81bcf, type: 3}
       propertyPath: m_TagString
       value: RedSplitterTriangle
       objectReference: {fileID: 0}
@@ -1963,6 +1967,10 @@ PrefabInstance:
     - target: {fileID: 3403021144088372002, guid: d46e2c61841134ff5947b361b4ea5749, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8277886357829581080, guid: d46e2c61841134ff5947b361b4ea5749, type: 3}
+      propertyPath: m_Name
+      value: B1
       objectReference: {fileID: 0}
     - target: {fileID: 8277886357829581080, guid: d46e2c61841134ff5947b361b4ea5749, type: 3}
       propertyPath: m_TagString
@@ -3950,7 +3958,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 8704673383557698885, guid: 6755ad41612114deeb003ae36529d50c, type: 3}
       propertyPath: m_Name
-      value: Blinking Splitter
+      value: Blink_1
       objectReference: {fileID: 0}
     - target: {fileID: 8704673383557698885, guid: 6755ad41612114deeb003ae36529d50c, type: 3}
       propertyPath: m_TagString

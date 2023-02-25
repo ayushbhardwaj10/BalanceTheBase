@@ -213,4 +213,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _sessionId: 0
   time_taken_url: https://docs.google.com/forms/u/1/d/e/1FAIpQLScaIHhPlLRkFO-Jja0Eq32Wl4THz28OhYFS-uoVHWFrNGy5Bg/formResponse
-  split_record_url: https://docs.google.com/forms/u/1/d/e/1FAIpQLSeSj3Ef-ZS6Jq55OJweJLh0pUBj1U8PKTh-4XAbyuhcQOtZEw/formResponse
+  split_record_url: https://docs.google.com/forms/u/1/d/e/1FAIpQLSdHoIbw4HHcJezfd5MVJRBupJOwur0xOc5lfmEPC60SEABq1w/formResponse
+  levelwise_restart_url: https://docs.google.com/forms/u/1/d/e/1FAIpQLSfElxX9E7dRQOx6hiTfRiTiEiRH9k_nF7L4Ht4is_JGynTM-A/formResponse
+  user_ratings_url: https://docs.google.com/forms/u/1/d/e/1FAIpQLSf6bBt4staqnfb-jrN9QRsyKC5McF7Q4rFHqp3nKTOVut9i7w/formResponse
+  pink_wall_url: https://docs.google.com/forms/u/1/d/e/1FAIpQLSfSd_uvlAzBimvuNrX3Gue4nmDdU0AMRzc0wI68BZHW6YZXzQ/formResponse

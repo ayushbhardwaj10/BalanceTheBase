@@ -25,5 +25,5 @@ public class ColorChanger : MonoBehaviour
             check = true;
         }  
     }
-
+    
 }
