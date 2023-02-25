@@ -6,8 +6,8 @@ using UnityEngine.SceneManagement;
 
 public class BallSplit : MonoBehaviour
 {
-
-    string levelName;
+    
+    string levelName,splitterMomentColor;
 
     void Start()
     {
@@ -68,13 +68,23 @@ public class BallSplit : MonoBehaviour
 
 
        if(blueColor==(go.GetComponent<SpriteRenderer>().color)){
-           go.gameObject.tag = "BlueBall";
+                go.gameObject.tag = "BlueBall";
+                splitterMomentColor = "BlueSplitter";
        } else if(redColor==(go.GetComponent<SpriteRenderer>().color)){
-           go.gameObject.tag = "RedBall";
+                go.gameObject.tag = "RedBall";
+                splitterMomentColor = "RedSplitter";
        }
        }
+     
 
+        if(renderer.tag == "BlinkingSplitter")
+        {
+            AnalyticsManager._instance.analytics_split_record(levelName, DateTime.Now, splitterMomentColor, ballColorBeforeCollision,gameObject.name);
+        }
+        else
+        {
+            AnalyticsManager._instance.analytics_split_record(levelName, DateTime.Now, renderer.tag, ballColorBeforeCollision, gameObject.name);
+        }
        
-        AnalyticsManager._instance.analytics_split_record(levelName, DateTime.Now, renderer.tag, ballColorBeforeCollision);
     }
 }

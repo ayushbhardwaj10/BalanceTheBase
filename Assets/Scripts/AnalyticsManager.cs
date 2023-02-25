@@ -11,9 +11,13 @@ public class AnalyticsManager : MonoBehaviour
     public int _sessionId;
 
     [SerializeField] private string time_taken_url = @"https://docs.google.com/forms/u/1/d/e/1FAIpQLScaIHhPlLRkFO-Jja0Eq32Wl4THz28OhYFS-uoVHWFrNGy5Bg/formResponse";
-    [SerializeField] private string split_record_url = @"https://docs.google.com/forms/u/1/d/e/1FAIpQLSeSj3Ef-ZS6Jq55OJweJLh0pUBj1U8PKTh-4XAbyuhcQOtZEw/formResponse";
+    [SerializeField] private string split_record_url = @"https://docs.google.com/forms/u/1/d/e/1FAIpQLSdHoIbw4HHcJezfd5MVJRBupJOwur0xOc5lfmEPC60SEABq1w/formResponse";
+
     [SerializeField] private string levelwise_restart_url = @"https://docs.google.com/forms/u/1/d/e/1FAIpQLSfElxX9E7dRQOx6hiTfRiTiEiRH9k_nF7L4Ht4is_JGynTM-A/formResponse";
     [SerializeField] private string user_ratings_url = @"https://docs.google.com/forms/u/1/d/e/1FAIpQLSf6bBt4staqnfb-jrN9QRsyKC5McF7Q4rFHqp3nKTOVut9i7w/formResponse";
+
+    [SerializeField] private string pink_wall_url = @"https://docs.google.com/forms/u/1/d/e/1FAIpQLSfSd_uvlAzBimvuNrX3Gue4nmDdU0AMRzc0wI68BZHW6YZXzQ/formResponse";
+    [SerializeField] private string start_level_url = @"https://docs.google.com/forms/u/1/d/e/1FAIpQLSfx3T5fXovnKj1LpoSwj8lTHHdmCZvXtoE89MuLHYHVmHNx1g/formResponse";
 
 
     private void Awake()
@@ -35,14 +39,15 @@ public class AnalyticsManager : MonoBehaviour
 
     }
 
-    public void analytics_split_record(string level, DateTime collisionTime,string splitterColor, string ballColor)
+    public void analytics_split_record(string level, DateTime collisionTime,string splitterColor, string ballColor,string splitter_id)
     {
         WWWForm form = new WWWForm();
-        form.AddField("entry.1053949501", _sessionId.ToString());
-        form.AddField("entry.1840337228", level);
-        form.AddField("entry.1488388670", collisionTime.ToString());
-        form.AddField("entry.184202295", splitterColor);
-        form.AddField("entry.1484592871", ballColor);
+        form.AddField("entry.192462917", _sessionId.ToString());
+        form.AddField("entry.483204020", level);
+        form.AddField("entry.849229179", collisionTime.ToString());
+        form.AddField("entry.1020257333", splitterColor);
+        form.AddField("entry.1644182129", ballColor);
+        form.AddField("entry.1229735257", splitter_id);
         Debug.Log("AnalyticsManager:analytics_split_record");
         StartCoroutine(Post(form, split_record_url));
 
@@ -67,6 +72,28 @@ public class AnalyticsManager : MonoBehaviour
         form_3.AddField("entry.693844703", user_rating.ToString());
         form_3.AddField("entry.1829694804", game_status);
         StartCoroutine(Post(form_3, user_ratings_url));
+    }
+
+    public void analytics_pink_walls(Vector3 localScale,string inner_wall_id,DateTime collisionTime,string levelName)
+    {
+        WWWForm form_4 = new WWWForm();
+        
+        form_4.AddField("entry.1168131134", _sessionId.ToString());
+        form_4.AddField("entry.680564588", collisionTime.ToString());
+        form_4.AddField("entry.1185637680", levelName);
+        form_4.AddField("entry.939107459", inner_wall_id);
+        form_4.AddField("entry.1403126087", localScale.ToString());
+        StartCoroutine(Post(form_4, pink_wall_url));
+    }
+
+    public void analytics_start_level(string levelName,DateTime startTime)
+    {
+        WWWForm form_5 = new WWWForm();
+
+        form_5.AddField("entry.941754938", _sessionId.ToString());
+        form_5.AddField("entry.502897263", levelName);
+        form_5.AddField("entry.419281248", startTime.ToString());
+        StartCoroutine(Post(form_5, start_level_url));
     }
 
     private IEnumerator Post(WWWForm form, string URL)

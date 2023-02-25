@@ -45,6 +45,7 @@ public class CheckLosingCondition : MonoBehaviour
 
             //Analytics for user ratings
             AnalyticsManager._instance.analytics_user_ratings(levelName, time_taken, user_rating, GamesManager.LOST);
+
             losingPopup.SetActive(true);
         }
     }

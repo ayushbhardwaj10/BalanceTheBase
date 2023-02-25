@@ -20,6 +20,9 @@ TagManager:
   - PinkBall_RedBall
   - PinkBall_BlueBall
   - BlinkingSplitter
+  - Pink_Wall
+  - Inner_White_Wall
+  - Green_Goal_Wall
   layers:
   - Default
   - TransparentFX
