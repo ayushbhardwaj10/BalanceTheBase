@@ -23,6 +23,8 @@ TagManager:
   - Pink_Wall
   - Inner_White_Wall
   - Green_Goal_Wall
+  - RedHistogram
+  - BlueHistogram
   layers:
   - Default
   - TransparentFX
