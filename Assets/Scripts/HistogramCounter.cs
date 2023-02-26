@@ -6,13 +6,13 @@ public class HistogramCounter : MonoBehaviour
 {
     GameObject redBar;
     GameObject blueBar;
-    GameObject redBall;
-    GameObject blueBall;
+    GameObject[] redBall;
+    GameObject[] blueBall;
 
     private void Awake()
     {
-        redBall = GameObject.FindGameObjectWithTag("RedBall");
-        blueBall = GameObject.FindGameObjectWithTag("BlueBall");
+        redBall = GameObject.FindGameObjectsWithTag("RedBall");
+        blueBall = GameObject.FindGameObjectsWithTag("BlueBall");
         redBar = GameObject.FindWithTag("RedHistogram");
         blueBar = GameObject.FindWithTag("BlueHistogram");
     }
@@ -25,18 +25,13 @@ public class HistogramCounter : MonoBehaviour
 
     // Update is called once per frame
     void Update()
-    {
-        if (redBall)
-        {
-            Debug.Log("Red ball count: " + redBall.transform.childCount);
-            int actualRedY = redBall.transform.childCount;
-            redBar.GetComponent<SpriteRenderer>().transform.localScale = new Vector2(redBar.GetComponent<SpriteRenderer>().transform.localScale.x, actualRedY);
-        }
+    { 
+        Debug.Log("Red ball count: " + redBall.Length);
+        int actualRedY = redBall.Length;
+        redBar.GetComponent<SpriteRenderer>().transform.localScale = new Vector2(redBar.GetComponent<SpriteRenderer>().transform.localScale.x, actualRedY);
 
-        if (blueBall)
-        {
-            int actualBlueY = blueBall.transform.childCount;
-            blueBar.GetComponent<SpriteRenderer>().transform.localScale = new Vector2(blueBar.GetComponent<SpriteRenderer>().transform.localScale.x, actualBlueY);
-        }
+        Debug.Log("Blue ball count: " + blueBall.Length);
+        int actualBlueY = blueBall.Length;
+        blueBar.GetComponent<SpriteRenderer>().transform.localScale = new Vector2(blueBar.GetComponent<SpriteRenderer>().transform.localScale.x, actualBlueY);
     }
 }
