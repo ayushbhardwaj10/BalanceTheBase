@@ -32,7 +32,7 @@ public class GameStateTracking : MonoBehaviour
         Debug.Log("Undoing last move");
 
         // The first move represents the initial state of the game and cannot be undone
-        if (gameStack.Count <= 2) //----Change this to == 1 after you add an undo button-----//
+        if (gameStack.Count <= 2) //----todo: Change this to == 1 after you add an undo button-----//
             return;
 
         // Remove the top most element
@@ -46,7 +46,7 @@ public class GameStateTracking : MonoBehaviour
 
         Debug.Log("Stack size.." + gameStack.Count);
 
-        //--------Find a way to get the main maze wall without using the GameObject.Find() function below--------//
+        //--------todo: Find a way to get the main maze wall without using the GameObject.Find() function below--------//
         foreach (State state in prevState.mazeWalls)
         {
             setGameObjectTransform(GameObject.Find("Parent Walls"), state);
@@ -82,7 +82,7 @@ public class GameStateTracking : MonoBehaviour
             setGameObjectTransform(newObject, state);
         }
 
-        //------------------We need to have prefabs for blinking balls to resurrect them-------------------//
+        //------------------todo: We need to have prefabs for blinking balls to resurrect them-------------------//
 
         foreach (State state in prevState.innerWhiteWalls)
         {
@@ -148,6 +148,7 @@ public class GameStateTracking : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //----todo: Change this to == 1 after you add an undo button-----//
         if (Input.GetKey(KeyCode.U))
         {
             UndoLastMove();
@@ -172,6 +173,7 @@ public class GameStateTracking : MonoBehaviour
         public List<State> pinkWalls;
 
         // Stars
+        //---------------todo: Stars should be a prefab if we want to undo them------------------//
 
         // Maze
         public List<State> mazeWalls;
