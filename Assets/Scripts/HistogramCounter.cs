@@ -6,6 +6,8 @@ public class HistogramCounter : MonoBehaviour
 {
     GameObject redBar;
     GameObject blueBar;
+    [SerializeField] private bool increaseFromTop = true;
+    [SerializeField] private float scaleYFactor = 0.5f;
 
     private void Awake()
     {
@@ -16,13 +18,19 @@ public class HistogramCounter : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
+        
     }
 
     // Update is called once per frame
     void Update()
-    { 
-        redBar.GetComponent<SpriteRenderer>().transform.localScale = new Vector2(redBar.GetComponent<SpriteRenderer>().transform.localScale.x, GameObject.FindGameObjectsWithTag("RedBall").Length);
-        blueBar.GetComponent<SpriteRenderer>().transform.localScale = new Vector2(blueBar.GetComponent<SpriteRenderer>().transform.localScale.x, GameObject.FindGameObjectsWithTag("BlueBall").Length);
+    {
+        int direction = increaseFromTop ? 1 : -1;
+        redBar.GetComponent<SpriteRenderer>().transform.localScale = new Vector3(redBar.GetComponent<SpriteRenderer>().transform.localScale.x,
+                                                                    GameObject.FindGameObjectsWithTag("RedBall").Length + (scaleYFactor * Time.deltaTime * direction),
+                                                                    redBar.GetComponent<SpriteRenderer>().transform.localScale.z);
+
+        blueBar.GetComponent<SpriteRenderer>().transform.localScale = new Vector3(blueBar.GetComponent<SpriteRenderer>().transform.localScale.x,
+                                                                     GameObject.FindGameObjectsWithTag("BlueBall").Length + (scaleYFactor * Time.deltaTime * direction),
+                                                                     blueBar.GetComponent<SpriteRenderer>().transform.localScale.x);
     }
 }
