@@ -58,7 +58,7 @@ public class BallSplit : MonoBehaviour
                 go.gameObject.tag = "PinkBall_RedBall";
             }
         }
-    
+       
         if(collision.gameObject.tag!="PinkBall_RedBall" && collision.gameObject.tag!="PinkBall_BlueBall"){
         if(blueColor==(collision.gameObject.GetComponent<SpriteRenderer>().color)){
        collision.gameObject.tag="BlueBall";
