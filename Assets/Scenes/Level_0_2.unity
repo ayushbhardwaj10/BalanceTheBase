@@ -1667,7 +1667,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: af33c0704779d4428a2e961b7b933535, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  losingPopup: {fileID: 0}
+  losingPopup: {fileID: 1452413132}
 --- !u!1001 &1242865638
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1910,6 +1910,11 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!1 &1452413132 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2474882674323126537, guid: 5db7926ddb93d4a5d913f32a4e64b917, type: 3}
+  m_PrefabInstance: {fileID: 792652771}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1682123270
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2148,6 +2153,11 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 4979364627683823102, guid: cf1990133d6644c75bd56049e9a41ec3, type: 3}
   m_PrefabInstance: {fileID: 1835550087}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1835550089 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4979364627683823103, guid: cf1990133d6644c75bd56049e9a41ec3, type: 3}
+  m_PrefabInstance: {fileID: 1835550087}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1953861292
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2242,7 +2252,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 74b0caf126a784738a53c0666421ff6a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  winningPopup: {fileID: 0}
+  winningPopup: {fileID: 1835550089}
 --- !u!4 &1986357221 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1796985990771073122, guid: 36f4ffa09f5707b478a645b4c1c58deb, type: 3}

@@ -653,6 +653,11 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 2474882674323126542, guid: 5db7926ddb93d4a5d913f32a4e64b917, type: 3}
   m_PrefabInstance: {fileID: 155368284}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &155368286 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2474882674323126537, guid: 5db7926ddb93d4a5d913f32a4e64b917, type: 3}
+  m_PrefabInstance: {fileID: 155368284}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &200308010
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1331,7 +1336,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 74b0caf126a784738a53c0666421ff6a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  winningPopup: {fileID: 0}
+  winningPopup: {fileID: 1400075195}
 --- !u!1001 &1011471820
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1958,6 +1963,11 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 4979364627683823102, guid: cf1990133d6644c75bd56049e9a41ec3, type: 3}
   m_PrefabInstance: {fileID: 1400075193}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1400075195 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4979364627683823103, guid: cf1990133d6644c75bd56049e9a41ec3, type: 3}
+  m_PrefabInstance: {fileID: 1400075193}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1447607770
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2336,6 +2346,7 @@ GameObject:
   - component: {fileID: 1563551684}
   - component: {fileID: 1563551683}
   - component: {fileID: 1563551682}
+  - component: {fileID: 1563551686}
   m_Layer: 5
   m_Name: Canvas-Win/Loose Popups
   m_TagString: Untagged
@@ -2438,6 +2449,19 @@ Canvas:
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
+--- !u!114 &1563551686
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1563551680}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: af33c0704779d4428a2e961b7b933535, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  losingPopup: {fileID: 155368286}
 --- !u!1001 &1576045319
 PrefabInstance:
   m_ObjectHideFlags: 0

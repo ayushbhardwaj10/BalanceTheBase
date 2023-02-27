@@ -660,6 +660,7 @@ GameObject:
   - component: {fileID: 435495052}
   - component: {fileID: 435495051}
   - component: {fileID: 435495050}
+  - component: {fileID: 435495055}
   m_Layer: 5
   m_Name: Canvas-Win/Loose Popups
   m_TagString: Untagged
@@ -762,6 +763,19 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!114 &435495055
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 435495049}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: af33c0704779d4428a2e961b7b933535, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  losingPopup: {fileID: 1561782776}
 --- !u!1001 &453563525
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1481,6 +1495,11 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 4979364627683823102, guid: cf1990133d6644c75bd56049e9a41ec3, type: 3}
   m_PrefabInstance: {fileID: 948787196}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &948787198 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4979364627683823103, guid: cf1990133d6644c75bd56049e9a41ec3, type: 3}
+  m_PrefabInstance: {fileID: 948787196}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &965863575
 GameObject:
   m_ObjectHideFlags: 0
@@ -1822,7 +1841,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1707219294}
-  m_RootOrder: 8
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -2383,6 +2402,11 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 2474882674323126542, guid: 5db7926ddb93d4a5d913f32a4e64b917, type: 3}
   m_PrefabInstance: {fileID: 1561782774}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1561782776 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2474882674323126537, guid: 5db7926ddb93d4a5d913f32a4e64b917, type: 3}
+  m_PrefabInstance: {fileID: 1561782774}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1594162111
 GameObject:
   m_ObjectHideFlags: 0
@@ -2667,9 +2691,9 @@ Transform:
   - {fileID: 453563526}
   - {fileID: 965863576}
   - {fileID: 1881589887}
+  - {fileID: 1146638642}
   - {fileID: 696200249}
   - {fileID: 1758780456}
-  - {fileID: 1146638642}
   - {fileID: 243993663}
   - {fileID: 1841261147}
   - {fileID: 891400416}
@@ -2974,4 +2998,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 74b0caf126a784738a53c0666421ff6a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  winningPopup: {fileID: 0}
+  winningPopup: {fileID: 948787198}

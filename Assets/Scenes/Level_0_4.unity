@@ -1360,7 +1360,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2474882674323126542, guid: 5db7926ddb93d4a5d913f32a4e64b917, type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2474882674323126542, guid: 5db7926ddb93d4a5d913f32a4e64b917, type: 3}
       propertyPath: m_AnchorMax.x
@@ -1439,6 +1439,11 @@ PrefabInstance:
 --- !u!224 &869540287 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 2474882674323126542, guid: 5db7926ddb93d4a5d913f32a4e64b917, type: 3}
+  m_PrefabInstance: {fileID: 869540286}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &869540288 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2474882674323126537, guid: 5db7926ddb93d4a5d913f32a4e64b917, type: 3}
   m_PrefabInstance: {fileID: 869540286}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &882132473
@@ -1524,6 +1529,7 @@ GameObject:
   - component: {fileID: 902748909}
   - component: {fileID: 902748908}
   - component: {fileID: 902748912}
+  - component: {fileID: 902748913}
   m_Layer: 5
   m_Name: win/loose popups
   m_TagString: Untagged
@@ -1626,6 +1632,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a05afa3f75db94f75ba33d8035ddbe6d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &902748913
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 902748907}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: af33c0704779d4428a2e961b7b933535, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  losingPopup: {fileID: 869540288}
 --- !u!1001 &934104928
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2029,7 +2048,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4979364627683823102, guid: cf1990133d6644c75bd56049e9a41ec3, type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4979364627683823102, guid: cf1990133d6644c75bd56049e9a41ec3, type: 3}
       propertyPath: m_AnchorMax.x
@@ -2116,6 +2135,11 @@ PrefabInstance:
 --- !u!224 &1120396435 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 4979364627683823102, guid: cf1990133d6644c75bd56049e9a41ec3, type: 3}
+  m_PrefabInstance: {fileID: 1120396434}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1120396436 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4979364627683823103, guid: cf1990133d6644c75bd56049e9a41ec3, type: 3}
   m_PrefabInstance: {fileID: 1120396434}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1121328293
@@ -3007,7 +3031,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 74b0caf126a784738a53c0666421ff6a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  winningPopup: {fileID: 0}
+  winningPopup: {fileID: 1120396436}
 --- !u!1 &1646763898
 GameObject:
   m_ObjectHideFlags: 0
