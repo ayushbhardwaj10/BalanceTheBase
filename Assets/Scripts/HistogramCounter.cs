@@ -7,6 +7,11 @@ public class HistogramCounter : MonoBehaviour
     GameObject redBar;
     GameObject blueBar;
     [SerializeField] private bool increaseFromTop = true;
+    [SerializeField] private SpriteRenderer sprite1;
+    [SerializeField] private SpriteRenderer sprite2;
+    [SerializeField] private SpriteRenderer sprite3;
+    [SerializeField] private int sortingOrder = 0;
+
     int redCount;
     int blueCount;
 
@@ -21,6 +26,9 @@ public class HistogramCounter : MonoBehaviour
     {
         redCount = 0;
         blueCount = 0;
+        sprite1.sortingOrder = sortingOrder;
+        sprite3.sortingOrder = sortingOrder;
+        sprite2.sortingOrder = sortingOrder + 1;
     }
 
     // Update is called once per frame
