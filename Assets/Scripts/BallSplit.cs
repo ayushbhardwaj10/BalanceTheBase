@@ -19,7 +19,7 @@ public class BallSplit : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
     void OnCollisionEnter2D(Collision2D collision)
@@ -80,8 +80,10 @@ public class BallSplit : MonoBehaviour
         //Get splitter colour based on
         splitterMomentColor = collision.gameObject.tag.Contains("RedBall") ? "RedSplitterTriangle" : "BlueSplitterTriangle";
 
-
         //Save collision in analytics
-        AnalyticsManager._instance.analytics_split_record(levelName, DateTime.Now, splitterMomentColor, ballColorBeforeCollision, gameObject.name);
+        // AnalyticsManager._instance.analytics_split_record(levelName, DateTime.Now, splitterMomentColor, ballColorBeforeCollision, gameObject.name);
+
+        //Update game state
+        GameStateTracking.UpdateGameStack();
     }
 }

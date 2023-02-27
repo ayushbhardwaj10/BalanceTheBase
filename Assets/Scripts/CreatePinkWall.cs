@@ -42,7 +42,7 @@ public class CreatePinkWall : MonoBehaviour
 
     void OnCollisionStay2D(Collision2D collision)
     {
-        Debug.Log("Stay start.....");
+        // Debug.Log("Stay start.....");
         if ("PinkBall_BlueBall".Equals(collision.gameObject.tag) || "PinkBall_RedBall".Equals(collision.gameObject.tag))
         {
             // change the walls only when space button is pressed
