@@ -25,6 +25,7 @@ TagManager:
   - Green_Goal_Wall
   - RedHistogram
   - BlueHistogram
+  - MazeWalls
   layers:
   - Default
   - TransparentFX
