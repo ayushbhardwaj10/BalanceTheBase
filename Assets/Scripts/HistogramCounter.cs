@@ -40,13 +40,13 @@ public class HistogramCounter : MonoBehaviour
         {
             Debug.Log("came inside red increase");
             redBar.GetComponent<SpriteRenderer>().transform.localScale = new Vector3(redBar.GetComponent<SpriteRenderer>().transform.localScale.x,
-                                                                    redBar.GetComponent<SpriteRenderer>().transform.localScale.y + (GameObject.FindGameObjectsWithTag("RedBall").Length * direction),
+                                                                    redBar.GetComponent<SpriteRenderer>().transform.localScale.y + (GameObject.FindGameObjectsWithTag("RedBall").Length * 0.5f * direction),
                                                                     redBar.GetComponent<SpriteRenderer>().transform.localScale.z);
             redCount = GameObject.FindGameObjectsWithTag("RedBall").Length;
         } else if (redCount > GameObject.FindGameObjectsWithTag("RedBall").Length)
         {
             redBar.GetComponent<SpriteRenderer>().transform.localScale = new Vector3(redBar.GetComponent<SpriteRenderer>().transform.localScale.x,
-                                                                    redBar.GetComponent<SpriteRenderer>().transform.localScale.y - (GameObject.FindGameObjectsWithTag("RedBall").Length * direction),
+                                                                    redBar.GetComponent<SpriteRenderer>().transform.localScale.y - (GameObject.FindGameObjectsWithTag("RedBall").Length * 0.5f * direction),
                                                                     redBar.GetComponent<SpriteRenderer>().transform.localScale.z);
             redCount = GameObject.FindGameObjectsWithTag("RedBall").Length;
         }
@@ -54,13 +54,13 @@ public class HistogramCounter : MonoBehaviour
         if (blueCount < GameObject.FindGameObjectsWithTag("BlueBall").Length)
         {
             blueBar.GetComponent<SpriteRenderer>().transform.localScale = new Vector3(blueBar.GetComponent<SpriteRenderer>().transform.localScale.x,
-                                                                     blueBar.GetComponent<SpriteRenderer>().transform.localScale.y + (GameObject.FindGameObjectsWithTag("BlueBall").Length * direction),
+                                                                     blueBar.GetComponent<SpriteRenderer>().transform.localScale.y + (GameObject.FindGameObjectsWithTag("BlueBall").Length * 0.5f * direction),
                                                                      blueBar.GetComponent<SpriteRenderer>().transform.localScale.x);
             blueCount = GameObject.FindGameObjectsWithTag("BlueBall").Length;
         } else if (blueCount > GameObject.FindGameObjectsWithTag("BlueBall").Length)
         {
             blueBar.GetComponent<SpriteRenderer>().transform.localScale = new Vector3(blueBar.GetComponent<SpriteRenderer>().transform.localScale.x,
-                                                                     blueBar.GetComponent<SpriteRenderer>().transform.localScale.y - (GameObject.FindGameObjectsWithTag("BlueBall").Length * direction),
+                                                                     blueBar.GetComponent<SpriteRenderer>().transform.localScale.y - (GameObject.FindGameObjectsWithTag("BlueBall").Length * 0.5f * direction),
                                                                      blueBar.GetComponent<SpriteRenderer>().transform.localScale.x);
             blueCount = GameObject.FindGameObjectsWithTag("BlueBall").Length;
         }
