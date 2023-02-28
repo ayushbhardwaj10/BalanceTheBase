@@ -11,7 +11,7 @@ public class CreatePinkWall : MonoBehaviour
 
 
    void Start(){
-       prefab = GameObject.Find("Pink Wall");
+       prefab = Resources.Load<GameObject>("Prefabs/Pink Wall");
    }
 
 

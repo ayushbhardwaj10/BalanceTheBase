@@ -8,6 +8,12 @@ public class GameStateTracking : MonoBehaviour
     
     static Stack<GameState> gameStack = new Stack<GameState>();
 
+    // clear stack while restarting the scene view
+    public static void clearStack(){
+        if(gameStack != null)
+            gameStack.Clear();
+    }
+
     public static void UpdateGameStack(List<int> deletedIDs)
     {
         Debug.Log("Updating game stack");
