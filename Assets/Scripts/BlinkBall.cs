@@ -15,13 +15,6 @@ public class BlinkBall : MonoBehaviour
 
     IEnumerator Start()
     {
-        if(gameObject.tag.Contains("BlueBall")){
-           originalColor = blueColor;
-           prefab = Resources.Load<GameObject>("Prefabs/Blue Ball");
-        } else {
-           originalColor = redColor;
-           prefab = Resources.Load<GameObject>("Prefabs/Red Ball");
-        }  
         InvokeRepeating ("colorChange", 0.0f, 1.0f);
         yield return new WaitForSeconds(5);
         InvokeRepeating ("destroyBalls", 0.0f, 1.0f);      
@@ -30,6 +23,11 @@ public class BlinkBall : MonoBehaviour
 
     void destroyBalls()
     {
+        if(gameObject.tag.Contains("BlueBall")){
+           prefab = Resources.Load<GameObject>("Prefabs/Blue Ball");
+        } else {
+           prefab = Resources.Load<GameObject>("Prefabs/Red Ball");
+        }  
         if(destroy){
         var go = Instantiate(prefab, gameObject.transform.position, gameObject.transform.rotation);
         go.transform.parent = gameObject.transform.parent;
@@ -42,6 +40,11 @@ public class BlinkBall : MonoBehaviour
     
     void colorChange()
     {
+           if(gameObject.tag.Contains("BlueBall")){
+                originalColor = blueColor;
+           } else {
+                originalColor = redColor;
+           }  
            if(check==true) {
                 gameObject.GetComponent<SpriteRenderer> ().color = originalColor;
                 check = false;
