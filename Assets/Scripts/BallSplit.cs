@@ -8,6 +8,7 @@ public class BallSplit : MonoBehaviour
 {
     
     string levelName,splitterMomentColor;
+    
 
     void Start()
     {
@@ -27,17 +28,25 @@ public class BallSplit : MonoBehaviour
 
         // Nothing should happen if colliding with a non-player object (anything other than red/blue balls)
         if(!(collision.gameObject.tag != null && collision.gameObject.tag.Contains("Ball")))
-           return;
+            return;
 
         //Do not change these colors ever
         Color redColor = new Vector4(0.7830189f, 0.1578784f, 0.1071111f,1.0f);
         Color blueColor = new Vector4(0.09019608f, 0.6f, 0.9058824f,1.0f);
+        List<int> deletedIdList = new List<int>(); 
 
         //Used for analytics
         string ballColorBeforeCollision = collision.gameObject.tag;
 
         //First destroy the spillter and then instantiate the balls
+        String tagName = gameObject.tag;
+        
+        //Get instance ID of the deleted objects for updating state
+        int deletedID = gameObject.GetInstanceID();
+        deletedIdList.Add(deletedID);
         Destroy(gameObject);
+
+        Debug.Log(tagName + " " + GameObject.FindGameObjectsWithTag(tagName).Length);
 
         //Get the color of the splitter and assign it to the ball
         SpriteRenderer renderer = GetComponent<SpriteRenderer>();
@@ -83,7 +92,11 @@ public class BallSplit : MonoBehaviour
         //Save collision in analytics
         // AnalyticsManager._instance.analytics_split_record(levelName, DateTime.Now, splitterMomentColor, ballColorBeforeCollision, gameObject.name);
 
+        Debug.Log("Tag "  + gameObject.tag);
+        Debug.Log("Name "+ gameObject.name);
+
         //Update game state
-        GameStateTracking.UpdateGameStack();
+        GameStateTracking.UpdateGameStack(deletedIdList);
+    
     }
 }
