@@ -46,7 +46,7 @@ public class CreatePinkWall : MonoBehaviour
         if ("PinkBall_BlueBall".Equals(collision.gameObject.tag) || "PinkBall_RedBall".Equals(collision.gameObject.tag))
         {
             // change the walls only when space button is pressed
-            if (Input.GetKey(KeyCode.Space) == true) {
+            if (Input.GetKey(KeyCode.S) == true) {
                 Debug.Log("super power collision...");
                 var go = Instantiate(prefab, gameObject.transform.position, gameObject.transform.rotation);
                 go.transform.parent = gameObject.transform.parent;
