@@ -1409,7 +1409,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7398098637369215922, guid: ebb9e1d74c4d64a0d9802c76a01d8072, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 6.35
+      value: 2.72
       objectReference: {fileID: 0}
     - target: {fileID: 7398098637369215922, guid: ebb9e1d74c4d64a0d9802c76a01d8072, type: 3}
       propertyPath: m_LocalPosition.y
@@ -3594,7 +3594,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: af33c0704779d4428a2e961b7b933535, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  losingPopup: {fileID: 0}
+  losingPopup: {fileID: 155368286}
 --- !u!4 &2013071798
 Transform:
   m_ObjectHideFlags: 0
