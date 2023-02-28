@@ -8,23 +8,29 @@ public class GameStateTracking : MonoBehaviour
     
     static Stack<GameState> gameStack = new Stack<GameState>();
 
-    public static void UpdateGameStack()
+    public static void UpdateGameStack(List<int> deletedIDs)
     {
         Debug.Log("Updating game stack");
 
-        gameStack.Push(new GameState(getState("BlueSplitterTriangle"),
-                                        getState("RedSplitterTriangle"),
-                                        getState("BlinkingSplitter"),
-                                        getState("BlueBall"),
-                                        getState("RedBall"),
-                                        getState("PinkBall_BlueBall"),
-                                        getState("PinkBall_RedBall"),
-                                        getState("Inner_White_Wall"),
-                                        getState("Pink_Wall"),
-                                        getState("MazeWalls"))
+        gameStack.Push(new GameState(getState("BlueSplitterTriangle", deletedIDs),
+                                        getState("RedSplitterTriangle", deletedIDs),
+                                        getState("BlinkingSplitter", deletedIDs),
+                                        getState("BlueBall", deletedIDs),
+                                        getState("RedBall", deletedIDs),
+                                        getState("PinkBall_BlueBall", deletedIDs),
+                                        getState("PinkBall_RedBall", deletedIDs),
+                                        getState("Inner_White_Wall", deletedIDs),
+                                        getState("Pink_Wall", deletedIDs),
+                                        getState("MazeWalls", deletedIDs))
                                         );
 
-        Debug.Log("Stack size.." + gameStack.Count);
+        Debug.Log("Update Game state Stack size.." + gameStack.Count);
+
+        //Remove later
+        GameState prevState = gameStack.Peek();
+        Debug.Log("Redsplitter count" + prevState.redSplitters.Count);
+        Debug.Log("Bluesplitter count" + prevState.blueSplitters.Count);
+        Debug.Log("Blinking splitter count" + prevState.blinkingSplitters.Count);
     }
 
     public static void UndoLastMove()
@@ -32,19 +38,31 @@ public class GameStateTracking : MonoBehaviour
         Debug.Log("Undoing last move");
 
         // The first move represents the initial state of the game and cannot be undone
-        if (gameStack.Count <= 2) //----Change this to == 1 after you add an undo button-----//
+        if (gameStack.Count <= 1) //----Change this to == 1 after you add an undo button-----//
             return;
+
+        GameState prevState = gameStack.Peek();
+
+        Debug.Log("Before pop Stack size.." + gameStack.Count);
+        Debug.Log("Redsplitter count" + prevState.redSplitters.Count);
+        Debug.Log("Bluesplitter count" + prevState.blueSplitters.Count);
+        Debug.Log("Blinking splitter count" + prevState.blinkingSplitters.Count);
 
         // Remove the top most element
         gameStack.Pop();
+        Debug.Log("Pop Stack size.." + gameStack.Count);
 
         // Destroy all current inner game objects
         DestroyAllObjects();
 
         // Resurrect everything from history
-        GameState prevState = gameStack.Peek();
+        prevState = gameStack.Peek();
 
         Debug.Log("Stack size.." + gameStack.Count);
+        Debug.Log("Redsplitter count" + prevState.redSplitters.Count);
+        Debug.Log("Bluesplitter count" + prevState.blueSplitters.Count);
+        Debug.Log("Blinking splitter count" + prevState.blinkingSplitters.Count);
+
 
         //--------Find a way to get the main maze wall without using the GameObject.Find() function below--------//
         foreach (State state in prevState.mazeWalls)
@@ -82,7 +100,17 @@ public class GameStateTracking : MonoBehaviour
             setGameObjectTransform(newObject, state);
         }
 
-        //------------------We need to have prefabs for blinking balls to resurrect them-------------------//
+        foreach (State state in prevState.pinkBlueBalls)
+        {
+            GameObject newObject = Instantiate(Resources.Load<GameObject>("Prefabs/PinkBallBlueBall"));
+            setGameObjectTransform(newObject, state);
+        }
+
+        foreach (State state in prevState.pinkRedBalls)
+        {
+            GameObject newObject = Instantiate(Resources.Load<GameObject>("Prefabs/PinkBallRedBall"));
+            setGameObjectTransform(newObject, state);
+        }
 
         foreach (State state in prevState.innerWhiteWalls)
         {
@@ -113,13 +141,12 @@ public class GameStateTracking : MonoBehaviour
         {
             foreach (GameObject obj in GameObject.FindGameObjectsWithTag(tag))
             {
-                Debug.Log("Destruction in Progress");
                 Destroy(obj);
             }
         }
     }
 
-    private static List<State> getState(string tag)
+    private static List<State> getState(string tag, List<int> deletedIDs)
     {
         List<State> StateList = new List<State>();
 
@@ -127,6 +154,10 @@ public class GameStateTracking : MonoBehaviour
         
         foreach (GameObject splitter in splitters)
         {
+            //Do not fetch the state of deleted IDs
+            if (deletedIDs.Contains(splitter.GetInstanceID()))
+                continue;
+
             CustomTransform transform = new CustomTransform(
                 splitter.transform.position,
                 splitter.transform.rotation,
@@ -142,17 +173,17 @@ public class GameStateTracking : MonoBehaviour
 
     void Start()
     {
-        UpdateGameStack();
+        UpdateGameStack(new List<int>());
     }
 
     // Update is called once per frame
-    void Update()
-    {
-        if (Input.GetKey(KeyCode.U))
-        {
-            UndoLastMove();
-        }
-    }
+    // void Update()
+    // {
+    //     if (Input.GetKey(KeyCode.U))
+    //     {
+    //         UndoLastMove();
+    //     }
+    // }
 
     private class GameState {
         public List<State> blueSplitters;
