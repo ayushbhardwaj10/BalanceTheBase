@@ -1870,7 +1870,11 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Collect stars to turn white walls pink
+  m_text: 'Collect stars to turn white walls pink
+
+
+    Hit space when blinking ball
+    collides with a wall to turn it pink'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 125cb55b44b24c4393181402bc6200e6, type: 2}
   m_sharedMaterial: {fileID: 2100000, guid: 125cb55b44b24c4393181402bc6200e6, type: 2}
@@ -1933,7 +1937,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 3.550807, y: 0.7372422, z: 3.126765, w: 2.8366878}
+  m_margin: {x: 3.550807, y: 0.7372422, z: 2.2406363, w: 2.8366878}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   _SortingLayer: 0
