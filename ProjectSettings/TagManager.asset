@@ -26,6 +26,7 @@ TagManager:
   - RedHistogram
   - BlueHistogram
   - MazeWalls
+  - GoalRegion
   layers:
   - Default
   - TransparentFX

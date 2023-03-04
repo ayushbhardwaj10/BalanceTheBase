@@ -10,25 +10,34 @@ public class CheckWinCondition : MonoBehaviour
     public GameObject winningPopup;
 
     DateTime startTime, endTime;
-    
+
+    [SerializeField] private SpriteRenderer sprite1;
+    [SerializeField] private SpriteRenderer sprite2;
+    [SerializeField] private SpriteRenderer sprite3;
+    [SerializeField] private int sortingOrder = 0;
 
     void Start()
     {
         startTime = DateTime.Now;
+
+        sprite1.sortingOrder = sortingOrder;
+        sprite2.sortingOrder = sortingOrder + 1;
+        sprite3.sortingOrder = sortingOrder + 1;
     }
 
 
-    IEnumerator OnCollisionEnter2D(Collision2D collision){
+    IEnumerator OnTriggerEnter2D(Collider2D collision){
        if("BlueBall".Equals(collision.gameObject.tag) || "RedBall".Equals(collision.gameObject.tag)){
-       currentCollisions.Add(collision.gameObject);
+            currentCollisions.Add(collision.gameObject);
        }
 
-       int len = currentCollisions.Count ;
+        int len = currentCollisions.Count ;
 
-       if ((len == (GameObject.FindGameObjectsWithTag("BlueBall").Length +
+        // len/2 because its counting twice for each object added
+        if ((len/2 == (GameObject.FindGameObjectsWithTag("BlueBall").Length +
        GameObject.FindGameObjectsWithTag("RedBall").Length)) &&
        !GameObject.FindWithTag("PinkBall_BlueBall") && !GameObject.FindWithTag("PinkBall_RedBall") &&
-       (GameObject.FindGameObjectsWithTag("BlueBall").Length == GameObject.FindGameObjectsWithTag("RedBall").Length )) {
+       (GameObject.FindGameObjectsWithTag("BlueBall").Length == GameObject.FindGameObjectsWithTag("RedBall").Length)) {
             
 
             string levelName = SceneManager.GetActiveScene().name;
@@ -53,13 +62,6 @@ public class CheckWinCondition : MonoBehaviour
             //Analytics for user ratings
             AnalyticsManager._instance.analytics_user_ratings(levelName,time_taken,user_rating,GamesManager.WIN);
 
-            
-           
-
-            
-
-            
-
             //Auto Level Movement
             inner_level++;
             if(levelName == "Level_0_4")
@@ -72,19 +74,13 @@ public class CheckWinCondition : MonoBehaviour
             Debug.Log("Auto Load scene " + load_scene);
             if (load_scene != "Level_1_4")
             {
-                
                 SceneManager.LoadScene(load_scene);
-                
             }
-
-            
-
-
         }
    }
 
 
-   void OnCollisionExit2D (Collision2D collision) {
+   void OnTriggerExit2D(Collider2D collision) {
         // Remove the GameObject collided with from the list.
         currentCollisions.Remove (collision.gameObject);
    }
