@@ -8,9 +8,6 @@ public class AttainPower : MonoBehaviour
 {
     void OnTriggerEnter2D(Collider2D other)
    {
-        Debug.Log(gameObject.tag);
-        
-        gameObject.SetActive(false);
         if("RedBall" == (other.gameObject.tag)){
                 other.gameObject.tag="PinkBall_RedBall";
         }
@@ -18,6 +15,10 @@ public class AttainPower : MonoBehaviour
             other.gameObject.tag="PinkBall_BlueBall";
         }
         GamesManager.powerAttainStartTime = DateTime.Now; 
+
+        // Destroy the star and the canvas holding it
+        GameObject parent = gameObject.transform.parent.gameObject;
+        Destroy(parent);
    }
 
 
