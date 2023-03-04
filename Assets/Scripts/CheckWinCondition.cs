@@ -28,7 +28,7 @@ public class CheckWinCondition : MonoBehaviour
 
     IEnumerator OnCollisionEnter2D(Collision2D collision){
        if("BlueBall".Equals(collision.gameObject.tag) || "RedBall".Equals(collision.gameObject.tag)){
-       currentCollisions.Add(collision.gameObject);
+            currentCollisions.Add(collision.gameObject);
        }
 
        int len = currentCollisions.Count ;
@@ -80,14 +80,8 @@ public class CheckWinCondition : MonoBehaviour
             Debug.Log("Auto Load scene " + load_scene);
             if (load_scene != "Level_1_4")
             {
-                
                 SceneManager.LoadScene(load_scene);
-                
             }
-
-            
-
-
         }
    }
 

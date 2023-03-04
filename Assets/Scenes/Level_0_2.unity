@@ -302,6 +302,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 180825153}
     m_Modifications:
+    - target: {fileID: 4586591458521556925, guid: f2c075af6873f42c8a4b24a29839dea6, type: 3}
+      propertyPath: m_CollisionDetection
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6465345802231034777, guid: f2c075af6873f42c8a4b24a29839dea6, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -460,7 +464,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: af33c0704779d4428a2e961b7b933535, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  losingPopup: {fileID: 0}
+  losingPopup: {fileID: 1452413132}
 --- !u!1 &302976241
 GameObject:
   m_ObjectHideFlags: 0
@@ -812,6 +816,11 @@ MonoBehaviour:
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5004023458229489566, guid: 6ff7c463e5aee44c6a8fef0207123f25, type: 3}
   m_PrefabInstance: {fileID: 1953861292}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &480800548 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5394164708640359180, guid: 36322ddd64ede447f8a6fbffa428a4bd, type: 3}
+  m_PrefabInstance: {fileID: 1096510093}
   m_PrefabAsset: {fileID: 0}
 --- !u!224 &555933399 stripped
 RectTransform:
@@ -1625,6 +1634,10 @@ PrefabInstance:
       propertyPath: winningPopup
       value: 
       objectReference: {fileID: 1835550089}
+    - target: {fileID: 5394164708640359186, guid: 36322ddd64ede447f8a6fbffa428a4bd, type: 3}
+      propertyPath: m_Color.a
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5394164708640359187, guid: 36322ddd64ede447f8a6fbffa428a4bd, type: 3}
       propertyPath: m_RootOrder
       value: 7
@@ -1684,6 +1697,27 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 5394164708640359187, guid: 36322ddd64ede447f8a6fbffa428a4bd, type: 3}
   m_PrefabInstance: {fileID: 1096510093}
   m_PrefabAsset: {fileID: 0}
+--- !u!50 &1096510095
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 480800548}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 1
+  m_Constraints: 0
 --- !u!1 &1117013828
 GameObject:
   m_ObjectHideFlags: 0
@@ -1820,6 +1854,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 180825153}
     m_Modifications:
+    - target: {fileID: 4586591458521556925, guid: ce620135bccd048ceb8a7d73f5fc3b90, type: 3}
+      propertyPath: m_CollisionDetection
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6465345802231034777, guid: ce620135bccd048ceb8a7d73f5fc3b90, type: 3}
       propertyPath: m_RootOrder
       value: 0
