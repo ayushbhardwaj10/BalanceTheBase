@@ -26,17 +26,17 @@ public class CheckWinCondition : MonoBehaviour
     }
 
 
-    IEnumerator OnCollisionEnter2D(Collision2D collision){
+    IEnumerator OnTriggerEnter2D(Collider2D collision){
        if("BlueBall".Equals(collision.gameObject.tag) || "RedBall".Equals(collision.gameObject.tag)){
             currentCollisions.Add(collision.gameObject);
        }
 
        int len = currentCollisions.Count ;
 
-       if ((len == (GameObject.FindGameObjectsWithTag("BlueBall").Length +
+        if ((len == (GameObject.FindGameObjectsWithTag("BlueBall").Length +
        GameObject.FindGameObjectsWithTag("RedBall").Length)) &&
        !GameObject.FindWithTag("PinkBall_BlueBall") && !GameObject.FindWithTag("PinkBall_RedBall") &&
-       (GameObject.FindGameObjectsWithTag("BlueBall").Length == GameObject.FindGameObjectsWithTag("RedBall").Length )) {
+       (GameObject.FindGameObjectsWithTag("BlueBall").Length == GameObject.FindGameObjectsWithTag("RedBall").Length)) {
             
 
             string levelName = SceneManager.GetActiveScene().name;
@@ -60,13 +60,6 @@ public class CheckWinCondition : MonoBehaviour
             AnalyticsManager._instance.analytics_time_takenn(levelName, time_taken, GamesManager.WIN);
             //Analytics for user ratings
             AnalyticsManager._instance.analytics_user_ratings(levelName,time_taken,user_rating,GamesManager.WIN);
-
-            
-           
-
-            
-
-            
 
             //Auto Level Movement
             inner_level++;
