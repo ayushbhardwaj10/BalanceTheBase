@@ -31,9 +31,10 @@ public class CheckWinCondition : MonoBehaviour
             currentCollisions.Add(collision.gameObject);
        }
 
-       int len = currentCollisions.Count ;
+        int len = currentCollisions.Count ;
 
-        if ((len == (GameObject.FindGameObjectsWithTag("BlueBall").Length +
+        // len/2 because its counting twice for each object added
+        if ((len/2 == (GameObject.FindGameObjectsWithTag("BlueBall").Length +
        GameObject.FindGameObjectsWithTag("RedBall").Length)) &&
        !GameObject.FindWithTag("PinkBall_BlueBall") && !GameObject.FindWithTag("PinkBall_RedBall") &&
        (GameObject.FindGameObjectsWithTag("BlueBall").Length == GameObject.FindGameObjectsWithTag("RedBall").Length)) {
@@ -79,7 +80,7 @@ public class CheckWinCondition : MonoBehaviour
    }
 
 
-   void OnCollisionExit2D (Collision2D collision) {
+   void OnTriggerExit2D(Collider2D collision) {
         // Remove the GameObject collided with from the list.
         currentCollisions.Remove (collision.gameObject);
    }
