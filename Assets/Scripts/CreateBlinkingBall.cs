@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 
-public class BlinkTimer : MonoBehaviour
+public class CreateBlinkingBall : MonoBehaviour
 {
    public GameObject prefab;
 
@@ -21,7 +21,7 @@ public class BlinkTimer : MonoBehaviour
         if((gameObject.tag=="PinkBall_BlueBall" || gameObject.tag=="PinkBall_RedBall")){
 
           var go = Instantiate(prefab, gameObject.transform.position, gameObject.transform.rotation);
-            Debug.Log("Helllllooo");
+
           go.transform.parent = gameObject.transform.parent;
           go.transform.localScale = gameObject.transform.localScale;
           Destroy(gameObject);

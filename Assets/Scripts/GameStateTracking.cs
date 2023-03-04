@@ -27,7 +27,8 @@ public class GameStateTracking : MonoBehaviour
                                         getState("PinkBall_RedBall", deletedIDs),
                                         getState("Inner_White_Wall", deletedIDs),
                                         getState("Pink_Wall", deletedIDs),
-                                        getState("MazeWalls", deletedIDs))
+                                        getState("MazeWalls", deletedIDs),
+                                        getState("Star_Canvas", deletedIDs))
                                         );
 
         Debug.Log("Update Game state Stack size.." + gameStack.Count);
@@ -123,6 +124,12 @@ public class GameStateTracking : MonoBehaviour
             GameObject newObject = Instantiate(Resources.Load<GameObject>("Prefabs/Pink Wall"));
             setGameObjectTransform(newObject, state);
         }
+
+        foreach (State state in prevState.stars)
+        {
+            GameObject newObject = Instantiate(Resources.Load<GameObject>("Prefabs/Star Canvas"));
+            setGameObjectTransform(newObject, state);
+        }
     }
 
     private static void setGameObjectTransform(GameObject newObject, State state)
@@ -135,7 +142,7 @@ public class GameStateTracking : MonoBehaviour
 
     private static void DestroyAllObjects()
     { 
-        string[] tags = new string[]{"BlueSplitterTriangle", "RedSplitterTriangle", "BlinkingSplitter", "BlueBall", "RedBall", "PinkBall_BlueBall", "PinkBall_RedBall", "Inner_White_Wall", "Pink_Wall"};
+        string[] tags = new string[]{"BlueSplitterTriangle", "RedSplitterTriangle", "BlinkingSplitter", "BlueBall", "RedBall", "PinkBall_BlueBall", "PinkBall_RedBall", "Inner_White_Wall", "Pink_Wall", "Star_Canvas"};
 
         foreach (string tag in tags)
         {
@@ -196,11 +203,11 @@ public class GameStateTracking : MonoBehaviour
         // Pink Walls
         public List<State> pinkWalls;
 
-        // Stars
-        //---------------todo: Stars should be a prefab if we want to undo them------------------//
-
         // Maze
         public List<State> mazeWalls;
+
+        // Stars
+        public List<State> stars;
 
         public GameState(List<State> blueSplittersObj,
                         List<State> redSplittersObj,
@@ -211,7 +218,8 @@ public class GameStateTracking : MonoBehaviour
                         List<State> pinkRedBallsObj,
                         List<State> innerWhiteWallsObj,
                         List<State> pinkWallsObj,
-                        List<State> mazeWallsObj)
+                        List<State> mazeWallsObj,
+                        List<State> starsObj)
         {
             blueSplitters = blueSplittersObj;
             redSplitters = redSplittersObj;
@@ -223,6 +231,7 @@ public class GameStateTracking : MonoBehaviour
             innerWhiteWalls = innerWhiteWallsObj;
             pinkWalls = pinkWallsObj;
             mazeWalls = mazeWallsObj;
+            stars = starsObj;
         }
     }
 
