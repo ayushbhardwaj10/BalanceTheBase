@@ -20,9 +20,9 @@ public class GamesManager : MonoBehaviour
     public static int level = 1;
     public static int restartTimes = 0;
     public static Dictionary<string, int> level_restart_map = new Dictionary<string, int>();
-    public static Dictionary<string, SplitterDetails> splitter_details_map = new Dictionary<string, SplitterDetails>();
+    public static DateTime powerAttainStartTime;
 
-   
+
     public static GamesManager _instance;
 
     public static GamesManager Instance

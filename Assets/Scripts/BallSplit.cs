@@ -14,6 +14,7 @@ public class BallSplit : MonoBehaviour
     {
         
         levelName = SceneManager.GetActiveScene().name;
+        
 
     }
 
@@ -89,8 +90,10 @@ public class BallSplit : MonoBehaviour
         //Get splitter colour based on
         splitterMomentColor = collision.gameObject.tag.Contains("RedBall") ? "RedSplitterTriangle" : "BlueSplitterTriangle";
 
+        
+
         //Save collision in analytics
-        // AnalyticsManager._instance.analytics_split_record(levelName, DateTime.Now, splitterMomentColor, ballColorBeforeCollision, gameObject.name);
+        AnalyticsManager._instance.analytics_split_record(levelName, DateTime.Now, splitterMomentColor, ballColorBeforeCollision, gameObject.name);
 
         Debug.Log("Tag "  + gameObject.tag);
         Debug.Log("Name "+ gameObject.name);

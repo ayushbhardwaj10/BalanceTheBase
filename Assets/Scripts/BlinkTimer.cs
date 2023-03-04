@@ -19,8 +19,9 @@ public class BlinkTimer : MonoBehaviour
    void Update()
    {
         if((gameObject.tag=="PinkBall_BlueBall" || gameObject.tag=="PinkBall_RedBall")){
-          Debug.Log("Hi");
+
           var go = Instantiate(prefab, gameObject.transform.position, gameObject.transform.rotation);
+            Debug.Log("Helllllooo");
           go.transform.parent = gameObject.transform.parent;
           go.transform.localScale = gameObject.transform.localScale;
           Destroy(gameObject);

@@ -53,6 +53,12 @@ public class CheckWinCondition : MonoBehaviour
             //Analytics for user ratings
             AnalyticsManager._instance.analytics_user_ratings(levelName,time_taken,user_rating,GamesManager.WIN);
 
+            
+           
+
+            
+
+            
 
             //Auto Level Movement
             inner_level++;

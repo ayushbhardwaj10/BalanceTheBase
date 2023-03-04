@@ -54,8 +54,8 @@ public class HistogramCounter : MonoBehaviour
         blueCount = GameObject.FindGameObjectsWithTag("BlueBall").Length;
 
 
-        Debug.Log("Red count: " + redCount);
-        Debug.Log("Blue count: " + blueCount);
+        //Debug.Log("Red count: " + redCount);
+        //Debug.Log("Blue count: " + blueCount);
 
 
         if (blueCount == redCount)

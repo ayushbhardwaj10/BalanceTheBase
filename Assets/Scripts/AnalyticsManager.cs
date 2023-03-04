@@ -19,7 +19,6 @@ public class AnalyticsManager : MonoBehaviour
     [SerializeField] private string pink_wall_url = @"https://docs.google.com/forms/u/1/d/e/1FAIpQLSfSd_uvlAzBimvuNrX3Gue4nmDdU0AMRzc0wI68BZHW6YZXzQ/formResponse";
     [SerializeField] private string start_level_url = @"https://docs.google.com/forms/u/1/d/e/1FAIpQLSfx3T5fXovnKj1LpoSwj8lTHHdmCZvXtoE89MuLHYHVmHNx1g/formResponse";
 
-
     private void Awake()
     {
         _instance = this;
@@ -74,12 +73,13 @@ public class AnalyticsManager : MonoBehaviour
         StartCoroutine(Post(form_3, user_ratings_url));
     }
 
-    public void analytics_pink_walls(Vector3 localScale,string inner_wall_id,DateTime collisionTime,string levelName)
+    public void analytics_pink_walls(Vector3 localScale,string inner_wall_id,DateTime endCollisionTime,DateTime startPowerTime,string levelName)
     {
         WWWForm form_4 = new WWWForm();
         
         form_4.AddField("entry.1168131134", _sessionId.ToString());
-        form_4.AddField("entry.680564588", collisionTime.ToString());
+        form_4.AddField("entry.680564588", startPowerTime.ToString());
+        form_4.AddField("entry.532737174", endCollisionTime.ToString());
         form_4.AddField("entry.1185637680", levelName);
         form_4.AddField("entry.939107459", inner_wall_id);
         form_4.AddField("entry.1403126087", localScale.ToString());
@@ -95,6 +95,7 @@ public class AnalyticsManager : MonoBehaviour
         form_5.AddField("entry.419281248", startTime.ToString());
         StartCoroutine(Post(form_5, start_level_url));
     }
+
 
     private IEnumerator Post(WWWForm form, string URL)
     {

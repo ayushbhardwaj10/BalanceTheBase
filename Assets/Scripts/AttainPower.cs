@@ -1,12 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 
 public class AttainPower : MonoBehaviour
 {
-   
-   void OnTriggerEnter2D(Collider2D other)
+    void OnTriggerEnter2D(Collider2D other)
    {
        gameObject.SetActive(false);
        if("RedBall" == (other.gameObject.tag)){
@@ -14,7 +14,8 @@ public class AttainPower : MonoBehaviour
        }
        else if("BlueBall" == (other.gameObject.tag)){
            other.gameObject.tag="PinkBall_BlueBall";
-       }       
+       }
+        GamesManager.powerAttainStartTime = DateTime.Now; 
    }
 
 

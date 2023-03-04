@@ -182,16 +182,6 @@ public class GameStateTracking : MonoBehaviour
         UpdateGameStack(new List<int>());
     }
 
-    // Update is called once per frame
-
-    // void Update()
-    // {
-    //     if (Input.GetKey(KeyCode.U))
-    //     {
-    //         UndoLastMove();
-    //     }
-    // }
-
     private class GameState {
         public List<State> blueSplitters;
         public List<State> redSplitters;
