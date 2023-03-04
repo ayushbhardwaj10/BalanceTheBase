@@ -48,7 +48,6 @@ public class LevelManagement : MonoBehaviour
         SceneManager.LoadScene("Level Manager");
     }
     public void restartLevel() {
-        //GameStateTracking.clearStack();
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
     // Start is called before the first frame update

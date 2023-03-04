@@ -31,12 +31,6 @@ public class GameStateTracking : MonoBehaviour
                                         );
 
         Debug.Log("Update Game state Stack size.." + gameStack.Count);
-
-        //Remove later
-        GameState prevState = gameStack.Peek();
-        Debug.Log("Redsplitter count" + prevState.redSplitters.Count);
-        Debug.Log("Bluesplitter count" + prevState.blueSplitters.Count);
-        Debug.Log("Blinking splitter count" + prevState.blinkingSplitters.Count);
     }
 
     public static void UndoLastMove()
@@ -179,6 +173,9 @@ public class GameStateTracking : MonoBehaviour
 
     void Start()
     {
+        //Start every game with a clear stack
+        clearStack();
+
         UpdateGameStack(new List<int>());
     }
 
