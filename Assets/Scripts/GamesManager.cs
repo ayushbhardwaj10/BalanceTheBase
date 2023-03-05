@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using System;
 using UnityEngine.SceneManagement;
+using static UnityEngine.EventSystems.EventTrigger;
 
 public class GamesManager : MonoBehaviour
 {
@@ -62,8 +63,58 @@ public class GamesManager : MonoBehaviour
         }
     }
 
-    public int calculate_user_ratings(string game_status,string levelName,int timeTaken)
+    public int calculate_user_ratings(string game_status, string levelName, int timeTaken)
     {
+        int retry = 0;
+        int star_rating = -1;
+       
+        if (level_restart_map.ContainsKey(levelName))
+        {
+            retry = level_restart_map[levelName];
+        }
+        else
+        {
+            retry = 0;
+        }
+
+        if(retry == 0 && game_status == WIN)
+        {
+            star_rating = per_level_time_benchmark(levelName, timeTaken);
+        }
+        else if(game_status == WIN && retry != 0) // add undo
+        {
+            star_rating = 1;
+        }
+        else
+        {
+            star_rating = 0;
+        }
+        return star_rating;
+
+    }
+
+
+    public int calculate_user_ratings1(string game_status,string levelName,int timeTaken)
+    {
+
+
+        /*
+
+        If loose - 0 star - "Play again to win stars!"
+        0 retries - win - and within time - 3 stars - rockstar
+        0 retries - more time - 2 stars - Good Job! Can u finish Faster ?
+
+        undo+retry - if used - then 1 star - You Won, Can u win without resets?
+
+
+        Track undo - analytics
+
+
+         */
+
+
+
+
         int star_rating=-1,retry=0;
         Debug.Log("In user rating mechanism "+game_status+" "+levelName+" "+timeTaken);
 
