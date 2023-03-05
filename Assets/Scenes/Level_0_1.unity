@@ -1848,7 +1848,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1282982178
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3182,6 +3182,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5332411401322702396, guid: 25485cc4774721f428389e95cf4c558e, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 9d878848a42642b48a004ce032594142, type: 3}
     - target: {fileID: 5332411401342136588, guid: 25485cc4774721f428389e95cf4c558e, type: 3}
       propertyPath: m_Name
       value: Star-Win
@@ -3278,6 +3282,14 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5332411401581720026, guid: 25485cc4774721f428389e95cf4c558e, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 9d878848a42642b48a004ce032594142, type: 3}
+    - target: {fileID: 5332411401864736048, guid: 25485cc4774721f428389e95cf4c558e, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 9d878848a42642b48a004ce032594142, type: 3}
     - target: {fileID: 5332411401864736061, guid: 25485cc4774721f428389e95cf4c558e, type: 3}
       propertyPath: m_IsActive
       value: 0
@@ -3286,10 +3298,18 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5332411401969449384, guid: 25485cc4774721f428389e95cf4c558e, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 9d878848a42642b48a004ce032594142, type: 3}
     - target: {fileID: 5332411402183176247, guid: 25485cc4774721f428389e95cf4c558e, type: 3}
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5332411402183176266, guid: 25485cc4774721f428389e95cf4c558e, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 9d878848a42642b48a004ce032594142, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 25485cc4774721f428389e95cf4c558e, type: 3}
 --- !u!1001 &5394164709985173155

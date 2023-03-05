@@ -28,10 +28,31 @@ public class StarHandler : MonoBehaviour
         {
            Stars[2].SetActive(true);
         }
-        if( user_rating == 2)
+        if( user_rating == 2)        
         {
-           Stars[2].SetActive(true);
-           Stars[3].SetActive(true);
+          Vector2 star2_currentPosition = Stars[2].transform.position;
+          float star2_x = star2_currentPosition.x;
+          float star2_y = star2_currentPosition.y;
+          float star2_newX = star2_x - 15;
+          Debug.Log("x position of Star-2" + star2_x );
+          Debug.Log("new x position of Star-2" + star2_newX );
+          Vector2 star2_newPosition = new Vector2(star2_newX, star2_y);
+          Stars[2].transform.position = star2_newPosition;
+
+          Vector2 star4_currentPosition = Stars[3].transform.position;
+          float star4_x = star4_currentPosition.x;
+          float star4_y = star4_currentPosition.y;
+          float star4_newX = star4_x - 25;
+          Debug.Log("x position of Star-4" + star4_x );
+          Debug.Log("new x position of Star-4" + star4_newX );
+          Vector2 star4_newPosition = new Vector2(star4_newX, star4_y);
+          Stars[3].transform.position = star4_newPosition;
+
+
+
+
+          Stars[2].SetActive(true);
+          Stars[3].SetActive(true);
         }
         if( user_rating == 3)
         {
