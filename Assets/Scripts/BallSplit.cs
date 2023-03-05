@@ -55,6 +55,8 @@ public class BallSplit : MonoBehaviour
         
         //Clone the ball
         var go = Instantiate(collision.gameObject, collision.transform.position, collision.transform.rotation);
+        go.transform.parent = collision.transform.parent;
+        go.transform.localScale = collision.transform.localScale;
 
         //Add tags for the new balls
         if(collision.gameObject.tag=="PinkBall_RedBall")
