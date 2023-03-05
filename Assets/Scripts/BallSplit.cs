@@ -95,11 +95,8 @@ public class BallSplit : MonoBehaviour
         //Save collision in analytics
         AnalyticsManager._instance.analytics_split_record(levelName, DateTime.Now, splitterMomentColor, ballColorBeforeCollision, gameObject.name);
 
-        Debug.Log("Tag "  + gameObject.tag);
-        Debug.Log("Name "+ gameObject.name);
-
         //Update game state
-        GameStateTracking.UpdateGameStack(deletedIdList);
+        GameStateTracking.UpdateGameStack(deletedIdList, "Splitter script: " + gameObject.name);
     
     }
 }
