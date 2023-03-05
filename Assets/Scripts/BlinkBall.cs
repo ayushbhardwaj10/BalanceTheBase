@@ -16,7 +16,7 @@ public class BlinkBall : MonoBehaviour
     IEnumerator Start()
     {
         InvokeRepeating ("colorChange", 0.0f, 1.0f);
-        yield return new WaitForSeconds(5);
+        yield return new WaitForSeconds(25);
         InvokeRepeating ("destroyBalls", 0.0f, 1.0f);      
     }
 
