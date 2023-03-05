@@ -37,8 +37,11 @@ public class CheckLosingCondition : MonoBehaviour
             this.enabled = false; //added to get out of Update - IMPORTANT
             endTime = DateTime.Now;
             int time_taken = (int)(endTime - startTime).TotalSeconds;
+            Debug.Log("time taken in Losing Condition" + time_taken);
             int user_rating = GamesManager._instance.calculate_user_ratings(GamesManager.LOST, levelName, time_taken);
-            Debug.Log("User rating is " + user_rating);
+            Debug.Log("User rating in Losing Condition " + user_rating);
+            GetComponent<StarHandler>().starsAcheived(user_rating);            
+            Debug.Log("setting up Losing Condition pop-up");
 
             //Analytics for time taken
             AnalyticsManager._instance.analytics_time_takenn(levelName, time_taken, GamesManager.LOST);
