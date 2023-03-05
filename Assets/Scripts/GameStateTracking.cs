@@ -14,9 +14,9 @@ public class GameStateTracking : MonoBehaviour
             gameStack.Clear();
     }
 
-    public static void UpdateGameStack(List<int> deletedIDs)
+    public static void UpdateGameStack(List<int> deletedIDs, string message)
     {
-        Debug.Log("Updating game stack");
+        Debug.Log("UPDATE: Triggered by - " + message);
 
         gameStack.Push(new GameState(getState("BlueSplitterTriangle", deletedIDs),
                                         getState("RedSplitterTriangle", deletedIDs),
@@ -31,27 +31,19 @@ public class GameStateTracking : MonoBehaviour
                                         getState("Star_Canvas", deletedIDs))
                                         );
 
-        Debug.Log("Update Game state Stack size.." + gameStack.Count);
+        Debug.Log("UPDATE: Game state stack size after update - " + gameStack.Count);
     }
 
     public static void UndoLastMove()
     {
-        Debug.Log("Undoing last move");
-
         // The first move represents the initial state of the game and cannot be undone
         if (gameStack.Count <= 1)
             return;
 
         GameState prevState = gameStack.Peek();
 
-        Debug.Log("Before pop Stack size.." + gameStack.Count);
-        Debug.Log("Redsplitter count" + prevState.redSplitters.Count);
-        Debug.Log("Bluesplitter count" + prevState.blueSplitters.Count);
-        Debug.Log("Blinking splitter count" + prevState.blinkingSplitters.Count);
-
         // Remove the top most element
         gameStack.Pop();
-        Debug.Log("Pop Stack size.." + gameStack.Count);
 
         // Destroy all current inner game objects
         DestroyAllObjects();
@@ -59,11 +51,7 @@ public class GameStateTracking : MonoBehaviour
         // Resurrect everything from history
         prevState = gameStack.Peek();
 
-        Debug.Log("Stack size.." + gameStack.Count);
-        Debug.Log("Redsplitter count" + prevState.redSplitters.Count);
-        Debug.Log("Bluesplitter count" + prevState.blueSplitters.Count);
-        Debug.Log("Blinking splitter count" + prevState.blinkingSplitters.Count);
-
+        Debug.Log("UNDO: Game state stack size after undo - " + gameStack.Count);
 
         //--------todo: Find a way to get the main maze wall without using the GameObject.Find() function below--------//
         foreach (State state in prevState.mazeWalls)
@@ -170,7 +158,7 @@ public class GameStateTracking : MonoBehaviour
                 splitter.transform.rotation,
                 splitter.transform.localScale);
 
-            State obj = new State(transform, splitter.transform.parent);//GameObject.Find("Parent Walls").transform);
+            State obj = new State(transform, splitter.transform.parent);
 
             StateList.Add(obj);
         }
@@ -183,7 +171,7 @@ public class GameStateTracking : MonoBehaviour
         //Start every game with a clear stack
         clearStack();
 
-        UpdateGameStack(new List<int>());
+        UpdateGameStack(new List<int>(), "Start function");
     }
 
     private class GameState {
