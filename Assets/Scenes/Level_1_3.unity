@@ -2647,7 +2647,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: af33c0704779d4428a2e961b7b933535, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  losingPopup: {fileID: 0}
+  losingPopup: {fileID: 349746508}
 --- !u!1001 &1576045319
 PrefabInstance:
   m_ObjectHideFlags: 0
