@@ -167,7 +167,7 @@ public class GamesManager : MonoBehaviour
                 {
                     star_rating = (int)RATING.Three_Star;
                 }
-                else if (time_taken > 30 && time_taken < 45)
+                else
                 {
                     star_rating = (int)RATING.Two_Star;
                 }
@@ -177,11 +177,11 @@ public class GamesManager : MonoBehaviour
                 //}
                 break;
             case "Level_1":
-                if (time_taken <= 40)
+                if (time_taken <= 60)
                 {
                     star_rating = (int)RATING.Three_Star;
                 }
-                else if (time_taken > 40 && time_taken < 70)
+                else
                 {
                     star_rating = (int)RATING.Two_Star;
                 }
