@@ -163,16 +163,18 @@ public class GamesManager : MonoBehaviour
         switch (outerlevel)
         {
             case "Level_0":
-                if(time_taken <= 30)
+                if (time_taken <= 30)
                 {
                     star_rating = (int)RATING.Three_Star;
-                }else if(time_taken >30 && time_taken < 45)
+                }
+                else if (time_taken > 30 && time_taken < 45)
                 {
                     star_rating = (int)RATING.Two_Star;
-                }else
-                {
-                    star_rating = (int)RATING.One_Star;
                 }
+                //}else
+                //{
+                //    star_rating = (int)RATING.One_Star;
+                //}
                 break;
             case "Level_1":
                 if (time_taken <= 40)
@@ -183,10 +185,10 @@ public class GamesManager : MonoBehaviour
                 {
                     star_rating = (int)RATING.Two_Star;
                 }
-                else
-                {
-                    star_rating = (int)RATING.One_Star;
-                }
+                //else
+                //{
+                //    star_rating = (int)RATING.One_Star;
+                //}
                 break;
             case "Level_2": break;
             case "Level_3": break;
