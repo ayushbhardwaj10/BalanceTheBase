@@ -91,6 +91,7 @@ public class CheckWinCondition : MonoBehaviour
             {
                 SceneManager.LoadScene(load_scene);
             }
+
         }
    }
 
