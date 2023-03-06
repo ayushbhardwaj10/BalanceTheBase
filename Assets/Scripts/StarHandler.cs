@@ -35,11 +35,13 @@ public class StarHandler : MonoBehaviour
         }
         if( user_rating == 1)
         {
+           Debug.Log("user rating 1");
            Stars[2].SetActive(true);
            oneStar.SetActive(true);
         }
         if( user_rating == 2)        
         {
+          Debug.Log("User Rating 2");
           Vector2 star2_currentPosition = Stars[2].transform.position;
           float star2_x = star2_currentPosition.x;
           float star2_y = star2_currentPosition.y;
@@ -68,6 +70,7 @@ public class StarHandler : MonoBehaviour
         }
         if ( user_rating == 3)
         {
+          Debug.Log("User Rating 3");
           Stars[1].SetActive(true);
           Stars[2].SetActive(true);
           Stars[3].SetActive(true);
