@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 4468484092559349349}
   - component: {fileID: 5309687747830397524}
   - component: {fileID: 8106003554321386189}
+  - component: {fileID: -5071738104762288428}
   m_Layer: 0
   m_Name: PinkBallRedBall
   m_TagString: PinkBall_RedBall
@@ -99,6 +100,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d4be650aefd354ef6a34f03722c5ec9e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  prefab: {fileID: 0}
 --- !u!50 &5309687747830397524
 Rigidbody2D:
   serializedVersion: 4
@@ -136,3 +138,17 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.5
+--- !u!114 &-5071738104762288428
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4468484092559349346}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1683231de1a9249928270ebb100a9a0f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  prefab: {fileID: 0}
+  timer: 0

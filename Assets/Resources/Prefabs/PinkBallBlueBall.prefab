@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 1540235795487096888}
   - component: {fileID: 1540235795487096889}
   - component: {fileID: 4513029674549065906}
+  - component: {fileID: -6567250279919227899}
   m_Layer: 0
   m_Name: PinkBallBlueBall
   m_TagString: PinkBall_BlueBall
@@ -99,6 +100,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d4be650aefd354ef6a34f03722c5ec9e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  prefab: {fileID: 0}
 --- !u!58 &1540235795487096889
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -136,3 +138,17 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &-6567250279919227899
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1540235795487097285}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1683231de1a9249928270ebb100a9a0f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  prefab: {fileID: 0}
+  timer: 0
