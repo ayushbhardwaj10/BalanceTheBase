@@ -28,8 +28,9 @@ TagManager:
   - MazeWalls
   - GoalRegion
   - Star_Canvas
-  - PinkBall_RedBallClone
-  - PinkBall_BlueBallClone
+  - BlueText
+  - RedText
+  - NotEqualTag
   layers:
   - Default
   - TransparentFX

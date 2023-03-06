@@ -11,33 +11,46 @@ public class CheckWinCondition : MonoBehaviour
 
     DateTime startTime, endTime;
 
-    [SerializeField] private SpriteRenderer sprite1;
-    [SerializeField] private SpriteRenderer sprite2;
-    [SerializeField] private SpriteRenderer sprite3;
-    [SerializeField] private int sortingOrder = 0;
+    //[SerializeField] private SpriteRenderer sprite1;
+    //[SerializeField] private SpriteRenderer sprite2;
+    //[SerializeField] private SpriteRenderer sprite3;
+    //[SerializeField] private int sortingOrder = 0;
 
     void Start()
     {
         startTime = DateTime.Now;
 
-        sprite1.sortingOrder = sortingOrder;
-        sprite2.sortingOrder = sortingOrder + 1;
-        sprite3.sortingOrder = sortingOrder + 1;
+        //sprite1.sortingOrder = sortingOrder;
+        //sprite2.sortingOrder = sortingOrder + 1;
+        //sprite3.sortingOrder = sortingOrder + 1;
     }
 
 
     IEnumerator OnTriggerEnter2D(Collider2D collision){
-       if("BlueBall".Equals(collision.gameObject.tag) || "RedBall".Equals(collision.gameObject.tag)){
+       if("BlueBall".Equals(collision.gameObject.tag) || "RedBall".Equals(collision.gameObject.tag) ||
+            "PinkBall_BlueBall".Equals(collision.gameObject.tag) || "PinkBall_RedBall".Equals(collision.gameObject.tag))
+        {
             currentCollisions.Add(collision.gameObject);
        }
 
+        Debug.Log("BLUE - "  + GameObject.FindGameObjectsWithTag("BlueBall").Length);
+        Debug.Log("RED -" + GameObject.FindGameObjectsWithTag("RedBall").Length);
+
+
         int len = currentCollisions.Count ;
+        Debug.Log("len - " + currentCollisions.Count);
+
+        foreach (GameObject obj in currentCollisions)
+        {
+            Debug.Log("TEST - " + obj);
+        }
 
         // len/2 because its counting twice for each object added
         if ((len/2 == (GameObject.FindGameObjectsWithTag("BlueBall").Length +
-       GameObject.FindGameObjectsWithTag("RedBall").Length)) &&
-       !GameObject.FindWithTag("PinkBall_BlueBall") && !GameObject.FindWithTag("PinkBall_RedBall") &&
-       (GameObject.FindGameObjectsWithTag("BlueBall").Length == GameObject.FindGameObjectsWithTag("RedBall").Length)) {
+       GameObject.FindGameObjectsWithTag("RedBall").Length + GameObject.FindGameObjectsWithTag("PinkBall_BlueBall").Length
+       + GameObject.FindGameObjectsWithTag("PinkBall_RedBall").Length)) &&
+       (GameObject.FindGameObjectsWithTag("BlueBall").Length + GameObject.FindGameObjectsWithTag("PinkBall_BlueBall").Length
+       == GameObject.FindGameObjectsWithTag("RedBall").Length + GameObject.FindGameObjectsWithTag("PinkBall_RedBall").Length)) {
             
 
             string levelName = SceneManager.GetActiveScene().name;
@@ -84,6 +97,7 @@ public class CheckWinCondition : MonoBehaviour
 
    void OnTriggerExit2D(Collider2D collision) {
         // Remove the GameObject collided with from the list.
-        currentCollisions.Remove (collision.gameObject);
+        Debug.Log("I EXIT");
+        currentCollisions.Remove(collision.gameObject);
    }
 }
