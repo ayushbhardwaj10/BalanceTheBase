@@ -87,10 +87,11 @@ public class CheckWinCondition : MonoBehaviour
             string load_scene = "Level_" + outer_level.ToString() + "_" + inner_level.ToString();
             
             Debug.Log("Auto Load scene " + load_scene);
-            if (load_scene != "Level_1_4")
+            if (load_scene != "Level_2_4")
             {
                 SceneManager.LoadScene(load_scene);
             }
+
         }
    }
 
