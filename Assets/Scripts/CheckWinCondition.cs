@@ -26,18 +26,9 @@ public class CheckWinCondition : MonoBehaviour
             currentCollisions.Add(collision.gameObject);
        }
 
-        Debug.Log("BLUE - "  + GameObject.FindGameObjectsWithTag("BlueBall").Length);
-        Debug.Log("RED -" + GameObject.FindGameObjectsWithTag("RedBall").Length);
-
 
         int len = currentCollisions.Count ;
-        Debug.Log("len - " + currentCollisions.Count);
-
-        foreach (GameObject obj in currentCollisions)
-        {
-            Debug.Log("TEST - " + obj);
-        }
-
+        
         // len/2 because its counting twice for each object added
         if ((len/2 == (GameObject.FindGameObjectsWithTag("BlueBall").Length +
        GameObject.FindGameObjectsWithTag("RedBall").Length + GameObject.FindGameObjectsWithTag("PinkBall_BlueBall").Length
