@@ -35,7 +35,7 @@ public class CreatePinkWall : MonoBehaviour
                 go.transform.parent = gameObject.transform.parent;
                 go.transform.localScale = gameObject.transform.localScale;
 
-                AnalyticsManager._instance.analytics_pink_walls(go.transform.localScale, gameObject.transform.name, DateTime.Now,GamesManager.powerAttainStartTime,levelName);
+                // AnalyticsManager._instance.analytics_pink_walls(go.transform.localScale, gameObject.transform.name, DateTime.Now,GamesManager.powerAttainStartTime,levelName);
                 //GamesManager.powerAttainStartTime = DateTime.MinValue;
 
                 Debug.Log("Destroying game object - " + gameObject.name);

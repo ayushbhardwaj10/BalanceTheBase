@@ -83,7 +83,7 @@ MonoBehaviour:
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
   m_DynamicPixelsPerUnit: 1
-  m_PresetInfoIsWorld: 1
+  m_PresetInfoIsWorld: 0
 --- !u!114 &8624486414464679591
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -115,7 +115,6 @@ GameObject:
   - component: {fileID: 8624486415604111847}
   - component: {fileID: 8624486415604111844}
   - component: {fileID: 8624486415604111845}
-  - component: {fileID: 8624486415604111842}
   m_Layer: 0
   m_Name: star
   m_TagString: PowerUp_Star
@@ -272,15 +271,3 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 18.563553, y: 18.976341}
   m_EdgeRadius: 0
---- !u!114 &8624486415604111842
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8624486415604111840}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b9ac24e54c15c419da176f781cd8f69f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 

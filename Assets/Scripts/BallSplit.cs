@@ -63,6 +63,10 @@ public class BallSplit : MonoBehaviour
             {
                 collision.gameObject.tag = "PinkBall_BlueBall"; //original ball
                 go.gameObject.tag = "PinkBall_BlueBall"; //cloned ball
+                
+                //copy time remaining from original ball
+                int org_time = collision.gameObject.GetComponent<CreateBlinkingBall>().timer;
+                go.gameObject.GetComponent<CreateBlinkingBall>().updateTimer(org_time - 1);
             }
         }
         else if(collision.gameObject.tag=="PinkBall_BlueBall")
@@ -71,6 +75,10 @@ public class BallSplit : MonoBehaviour
             {
                 collision.gameObject.tag = "PinkBall_RedBall";
                 go.gameObject.tag = "PinkBall_RedBall";
+
+                //copy time remaining from original ball
+                int org_time = collision.gameObject.GetComponent<CreateBlinkingBall>().timer;
+                go.gameObject.GetComponent<CreateBlinkingBall>().updateTimer(org_time - 1);
             }
         }
         else
