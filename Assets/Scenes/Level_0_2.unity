@@ -485,7 +485,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 180825152}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 10ab34fdf2c8fd345ae042277334e4b2, type: 3}
   m_Name: 
@@ -2812,6 +2812,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Rating+lostpopup
       objectReference: {fileID: 0}
+    - target: {fileID: 7167951570421920449, guid: 1939d4fe564e9ea4bb5611e8ce6720a4, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7167951570421920454, guid: 1939d4fe564e9ea4bb5611e8ce6720a4, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -2895,6 +2899,10 @@ PrefabInstance:
     - target: {fileID: 7167951570421920454, guid: 1939d4fe564e9ea4bb5611e8ce6720a4, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7167951570771592891, guid: 1939d4fe564e9ea4bb5611e8ce6720a4, type: 3}
+      propertyPath: m_text
+      value: "Better Luck Next Time! \n\n        Blue != Red"
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1939d4fe564e9ea4bb5611e8ce6720a4, type: 3}

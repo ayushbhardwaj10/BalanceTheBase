@@ -89,7 +89,10 @@ public class GamesManager : MonoBehaviour
         {
             star_rating = 0;
         }
+
         return star_rating;
+
+
 
     }
 
