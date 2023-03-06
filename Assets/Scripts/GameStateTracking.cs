@@ -126,6 +126,8 @@ public class GameStateTracking : MonoBehaviour
         newObject.transform.rotation = state.transform.rotation;
         newObject.transform.localScale = state.transform.scale;
         newObject.transform.parent = state.parent;
+        
+        newObject.name = state.name;
     }
 
     private static void DestroyAllObjects()
@@ -158,7 +160,7 @@ public class GameStateTracking : MonoBehaviour
                 splitter.transform.rotation,
                 splitter.transform.localScale);
 
-            State obj = new State(transform, splitter.transform.parent);
+            State obj = new State(transform, splitter.transform.parent, splitter.name);
 
             StateList.Add(obj);
         }
@@ -224,13 +226,15 @@ public class GameStateTracking : MonoBehaviour
     }
 
     private class State {
+        public string name;
         public CustomTransform transform;
         public Transform parent;
 
-        public State(CustomTransform cust, Transform par)
+        public State(CustomTransform cust, Transform par, string nam)
         {
             transform = cust;
             parent = par;
+            name = nam;
         }
     }
 
