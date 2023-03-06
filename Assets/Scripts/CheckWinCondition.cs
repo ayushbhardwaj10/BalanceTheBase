@@ -72,7 +72,7 @@ public class CheckWinCondition : MonoBehaviour
 
             //Auto Level Movement
             inner_level++;
-            if(levelName == "Level_0_4")
+            if(levelName == "Level_0_4" || levelName == "Level_1_4")
             {
                 outer_level++;
                 inner_level = 1;
