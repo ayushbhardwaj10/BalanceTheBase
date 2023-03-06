@@ -51,20 +51,24 @@ public class GameStateTracking : MonoBehaviour
         //Side effect
         CheckLosingCondition.lostStatus = false;
 
-        // The first move represents the initial state of the game and cannot be undone
-        if (gameStack.Count <= 1)
+        
+        if (gameStack.Count < 1) // Worst case - Just as a fail safe
+        {
+            clearStack();
+            UpdateGameStack(new List<int>(), "Fail safe function");
             return;
-
-        GameState prevState = gameStack.Peek();
-
-        // Remove the top most element
-        gameStack.Pop();
+        }
+        else if(gameStack.Count > 1) // The first move represents the initial state of the game and cannot be undone
+        {
+            // Remove the top most element
+            gameStack.Pop();
+        }
 
         // Destroy all current inner game objects
         DestroyAllObjects();
 
         // Resurrect everything from history
-        prevState = gameStack.Peek();
+        GameState prevState = gameStack.Peek();
 
         Debug.Log("UNDO: Game state stack size after undo - " + gameStack.Count);
 
