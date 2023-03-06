@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class ColorChanger : MonoBehaviour
 {
-     bool check = true;
+     bool check = false;
      Color redColor = new Vector4(0.7830189f, 0.1578784f, 0.1071111f,1.0f);
      Color blueColor = new Vector4(0.09019608f, 0.6f, 0.9058824f,1.0f);
 
