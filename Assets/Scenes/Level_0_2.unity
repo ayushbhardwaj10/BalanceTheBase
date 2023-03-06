@@ -859,11 +859,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 4693068948004847481, guid: 1939d4fe564e9ea4bb5611e8ce6720a4, type: 3}
   m_PrefabInstance: {fileID: 4693068948449599531}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &464048580 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5004023458229489566, guid: 6ff7c463e5aee44c6a8fef0207123f25, type: 3}
-  m_PrefabInstance: {fileID: 1953861292}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &594034511
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1638,7 +1633,6 @@ GameObject:
   - component: {fileID: 1117013831}
   - component: {fileID: 1117013830}
   - component: {fileID: 1117013829}
-  - component: {fileID: 1117013834}
   m_Layer: 5
   m_Name: Canvas-2
   m_TagString: Untagged
@@ -1741,19 +1735,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
---- !u!114 &1117013834
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1117013828}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: af33c0704779d4428a2e961b7b933535, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  losingPopup: {fileID: 2474882674879271658}
 --- !u!1 &1241355512 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4693068947249738963, guid: 1939d4fe564e9ea4bb5611e8ce6720a4, type: 3}
@@ -2273,19 +2254,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 1577686646177233954, guid: 6ff7c463e5aee44c6a8fef0207123f25, type: 3}
   m_PrefabInstance: {fileID: 1953861292}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1953861297
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 464048580}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 74b0caf126a784738a53c0666421ff6a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  winningPopup: {fileID: 4979364627366611064}
 --- !u!4 &1986357221 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1796985990771073122, guid: 36f4ffa09f5707b478a645b4c1c58deb, type: 3}

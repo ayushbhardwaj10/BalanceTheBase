@@ -48,6 +48,9 @@ public class GameStateTracking : MonoBehaviour
 
     public static void UndoLastMove()
     {
+        //Side effect
+        CheckLosingCondition.lostStatus = false;
+
         // The first move represents the initial state of the game and cannot be undone
         if (gameStack.Count <= 1)
             return;
