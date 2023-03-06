@@ -11,7 +11,7 @@ public class CreateBlinkingBall : MonoBehaviour
    void Start()
    {
        if("PinkBall_RedBall" == gameObject.tag || "PinkBall_BlueBall" == gameObject.tag){
-          timer = 10;
+          timer = 8;
           InvokeRepeating ("runTimer", 0.0f, 1.0f);
        } 
        if(gameObject.tag=="BlueBall"){
@@ -72,7 +72,7 @@ public class CreateBlinkingBall : MonoBehaviour
             Destroy(gameObject);
           }
           else if("PinkBall_RedBall" == gameObject.tag || "PinkBall_BlueBall" == gameObject.tag){
-            timer += 10;
+            timer += 8;
           } 
 
           //Update game state
