@@ -3138,30 +3138,8 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 1577686646177233954, guid: 6ff7c463e5aee44c6a8fef0207123f25, type: 3}
   m_PrefabInstance: {fileID: 1841261146}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &1885588096 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5034577519754109268, guid: 9bb6e0e24f7e943d8b29c7d63b6b09fb, type: 3}
-  m_PrefabInstance: {fileID: 1445812198}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1885588097 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1534219920087487208, guid: 9bb6e0e24f7e943d8b29c7d63b6b09fb, type: 3}
   m_PrefabInstance: {fileID: 1445812198}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1885588098
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1885588096}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 74b0caf126a784738a53c0666421ff6a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  winningPopup: {fileID: 0}
-  sprite1: {fileID: 0}
-  sprite2: {fileID: 0}
-  sprite3: {fileID: 0}
-  sortingOrder: 0
