@@ -17,7 +17,6 @@ public class RedFindBallCount : MonoBehaviour
     void Update()
     {
         int countRed = GameObject.FindGameObjectsWithTag("RedBall").Length + GameObject.FindGameObjectsWithTag("PinkBall_RedBall").Length;
-        Debug.Log("Red count: " + countRed);
         ballCountText.text = countRed.ToString() + " R";
     }
 }
