@@ -7,7 +7,7 @@ public class TimerChangeScript : MonoBehaviour
 {
     private int timer;
     public TextMeshProUGUI timerText;
-    CreateBlinkingBall blinkingBall = new CreateBlinkingBall();
+    // CreateBlinkingBall blinkingBall = new CreateBlinkingBall();
 
     public int timerVal
     {
@@ -18,13 +18,14 @@ public class TimerChangeScript : MonoBehaviour
         set
         {
             timer = value;
+            Debug.Log(timer);
         }
     }
 
     // Start is called before the first frame update
     void Start()
     {
-        timerVal = blinkingBall.timer;
+        // timerVal = blinkingBall.timer;
     }
 
     // Update is called once per frame

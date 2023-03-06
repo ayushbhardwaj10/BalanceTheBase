@@ -20,12 +20,8 @@ public class FindBallCount : MonoBehaviour
         int countRed = GameObject.FindGameObjectsWithTag("RedBall").Length + GameObject.FindGameObjectsWithTag("PinkBall_RedBall").Length;
         int countBlue = GameObject.FindGameObjectsWithTag("BlueBall").Length + GameObject.FindGameObjectsWithTag("PinkBall_BlueBall").Length;
 
-        Debug.Log("Red count: " + countRed);
-        Debug.Log("Blue count: " + countBlue);
-
         if (countRed == countBlue)
         {
-            Debug.Log("should disable");
             ballCountText.text = "";
         }
         else
