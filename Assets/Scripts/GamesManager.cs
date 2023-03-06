@@ -160,10 +160,10 @@ public class GamesManager : MonoBehaviour
         switch (outerlevel)
         {
             case "Level_0":
-                if(time_taken <= 15)
+                if(time_taken <= 30)
                 {
                     star_rating = (int)RATING.Three_Star;
-                }else if(time_taken >15 && time_taken < 30)
+                }else if(time_taken >30 && time_taken < 45)
                 {
                     star_rating = (int)RATING.Two_Star;
                 }else
