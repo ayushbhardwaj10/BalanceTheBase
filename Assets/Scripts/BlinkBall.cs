@@ -40,19 +40,19 @@ public class BlinkBall : MonoBehaviour
     
     void colorChange()
     {
-           if(gameObject.tag.Contains("BlueBall")){
-                originalColor = blueColor;
-           } else {
-                originalColor = redColor;
-           }  
-           if(check==true) {
-                gameObject.GetComponent<SpriteRenderer> ().color = originalColor;
-                check = false;
-            } 
-            else {
-                gameObject.GetComponent<SpriteRenderer> ().color = pinkColor;
-                check = true;
-            }       
+        if(gameObject.tag.Contains("BlueBall")){
+            originalColor = blueColor;
+        } else {
+            originalColor = redColor;
+        }  
+        if(check==true) {
+            gameObject.GetComponent<SpriteRenderer> ().color = originalColor;
+            check = false;
+        } 
+        else {
+            gameObject.GetComponent<SpriteRenderer> ().color = pinkColor;
+            check = true;
+        }
     }
 
 }

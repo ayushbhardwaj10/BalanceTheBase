@@ -150,6 +150,7 @@ GameObject:
   - component: {fileID: 1498344973771240263}
   - component: {fileID: 6519018203683985469}
   - component: {fileID: 1685311637163216353}
+  - component: {fileID: 3798803506280387437}
   m_Layer: 5
   m_Name: Timer
   m_TagString: Untagged
@@ -291,6 +292,19 @@ MonoBehaviour:
   maxSpeed: 0
   acceleration: 0
   customPivot: {x: 0, y: 0, z: 0}
+--- !u!114 &3798803506280387437
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3191469307320550920}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a35116b485043486d86818ff7753a703, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  timerText: {fileID: 6519018203683985469}
 --- !u!1 &6911454132475770342
 GameObject:
   m_ObjectHideFlags: 0
