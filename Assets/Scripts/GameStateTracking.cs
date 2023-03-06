@@ -1,12 +1,24 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameStateTracking : MonoBehaviour
 {
     public static GameObject blueTrianglePrefab;
     
+
+    
     static Stack<GameState> gameStack = new Stack<GameState>();
+
+    void Start()
+    {
+        //Start every game with a clear stack
+        clearStack();
+        
+        
+        UpdateGameStack(new List<int>(), "Start function");
+    }
 
     // clear stack while restarting the scene view
     public static void clearStack(){
@@ -118,6 +130,9 @@ public class GameStateTracking : MonoBehaviour
             GameObject newObject = Instantiate(Resources.Load<GameObject>("Prefabs/Star Canvas"));
             setGameObjectTransform(newObject, state);
         }
+
+        string levelName = SceneManager.GetActiveScene().name;
+        AnalyticsManager._instance.analytics_undo_last_move(levelName, gameStack.Count);
     }
 
     private static void setGameObjectTransform(GameObject newObject, State state)
@@ -126,6 +141,8 @@ public class GameStateTracking : MonoBehaviour
         newObject.transform.rotation = state.transform.rotation;
         newObject.transform.localScale = state.transform.scale;
         newObject.transform.parent = state.parent;
+        
+        newObject.name = state.name;
     }
 
     private static void DestroyAllObjects()
@@ -158,7 +175,7 @@ public class GameStateTracking : MonoBehaviour
                 splitter.transform.rotation,
                 splitter.transform.localScale);
 
-            State obj = new State(transform, splitter.transform.parent);
+            State obj = new State(transform, splitter.transform.parent, splitter.name);
 
             StateList.Add(obj);
         }
@@ -166,13 +183,7 @@ public class GameStateTracking : MonoBehaviour
         return StateList;
     }
 
-    void Start()
-    {
-        //Start every game with a clear stack
-        clearStack();
-
-        UpdateGameStack(new List<int>(), "Start function");
-    }
+    
 
     private class GameState {
         public List<State> blueSplitters;
@@ -224,13 +235,15 @@ public class GameStateTracking : MonoBehaviour
     }
 
     private class State {
+        public string name;
         public CustomTransform transform;
         public Transform parent;
 
-        public State(CustomTransform cust, Transform par)
+        public State(CustomTransform cust, Transform par, string nam)
         {
             transform = cust;
             parent = par;
+            name = nam;
         }
     }
 
