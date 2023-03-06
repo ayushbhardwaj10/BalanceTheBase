@@ -7,6 +7,11 @@ public class StarHandler : MonoBehaviour
     public GameObject[] Stars;
     public int numofretry;
     public bool win;
+    public GameObject oneStar;
+    public GameObject twoStar;
+    public GameObject threeStar;
+
+
     // Start is called before the first frame update
     void Start()
     {
@@ -19,14 +24,19 @@ public class StarHandler : MonoBehaviour
     public void starsAcheived(int user_rating){
         Debug.Log("function called in starsAcheived ");
         Debug.Log("User rating in Star script" + user_rating);
+        oneStar.SetActive(false);
+        twoStar.SetActive(false);
+        threeStar.SetActive(false);
 
-        if( user_rating == 0)
+
+        if ( user_rating == 0)
         {
            Debug.Log("No Rating assinged for user");
         }
         if( user_rating == 1)
         {
            Stars[2].SetActive(true);
+           oneStar.SetActive(true);
         }
         if( user_rating == 2)        
         {
@@ -53,14 +63,18 @@ public class StarHandler : MonoBehaviour
 
           Stars[2].SetActive(true);
           Stars[3].SetActive(true);
+          twoStar.SetActive(true);
+
         }
-        if( user_rating == 3)
+        if ( user_rating == 3)
         {
           Stars[1].SetActive(true);
           Stars[2].SetActive(true);
           Stars[3].SetActive(true);
+          threeStar.SetActive(true);
+
         }
-        if( user_rating == 4)
+        if ( user_rating == 4)
         {
           Stars[1].SetActive(true);
           Stars[2].SetActive(true);

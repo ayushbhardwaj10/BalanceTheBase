@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 8010226917099150031}
   - component: {fileID: 2911653851112731838}
   - component: {fileID: 2911653851112731811}
+  - component: {fileID: 8112411268867255144}
   m_Layer: 0
   m_Name: Goal Region
   m_TagString: GoalRegion
@@ -101,10 +102,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   winningPopup: {fileID: 0}
-  sprite1: {fileID: 89329802032002078}
-  sprite2: {fileID: 0}
-  sprite3: {fileID: 0}
-  sortingOrder: 0
 --- !u!61 &8010226917099150031
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -178,3 +175,26 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &8112411268867255144
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2911653850526773525}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 10ab34fdf2c8fd345ae042277334e4b2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Stars:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  numofretry: 0
+  win: 0
+  oneStar: {fileID: 0}
+  twoStar: {fileID: 0}
+  threeStar: {fileID: 0}
