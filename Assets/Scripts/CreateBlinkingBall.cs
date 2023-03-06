@@ -12,6 +12,10 @@ public class CreateBlinkingBall : MonoBehaviour
    {
        if("PinkBall_RedBall" == gameObject.tag || "PinkBall_BlueBall" == gameObject.tag){
           timer = 8;
+
+          //For setting the timer
+          gameObject.transform.GetChild(0).gameObject.transform.GetChild(0).GetComponent<TimerChangeScript>().timerVal = timer;
+
           InvokeRepeating ("runTimer", 0.0f, 1.0f);
        } 
        if(gameObject.tag=="BlueBall"){
@@ -23,25 +27,21 @@ public class CreateBlinkingBall : MonoBehaviour
 
    void Update()
    {
-        // if((gameObject.tag=="PinkBall_BlueBall" || gameObject.tag=="PinkBall_RedBall")){
-
-        //   var go = Instantiate(prefab, gameObject.transform.position, gameObject.transform.rotation);
-
-        //   go.transform.parent = gameObject.transform.parent;
-        //   go.transform.localScale = gameObject.transform.localScale;
-        //   Destroy(gameObject);
-        // }  
+    
    }
 
     void runTimer()
     {
+      //For setting the timer
+      gameObject.transform.GetChild(0).gameObject.transform.GetChild(0).GetComponent<TimerChangeScript>().timerVal = timer;
+
       if (timer <= 0)
       {
         gameObject.GetComponent<BlinkBall>().destroyBalls();
       }
 
       // Run the timer every second
-      timer -= 1;      
+      timer -= 1;    
     }
 
     public void updateTimer(int newTime)

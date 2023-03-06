@@ -11,18 +11,11 @@ public class CheckWinCondition : MonoBehaviour
 
     DateTime startTime, endTime;
 
-    //[SerializeField] private SpriteRenderer sprite1;
-    //[SerializeField] private SpriteRenderer sprite2;
-    //[SerializeField] private SpriteRenderer sprite3;
-    //[SerializeField] private int sortingOrder = 0;
 
     void Start()
     {
         startTime = DateTime.Now;
 
-        //sprite1.sortingOrder = sortingOrder;
-        //sprite2.sortingOrder = sortingOrder + 1;
-        //sprite3.sortingOrder = sortingOrder + 1;
     }
 
 
