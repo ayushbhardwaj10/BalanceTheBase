@@ -12,7 +12,7 @@ public class ColorChanger : MonoBehaviour
     
     void Start()
     {
-        InvokeRepeating("changeColor", 1.0f, 2.0f);
+        InvokeRepeating("changeColor", 1.0f, 4.0f);
     }
 
     void changeColor()
