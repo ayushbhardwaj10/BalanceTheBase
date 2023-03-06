@@ -776,6 +776,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Rating+winpopup
       objectReference: {fileID: 0}
+    - target: {fileID: 14615013505231105, guid: 7fc47fdc0962d1e489f99123b6120cd4, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1092450644795613904, guid: 7fc47fdc0962d1e489f99123b6120cd4, type: 3}
       propertyPath: m_Sprite
       value: 
@@ -2497,7 +2501,8 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 8112411268867255144, guid: 36322ddd64ede447f8a6fbffa428a4bd, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 36322ddd64ede447f8a6fbffa428a4bd, type: 3}
 --- !u!4 &1257966301 stripped
 Transform:
@@ -2529,6 +2534,9 @@ MonoBehaviour:
   - {fileID: 233700303}
   numofretry: 0
   win: 0
+  oneStar: {fileID: 2026312478}
+  twoStar: {fileID: 2026312477}
+  threeStar: {fileID: 2026312476}
 --- !u!1001 &1312436824
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3363,6 +3371,9 @@ MonoBehaviour:
   Stars: []
   numofretry: 0
   win: 0
+  oneStar: {fileID: 0}
+  twoStar: {fileID: 0}
+  threeStar: {fileID: 0}
 --- !u!114 &1575716606
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4591,6 +4602,21 @@ PrefabInstance:
 Transform:
   m_CorrespondingSourceObject: {fileID: 1577686646177233954, guid: 6ff7c463e5aee44c6a8fef0207123f25, type: 3}
   m_PrefabInstance: {fileID: 1983700544}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &2026312476 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8881166101238218719, guid: 7fc47fdc0962d1e489f99123b6120cd4, type: 3}
+  m_PrefabInstance: {fileID: 233700301}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &2026312477 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 320496137682140970, guid: 7fc47fdc0962d1e489f99123b6120cd4, type: 3}
+  m_PrefabInstance: {fileID: 233700301}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &2026312478 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 14615014437525213, guid: 7fc47fdc0962d1e489f99123b6120cd4, type: 3}
+  m_PrefabInstance: {fileID: 233700301}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &2061835391
 PrefabInstance:
