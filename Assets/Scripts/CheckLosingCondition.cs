@@ -40,8 +40,8 @@ public class CheckLosingCondition : MonoBehaviour
             Debug.Log("time taken in Losing Condition" + time_taken);
             int user_rating = GamesManager._instance.calculate_user_ratings(GamesManager.LOST, levelName, time_taken);
             Debug.Log("User rating in Losing Condition " + user_rating);
-            GetComponent<StarHandler>().starsAcheived(user_rating);            
-            Debug.Log("setting up Losing Condition pop-up");
+            //GetComponent<StarHandler>().starsAcheived(user_rating);            
+            //Debug.Log("setting up Losing Condition pop-up");
 
             //Analytics for time taken
             AnalyticsManager._instance.analytics_time_takenn(levelName, time_taken, GamesManager.LOST);
