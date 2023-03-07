@@ -998,6 +998,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 7355911628047040952, guid: b6950ea4979354f138209b612efcedf2, type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7355911628047040952, guid: b6950ea4979354f138209b612efcedf2, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 199.88791
+      objectReference: {fileID: 0}
+    - target: {fileID: 7355911628047040952, guid: b6950ea4979354f138209b612efcedf2, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -442.56387
+      objectReference: {fileID: 0}
     - target: {fileID: 7355911628659970384, guid: b6950ea4979354f138209b612efcedf2, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -1068,7 +1080,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7355911628659970384, guid: b6950ea4979354f138209b612efcedf2, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 214.5
+      value: 215
       objectReference: {fileID: 0}
     - target: {fileID: 7355911628659970384, guid: b6950ea4979354f138209b612efcedf2, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -1085,6 +1097,10 @@ PrefabInstance:
     - target: {fileID: 7355911628659970388, guid: b6950ea4979354f138209b612efcedf2, type: 3}
       propertyPath: m_Name
       value: Ball Count Canvas
+      objectReference: {fileID: 0}
+    - target: {fileID: 7355911628659970390, guid: b6950ea4979354f138209b612efcedf2, type: 3}
+      propertyPath: m_PresetInfoIsWorld
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b6950ea4979354f138209b612efcedf2, type: 3}
