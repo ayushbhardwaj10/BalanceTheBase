@@ -6,7 +6,7 @@ using System;
 public class SplitterDetails
 {
     public string level, splitterColor, ballColor, splitter_id;
-    DateTime collisionTime;
+    public DateTime collisionTime;
  
     public SplitterDetails(string level,DateTime dateTime,string splitterColor,string ballColor,string splitter_id)
     {

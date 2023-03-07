@@ -10,18 +10,34 @@ public class BlinkBall : MonoBehaviour
     bool destroy = true;
     bool check = false;
     Color originalColor;
+    // int timer = 0;
     public GameObject prefab;
 
 
-    IEnumerator Start()
+    void Start()
     {
         InvokeRepeating ("colorChange", 0.0f, 1.0f);
-        yield return new WaitForSeconds(5);
-        InvokeRepeating ("destroyBalls", 0.0f, 1.0f);      
+        // yield return new WaitForSeconds(timer);
+        // InvokeRepeating ("destroyBalls", 0.0f, 1.0f);    
     }
 
+    // void Update(){
+    //     if(gameObject.tag == "PinkBall_BlueBall" || gameObject.tag=="PinkBall_RedBall"){
+    //         callRepeatedly();
+    //     }
+    // }
 
-    void destroyBalls()
+    // IEnumerator callRepeatedly(){
+    //     InvokeRepeating ("colorChange", 0.0f, 1.0f);
+    //     yield return new WaitForSeconds(timer);
+    //     InvokeRepeating ("destroyBalls", 0.0f, 1.0f); 
+    // }
+
+    // public void updateTimer(int newTime){
+    //     timer = newTime;
+    // }
+
+    public void destroyBalls()
     {
         if(gameObject.tag.Contains("BlueBall")){
            prefab = Resources.Load<GameObject>("Prefabs/Blue Ball");
