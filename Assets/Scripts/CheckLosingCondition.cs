@@ -49,8 +49,12 @@ public class CheckLosingCondition : MonoBehaviour
             //GetComponent<StarHandler>().starsAcheived(user_rating);            
             //Debug.Log("setting up Losing Condition pop-up");
 
+            RestartButton.prev_level = SceneManager.GetActiveScene().name;
+          
+            Debug.Log("Prev scene lost " + RestartButton.prev_level);
+
             //Analytics for time taken
-            AnalyticsManager._instance.analytics_time_takenn(levelName, time_taken, GamesManager.LOST);
+            AnalyticsManager._instance.analytics_time_takenn(levelName, time_taken, GamesManager.LOST, RestartButton.isRestartClicked);
 
             //Analytics for user ratings
             AnalyticsManager._instance.analytics_user_ratings(levelName, time_taken, user_rating, GamesManager.LOST);

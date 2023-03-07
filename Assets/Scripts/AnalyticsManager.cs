@@ -9,6 +9,7 @@ public class AnalyticsManager : MonoBehaviour
 {
     public static AnalyticsManager _instance;
     public int _sessionId;
+    
 
     [SerializeField] private string time_taken_url = @"https://docs.google.com/forms/u/1/d/e/1FAIpQLScaIHhPlLRkFO-Jja0Eq32Wl4THz28OhYFS-uoVHWFrNGy5Bg/formResponse";
     [SerializeField] private string split_record_url = @"https://docs.google.com/forms/u/1/d/e/1FAIpQLSdHoIbw4HHcJezfd5MVJRBupJOwur0xOc5lfmEPC60SEABq1w/formResponse";
@@ -28,19 +29,20 @@ public class AnalyticsManager : MonoBehaviour
         DontDestroyOnLoad(this.gameObject);
     }
 
-    public void analytics_time_takenn(string level, int timeTaken, string gameStatus)
+    public void analytics_time_takenn(string level, int timeTaken, string gameStatus, string isRestartClicked)
     {
         WWWForm form_1 = new WWWForm();
         form_1.AddField("entry.1716623696", _sessionId.ToString());
         form_1.AddField("entry.1672803728", level);
         form_1.AddField("entry.796460226", timeTaken.ToString());
         form_1.AddField("entry.269785053", gameStatus);
+        form_1.AddField("entry.1769943241", isRestartClicked);
         Debug.Log("Analytics : time taken ");
         StartCoroutine(Post(form_1, time_taken_url));
 
     }
 
-    public void analytics_split_record(string level, DateTime collisionTime,string splitterColor, string ballColor,string splitter_id)
+    public void analytics_split_record(string level, DateTime collisionTime,string splitterColor, string ballColor,string splitter_id,string isRestartClicked)
     {
         WWWForm form = new WWWForm();
         form.AddField("entry.192462917", _sessionId.ToString());
@@ -49,17 +51,19 @@ public class AnalyticsManager : MonoBehaviour
         form.AddField("entry.1020257333", splitterColor);
         form.AddField("entry.1644182129", ballColor);
         form.AddField("entry.1229735257", splitter_id);
+        form.AddField("entry.435186845", isRestartClicked);
         Debug.Log("AnalyticsManager:analytics_split_record");
         StartCoroutine(Post(form, split_record_url));
 
     }
 
-    public void analytics_levelwise_restart(string level, DateTime dateTime)
+    public void analytics_levelwise_restart(string level, DateTime dateTime, string isRestartClicked)
     {
         WWWForm form_2 = new WWWForm();
         form_2.AddField("entry.1522385615", _sessionId.ToString());
         form_2.AddField("entry.127452655", dateTime.ToString());
         form_2.AddField("entry.1558926028",level);
+        form_2.AddField("entry.2100795516", isRestartClicked);
         Debug.Log("Analytics : Levelwise restart");
         StartCoroutine(Post(form_2,levelwise_restart_url));
     }

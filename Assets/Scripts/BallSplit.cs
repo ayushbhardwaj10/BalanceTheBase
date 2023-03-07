@@ -100,8 +100,12 @@ public class BallSplit : MonoBehaviour
         //Get splitter colour based on
         splitterMomentColor = collision.gameObject.tag.Contains("RedBall") ? "RedSplitterTriangle" : "BlueSplitterTriangle";
 
+        Debug.Log("Restttarrrt " + RestartButton.isRestartClicked);
+       
+        
+
         //Save collision in analytics
-        AnalyticsManager._instance.analytics_split_record(levelName, DateTime.Now, splitterMomentColor, ballColorBeforeCollision, gameObject.name);
+        AnalyticsManager._instance.analytics_split_record(levelName, DateTime.Now, splitterMomentColor, ballColorBeforeCollision, gameObject.name,RestartButton.isRestartClicked);
 
         //Update game state
         GameStateTracking.UpdateGameStack(deletedIdList, "Splitter script: " + gameObject.name);
