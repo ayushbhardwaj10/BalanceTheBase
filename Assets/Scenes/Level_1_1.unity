@@ -2287,6 +2287,21 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1362904798}
   m_CullTransparentMesh: 1
+--- !u!1 &1366095560 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8881166101238218719, guid: 7fc47fdc0962d1e489f99123b6120cd4, type: 3}
+  m_PrefabInstance: {fileID: 2000355251}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1366095561 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 320496137682140970, guid: 7fc47fdc0962d1e489f99123b6120cd4, type: 3}
+  m_PrefabInstance: {fileID: 2000355251}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1366095562 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 14615014437525213, guid: 7fc47fdc0962d1e489f99123b6120cd4, type: 3}
+  m_PrefabInstance: {fileID: 2000355251}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1415349439
 GameObject:
   m_ObjectHideFlags: 0
@@ -2323,7 +2338,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.88875, y: 0.87333095}
   m_AnchorMax: {x: 0.88875, y: 0.87333095}
-  m_AnchoredPosition: {x: 0, y: -8.9}
+  m_AnchoredPosition: {x: 0, y: -8.899994}
   m_SizeDelta: {x: 50, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1415349441
@@ -2671,6 +2686,42 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8112411268867255144, guid: 36322ddd64ede447f8a6fbffa428a4bd, type: 3}
+      propertyPath: oneStar
+      value: 
+      objectReference: {fileID: 1366095562}
+    - target: {fileID: 8112411268867255144, guid: 36322ddd64ede447f8a6fbffa428a4bd, type: 3}
+      propertyPath: twoStar
+      value: 
+      objectReference: {fileID: 1366095561}
+    - target: {fileID: 8112411268867255144, guid: 36322ddd64ede447f8a6fbffa428a4bd, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8112411268867255144, guid: 36322ddd64ede447f8a6fbffa428a4bd, type: 3}
+      propertyPath: threeStar
+      value: 
+      objectReference: {fileID: 1366095560}
+    - target: {fileID: 8112411268867255144, guid: 36322ddd64ede447f8a6fbffa428a4bd, type: 3}
+      propertyPath: Stars.Array.data[0]
+      value: 
+      objectReference: {fileID: 2000355257}
+    - target: {fileID: 8112411268867255144, guid: 36322ddd64ede447f8a6fbffa428a4bd, type: 3}
+      propertyPath: Stars.Array.data[1]
+      value: 
+      objectReference: {fileID: 2000355256}
+    - target: {fileID: 8112411268867255144, guid: 36322ddd64ede447f8a6fbffa428a4bd, type: 3}
+      propertyPath: Stars.Array.data[2]
+      value: 
+      objectReference: {fileID: 2000355255}
+    - target: {fileID: 8112411268867255144, guid: 36322ddd64ede447f8a6fbffa428a4bd, type: 3}
+      propertyPath: Stars.Array.data[3]
+      value: 
+      objectReference: {fileID: 2000355254}
+    - target: {fileID: 8112411268867255144, guid: 36322ddd64ede447f8a6fbffa428a4bd, type: 3}
+      propertyPath: Stars.Array.data[4]
+      value: 
+      objectReference: {fileID: 2000355253}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 36322ddd64ede447f8a6fbffa428a4bd, type: 3}
 --- !u!4 &1681372790 stripped
@@ -2678,34 +2729,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 2911653851112731839, guid: 36322ddd64ede447f8a6fbffa428a4bd, type: 3}
   m_PrefabInstance: {fileID: 1681372789}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &1681372791 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 2911653850526773525, guid: 36322ddd64ede447f8a6fbffa428a4bd, type: 3}
-  m_PrefabInstance: {fileID: 1681372789}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1681372792
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1681372791}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 10ab34fdf2c8fd345ae042277334e4b2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Stars:
-  - {fileID: 2000355257}
-  - {fileID: 2000355256}
-  - {fileID: 2000355255}
-  - {fileID: 2000355254}
-  - {fileID: 2000355253}
-  numofretry: 0
-  win: 0
-  oneStar: {fileID: 0}
-  twoStar: {fileID: 0}
-  threeStar: {fileID: 0}
 --- !u!1001 &1736974188
 PrefabInstance:
   m_ObjectHideFlags: 0
