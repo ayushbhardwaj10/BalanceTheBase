@@ -224,6 +224,21 @@ Canvas:
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
+--- !u!1 &39807561 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8881166101238218719, guid: 7fc47fdc0962d1e489f99123b6120cd4, type: 3}
+  m_PrefabInstance: {fileID: 1038636608}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &39807562 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 320496137682140970, guid: 7fc47fdc0962d1e489f99123b6120cd4, type: 3}
+  m_PrefabInstance: {fileID: 1038636608}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &39807563 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 14615014437525213, guid: 7fc47fdc0962d1e489f99123b6120cd4, type: 3}
+  m_PrefabInstance: {fileID: 1038636608}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &60021668
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -789,6 +804,38 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8112411268867255144, guid: 36322ddd64ede447f8a6fbffa428a4bd, type: 3}
+      propertyPath: oneStar
+      value: 
+      objectReference: {fileID: 39807563}
+    - target: {fileID: 8112411268867255144, guid: 36322ddd64ede447f8a6fbffa428a4bd, type: 3}
+      propertyPath: twoStar
+      value: 
+      objectReference: {fileID: 39807562}
+    - target: {fileID: 8112411268867255144, guid: 36322ddd64ede447f8a6fbffa428a4bd, type: 3}
+      propertyPath: threeStar
+      value: 
+      objectReference: {fileID: 39807561}
+    - target: {fileID: 8112411268867255144, guid: 36322ddd64ede447f8a6fbffa428a4bd, type: 3}
+      propertyPath: Stars.Array.data[0]
+      value: 
+      objectReference: {fileID: 1038636614}
+    - target: {fileID: 8112411268867255144, guid: 36322ddd64ede447f8a6fbffa428a4bd, type: 3}
+      propertyPath: Stars.Array.data[1]
+      value: 
+      objectReference: {fileID: 1038636613}
+    - target: {fileID: 8112411268867255144, guid: 36322ddd64ede447f8a6fbffa428a4bd, type: 3}
+      propertyPath: Stars.Array.data[2]
+      value: 
+      objectReference: {fileID: 1038636612}
+    - target: {fileID: 8112411268867255144, guid: 36322ddd64ede447f8a6fbffa428a4bd, type: 3}
+      propertyPath: Stars.Array.data[3]
+      value: 
+      objectReference: {fileID: 1038636611}
+    - target: {fileID: 8112411268867255144, guid: 36322ddd64ede447f8a6fbffa428a4bd, type: 3}
+      propertyPath: Stars.Array.data[4]
+      value: 
+      objectReference: {fileID: 1038636610}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 36322ddd64ede447f8a6fbffa428a4bd, type: 3}
 --- !u!4 &343296248 stripped
@@ -796,31 +843,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 2911653851112731839, guid: 36322ddd64ede447f8a6fbffa428a4bd, type: 3}
   m_PrefabInstance: {fileID: 343296247}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &343296249 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 2911653850526773525, guid: 36322ddd64ede447f8a6fbffa428a4bd, type: 3}
-  m_PrefabInstance: {fileID: 343296247}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &343296250
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 343296249}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 10ab34fdf2c8fd345ae042277334e4b2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Stars:
-  - {fileID: 1038636614}
-  - {fileID: 1038636613}
-  - {fileID: 1038636612}
-  - {fileID: 1038636611}
-  - {fileID: 1038636610}
-  numofretry: 0
-  win: 0
 --- !u!1001 &349746505
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1768,6 +1790,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Rating+winpopup
       objectReference: {fileID: 0}
+    - target: {fileID: 14615013505231105, guid: 7fc47fdc0962d1e489f99123b6120cd4, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1092450644795613904, guid: 7fc47fdc0962d1e489f99123b6120cd4, type: 3}
       propertyPath: m_Sprite
       value: 
@@ -2112,9 +2138,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1975488942}
-        m_TargetAssemblyTypeName: LevelManagement, Assembly-CSharp
-        m_MethodName: restartLevel
+      - m_Target: {fileID: 1703116074}
+        m_TargetAssemblyTypeName: RestartButton, Assembly-CSharp
+        m_MethodName: RestartLevel
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -3708,6 +3734,9 @@ MonoBehaviour:
   - {fileID: 349746507}
   numofretry: 0
   win: 0
+  oneStar: {fileID: 0}
+  twoStar: {fileID: 0}
+  threeStar: {fileID: 0}
 --- !u!1001 &2114417049
 PrefabInstance:
   m_ObjectHideFlags: 0

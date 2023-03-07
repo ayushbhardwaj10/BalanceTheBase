@@ -10,6 +10,7 @@ public class CheckLosingCondition : MonoBehaviour
     public GameObject losingPopup;
     DateTime startTime, endTime;
     string levelName;
+    public static bool lostStatus;
 
     public void DisableLoosingPopup()
     {
@@ -20,21 +21,26 @@ public class CheckLosingCondition : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        lostStatus = false;
         startTime = DateTime.Now;
         levelName = SceneManager.GetActiveScene().name;
+
+        InvokeRepeating ("LossChecker", 0.0f, 1.0f);
     }
 
-    // Update is called once per frame
-    void Update()
+    // Update is called once per second
+    void LossChecker()
     {
-        if (!GameObject.FindWithTag("BlueSplitterTriangle") && !GameObject.FindWithTag("RedSplitterTriangle") &&
+        if (!lostStatus && !GameObject.FindWithTag("BlueSplitterTriangle") && !GameObject.FindWithTag("RedSplitterTriangle") &&
             !GameObject.FindWithTag("BlinkingSplitter") &&
-            !GameObject.FindWithTag("PinkBall_BlueBall") && !GameObject.FindWithTag("PinkBall_RedBall") &&
-            GameObject.FindGameObjectsWithTag("RedBall").Length != GameObject.FindGameObjectsWithTag("BlueBall").Length)
+            GameObject.FindGameObjectsWithTag("RedBall").Length + GameObject.FindGameObjectsWithTag("PinkBall_RedBall").Length !=
+            GameObject.FindGameObjectsWithTag("BlueBall").Length + GameObject.FindGameObjectsWithTag("PinkBall_BlueBall").Length)
         {
-            Debug.Log("You lose");
+            lostStatus = true;
+
+            Debug.Log("YOU LOSE!");
             losingPopup.SetActive(true);
-            this.enabled = false; //added to get out of Update - IMPORTANT
+            // this.enabled = false; //added to get out of Update - IMPORTANT
             endTime = DateTime.Now;
             int time_taken = (int)(endTime - startTime).TotalSeconds;
             Debug.Log("time taken in Losing Condition" + time_taken);
@@ -48,8 +54,6 @@ public class CheckLosingCondition : MonoBehaviour
 
             //Analytics for user ratings
             AnalyticsManager._instance.analytics_user_ratings(levelName, time_taken, user_rating, GamesManager.LOST);
-
-            losingPopup.SetActive(true);
         }
     }
 }

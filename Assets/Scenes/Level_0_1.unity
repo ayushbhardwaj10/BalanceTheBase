@@ -852,7 +852,7 @@ GameObject:
   - component: {fileID: 555378185}
   m_Layer: 0
   m_Name: Parent Walls
-  m_TagString: Untagged
+  m_TagString: MazeWalls
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1505,6 +1505,26 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1092450644795613904, guid: 7fc47fdc0962d1e489f99123b6120cd4, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 9d878848a42642b48a004ce032594142, type: 3}
+    - target: {fileID: 1092450645026420296, guid: 7fc47fdc0962d1e489f99123b6120cd4, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 9d878848a42642b48a004ce032594142, type: 3}
+    - target: {fileID: 1092450645078540202, guid: 7fc47fdc0962d1e489f99123b6120cd4, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 9d878848a42642b48a004ce032594142, type: 3}
+    - target: {fileID: 1092450645333944796, guid: 7fc47fdc0962d1e489f99123b6120cd4, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 9d878848a42642b48a004ce032594142, type: 3}
+    - target: {fileID: 1092450645678947898, guid: 7fc47fdc0962d1e489f99123b6120cd4, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 9d878848a42642b48a004ce032594142, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7fc47fdc0962d1e489f99123b6120cd4, type: 3}
 --- !u!224 &915400944 stripped
