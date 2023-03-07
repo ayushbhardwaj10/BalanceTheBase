@@ -54,13 +54,14 @@ public class CheckWinCondition : MonoBehaviour
             
 
             winningPopup.SetActive(true);
-            yield return new WaitForSeconds(4);
-            
-            //Analytics for time taken
-            AnalyticsManager._instance.analytics_time_takenn(levelName, time_taken, GamesManager.WIN);
-            //Analytics for user ratings
-            AnalyticsManager._instance.analytics_user_ratings(levelName,time_taken,user_rating,GamesManager.WIN);
 
+
+            //Analytics for time taken
+            AnalyticsManager._instance.analytics_time_takenn(levelName, time_taken, GamesManager.WIN, RestartButton.isRestartClicked);
+            //Analytics for user ratings
+            AnalyticsManager._instance.analytics_user_ratings(levelName, time_taken, user_rating, GamesManager.WIN);
+
+            yield return new WaitForSeconds(4);
             //Auto Level Movement
             inner_level++;
             if(levelName == "Level_0_4" || levelName == "Level_1_4")
@@ -69,8 +70,12 @@ public class CheckWinCondition : MonoBehaviour
                 inner_level = 1;
             }
             string load_scene = "Level_" + outer_level.ToString() + "_" + inner_level.ToString();
-            
+            RestartButton.prev_level = SceneManager.GetActiveScene().name;
+
             Debug.Log("Auto Load scene " + load_scene);
+            Debug.Log("Prev scene win " + RestartButton.prev_level);
+
+           
             if (load_scene != "Level_2_4")
             {
                 SceneManager.LoadScene(load_scene);

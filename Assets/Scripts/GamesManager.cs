@@ -19,9 +19,10 @@ public class GamesManager : MonoBehaviour
 
 
     public static int level = 1;
-    public static int restartTimes = 0;
+    //public static int restartTimes = 0;
     public static Dictionary<string, int> level_restart_map = new Dictionary<string, int>();
     public static DateTime powerAttainStartTime;
+    public static string restart_gameplay;
 
 
     public static GamesManager _instance;
@@ -55,13 +56,13 @@ public class GamesManager : MonoBehaviour
 
     }
 
-    private void OnDestroy()
-    {
-        foreach (var restart_map in level_restart_map)
-        {
-            Debug.Log("in destroy ,restart map, k : " + restart_map.Key + " v: " + restart_map.Value);
-        }
-    }
+    //private void OnDestroy()
+    //{
+    //    foreach (var restart_map in level_restart_map)
+    //    {
+    //        Debug.Log("in destroy ,restart map, k : " + restart_map.Key + " v: " + restart_map.Value);
+    //    }
+    //}
 
     public int calculate_user_ratings(string game_status, string levelName, int timeTaken)
     {
