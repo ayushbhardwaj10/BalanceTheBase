@@ -28,7 +28,7 @@ public class CheckWinCondition : MonoBehaviour
 
 
         int len = currentCollisions.Count ;
-        
+
         // len/2 because its counting twice for each object added
         if ((len/2 == (GameObject.FindGameObjectsWithTag("BlueBall").Length +
        GameObject.FindGameObjectsWithTag("RedBall").Length + GameObject.FindGameObjectsWithTag("PinkBall_BlueBall").Length
@@ -64,19 +64,26 @@ public class CheckWinCondition : MonoBehaviour
             yield return new WaitForSeconds(4);
             //Auto Level Movement
             inner_level++;
-            if(levelName == "Level_0_4" || levelName == "Level_1_4")
+            if(levelName == "Level_0_3")
             {
                 outer_level++;
+                inner_level = 2;
+            }
+            else if(levelName == "Level_1_4")
+            {
                 inner_level = 1;
             }
+            else if(levelName == "Level_1_1")
+            {
+                outer_level = 0;
+                inner_level = 4;
+            }
+
             string load_scene = "Level_" + outer_level.ToString() + "_" + inner_level.ToString();
             RestartButton.prev_level = SceneManager.GetActiveScene().name;
 
             Debug.Log("Auto Load scene " + load_scene);
-            Debug.Log("Prev scene win " + RestartButton.prev_level);
-
-           
-            if (load_scene != "Level_2_4")
+            if (load_scene != "Level_0_5")
             {
                 SceneManager.LoadScene(load_scene);
             }
