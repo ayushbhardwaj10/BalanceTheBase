@@ -10,25 +10,31 @@ public class CheckWinCondition : MonoBehaviour
     public GameObject winningPopup;
 
     DateTime startTime, endTime;
-    
+
 
     void Start()
     {
         startTime = DateTime.Now;
+
     }
 
 
-    IEnumerator OnCollisionEnter2D(Collision2D collision){
-       if("BlueBall".Equals(collision.gameObject.tag) || "RedBall".Equals(collision.gameObject.tag)){
-       currentCollisions.Add(collision.gameObject);
+    IEnumerator OnTriggerEnter2D(Collider2D collision){
+       if("BlueBall".Equals(collision.gameObject.tag) || "RedBall".Equals(collision.gameObject.tag) ||
+            "PinkBall_BlueBall".Equals(collision.gameObject.tag) || "PinkBall_RedBall".Equals(collision.gameObject.tag))
+        {
+            currentCollisions.Add(collision.gameObject);
        }
 
-       int len = currentCollisions.Count ;
 
-       if ((len == (GameObject.FindGameObjectsWithTag("BlueBall").Length +
-       GameObject.FindGameObjectsWithTag("RedBall").Length)) &&
-       !GameObject.FindWithTag("PinkBall_BlueBall") && !GameObject.FindWithTag("PinkBall_RedBall") &&
-       (GameObject.FindGameObjectsWithTag("BlueBall").Length == GameObject.FindGameObjectsWithTag("RedBall").Length )) {
+        int len = currentCollisions.Count ;
+
+        // len/2 because its counting twice for each object added
+        if ((len/2 == (GameObject.FindGameObjectsWithTag("BlueBall").Length +
+       GameObject.FindGameObjectsWithTag("RedBall").Length + GameObject.FindGameObjectsWithTag("PinkBall_BlueBall").Length
+       + GameObject.FindGameObjectsWithTag("PinkBall_RedBall").Length)) &&
+       (GameObject.FindGameObjectsWithTag("BlueBall").Length + GameObject.FindGameObjectsWithTag("PinkBall_BlueBall").Length
+       == GameObject.FindGameObjectsWithTag("RedBall").Length + GameObject.FindGameObjectsWithTag("PinkBall_RedBall").Length)) {
             
 
             string levelName = SceneManager.GetActiveScene().name;
@@ -39,47 +45,56 @@ public class CheckWinCondition : MonoBehaviour
             
             Debug.Log("You Win");
             endTime = DateTime.Now;
-            
-            winningPopup.SetActive(true);
-            yield return new WaitForSeconds(4);
             int time_taken = (int)(endTime - startTime).TotalSeconds;
-
-            
+            Debug.Log("time taken" + time_taken);
             int user_rating = GamesManager._instance.calculate_user_ratings(GamesManager.WIN, levelName, time_taken);
             Debug.Log("User rating is " + user_rating);
+            GetComponent<StarHandler>().starsAcheived(user_rating);
+            Debug.Log("setting up winning pop-up");
+            
+
+            winningPopup.SetActive(true);
+
 
             //Analytics for time taken
-            AnalyticsManager._instance.analytics_time_takenn(levelName, time_taken, GamesManager.WIN);
+            AnalyticsManager._instance.analytics_time_takenn(levelName, time_taken, GamesManager.WIN, RestartButton.isRestartClicked);
             //Analytics for user ratings
-            AnalyticsManager._instance.analytics_user_ratings(levelName,time_taken,user_rating,GamesManager.WIN);
+            AnalyticsManager._instance.analytics_user_ratings(levelName, time_taken, user_rating, GamesManager.WIN);
 
-
+            yield return new WaitForSeconds(4);
             //Auto Level Movement
             inner_level++;
-            if(levelName == "Level_0_4")
+            if(levelName == "Level_0_3")
             {
                 outer_level++;
+                inner_level = 2;
+            }
+            else if(levelName == "Level_1_4")
+            {
                 inner_level = 1;
             }
-            string load_scene = "Level_" + outer_level.ToString() + "_" + inner_level.ToString();
-            
-            Debug.Log("Auto Load scene " + load_scene);
-            if (load_scene != "Level_1_4")
+            else if(levelName == "Level_1_1")
             {
-                
-                SceneManager.LoadScene(load_scene);
-                
+                outer_level = 0;
+                inner_level = 4;
             }
 
-            
+            string load_scene = "Level_" + outer_level.ToString() + "_" + inner_level.ToString();
+            RestartButton.prev_level = SceneManager.GetActiveScene().name;
 
+            Debug.Log("Auto Load scene " + load_scene);
+            if (load_scene != "Level_0_5")
+            {
+                SceneManager.LoadScene(load_scene);
+            }
 
         }
    }
 
 
-   void OnCollisionExit2D (Collision2D collision) {
+   void OnTriggerExit2D(Collider2D collision) {
         // Remove the GameObject collided with from the list.
-        currentCollisions.Remove (collision.gameObject);
+        Debug.Log("I EXIT");
+        currentCollisions.Remove(collision.gameObject);
    }
 }

@@ -26,6 +26,11 @@ TagManager:
   - RedHistogram
   - BlueHistogram
   - MazeWalls
+  - GoalRegion
+  - Star_Canvas
+  - BlueText
+  - RedText
+  - NotEqualTag
   layers:
   - Default
   - TransparentFX

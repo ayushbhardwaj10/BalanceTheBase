@@ -14,6 +14,7 @@ public class BallSplit : MonoBehaviour
     {
         
         levelName = SceneManager.GetActiveScene().name;
+        
 
     }
 
@@ -54,6 +55,8 @@ public class BallSplit : MonoBehaviour
         
         //Clone the ball
         var go = Instantiate(collision.gameObject, collision.transform.position, collision.transform.rotation);
+        go.transform.parent = collision.transform.parent;
+        go.transform.localScale = collision.transform.localScale;
 
         //Add tags for the new balls
         if(collision.gameObject.tag=="PinkBall_RedBall")
@@ -62,6 +65,10 @@ public class BallSplit : MonoBehaviour
             {
                 collision.gameObject.tag = "PinkBall_BlueBall"; //original ball
                 go.gameObject.tag = "PinkBall_BlueBall"; //cloned ball
+                
+                //copy time remaining from original ball
+                int org_time = collision.gameObject.GetComponent<CreateBlinkingBall>().timer;
+                go.gameObject.GetComponent<CreateBlinkingBall>().updateTimer(org_time - 1);
             }
         }
         else if(collision.gameObject.tag=="PinkBall_BlueBall")
@@ -70,6 +77,10 @@ public class BallSplit : MonoBehaviour
             {
                 collision.gameObject.tag = "PinkBall_RedBall";
                 go.gameObject.tag = "PinkBall_RedBall";
+
+                //copy time remaining from original ball
+                int org_time = collision.gameObject.GetComponent<CreateBlinkingBall>().timer;
+                go.gameObject.GetComponent<CreateBlinkingBall>().updateTimer(org_time - 1);
             }
         }
         else
@@ -89,14 +100,15 @@ public class BallSplit : MonoBehaviour
         //Get splitter colour based on
         splitterMomentColor = collision.gameObject.tag.Contains("RedBall") ? "RedSplitterTriangle" : "BlueSplitterTriangle";
 
-        //Save collision in analytics
-        // AnalyticsManager._instance.analytics_split_record(levelName, DateTime.Now, splitterMomentColor, ballColorBeforeCollision, gameObject.name);
+        Debug.Log("Restttarrrt " + RestartButton.isRestartClicked);
+       
+        
 
-        Debug.Log("Tag "  + gameObject.tag);
-        Debug.Log("Name "+ gameObject.name);
+        //Save collision in analytics
+        AnalyticsManager._instance.analytics_split_record(levelName, DateTime.Now, splitterMomentColor, ballColorBeforeCollision, gameObject.name,RestartButton.isRestartClicked);
 
         //Update game state
-        GameStateTracking.UpdateGameStack(deletedIdList);
+        GameStateTracking.UpdateGameStack(deletedIdList, "Splitter script: " + gameObject.name);
     
     }
 }
