@@ -31,6 +31,7 @@ TagManager:
   - BlueText
   - RedText
   - NotEqualTag
+  - sampleBall
   layers:
   - Default
   - TransparentFX
