@@ -51,7 +51,10 @@ public class BallSplit : MonoBehaviour
 
         //Get the color of the splitter and assign it to the ball
         SpriteRenderer renderer = GetComponent<SpriteRenderer>();
-        collision.gameObject.GetComponent<SpriteRenderer>().color = renderer.color;
+        if(gameObject.tag == "BlinkingSplitter"){
+            collision.gameObject.GetComponent<SpriteRenderer>().color = gameObject.GetComponent<ColorChanger>().currentColor;
+        } else 
+            collision.gameObject.GetComponent<SpriteRenderer>().color = renderer.color;
         
         //Clone the ball
         var go = Instantiate(collision.gameObject, collision.transform.position, collision.transform.rotation);
