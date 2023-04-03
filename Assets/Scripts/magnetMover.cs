@@ -14,7 +14,7 @@ public class magnetMover : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        float horizontalInput = Input.GetAxis("Horizontal");
-        transform.Translate(new Vector3(0, horizontalInput * moveSpeed * Time.deltaTime, 0));
+        float verticalInput = Input.GetAxis("Vertical");
+        transform.Translate(new Vector3(-(verticalInput * moveSpeed) * Time.deltaTime,0, 0));
     }
 }
