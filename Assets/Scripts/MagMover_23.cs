@@ -25,14 +25,14 @@ public class MagMover_23 : MonoBehaviour
     void Update()
     {
         Debug.Log("Transform postiion "+ transform.position);
-        if (transform.position.y < l_xRange)
-        {
-            transform.position = new Vector3(transform.position.x, l_xRange, transform.position.z);
-        }
-        if (transform.position.y > h_xRange)
-        {
-            transform.position = new Vector3(transform.position.x, h_xRange, transform.position.z);
-        }
+        //if (transform.position.y < l_xRange)
+        //{
+        //    transform.position = new Vector3(transform.position.x, l_xRange, transform.position.z);
+        //}
+        //if (transform.position.y > h_xRange)
+        //{
+        //    transform.position = new Vector3(transform.position.x, h_xRange, transform.position.z);
+        //}
 
         float horizontalInput = Input.GetAxis("Vertical");
         Debug.Log("Horrizontal input " + horizontalInput);
