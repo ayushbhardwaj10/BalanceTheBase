@@ -83,7 +83,7 @@ public class CheckWinCondition : MonoBehaviour
             RestartButton.prev_level = SceneManager.GetActiveScene().name;
 
             Debug.Log("Auto Load scene " + load_scene);
-            if (load_scene != "Level_0_5")
+            if (load_scene != "Level_0_5" || load_scene !="Level_2_4")
             {
                 SceneManager.LoadScene(load_scene);
             }
