@@ -9,6 +9,7 @@ public class magneticMechanism : MonoBehaviour
     Transform magnetPoint;
     private Renderer rend;
     SpriteRenderer spriteRenderer;
+    public float dampingValue = 0.5f;
 
 
     Color blueCustomColor = new Color(23f / 255f, 153f / 255f, 231f / 255f);
@@ -37,8 +38,8 @@ public class magneticMechanism : MonoBehaviour
             foreach (Rigidbody2D rgbBall in rgbBalls)
             {
                 //rgbBall.AddForce((magnetPoint.position - rgbBall.position) * forceFactor * Time.fixedDeltaTime);
-                rgbBall.AddForce((magnetPoint.position - new Vector3(rgbBall.position.x, rgbBall.position.y, 0f)) * forceFactor * Time.fixedDeltaTime);
-
+                rgbBall.AddForce((magnetPoint.position - new Vector3(rgbBall.position.x, rgbBall.position.y, 0f)).normalized * forceFactor * Time.fixedDeltaTime);
+                rgbBall.velocity *= (1 - dampingValue * Time.fixedDeltaTime);
             }
         }
 
