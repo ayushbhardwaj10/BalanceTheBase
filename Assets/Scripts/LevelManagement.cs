@@ -56,6 +56,10 @@ public class LevelManagement : MonoBehaviour
     {
         AnalyticsManager._instance.analytics_start_level("Level_2_3", DateTime.Now);
         SceneManager.LoadScene("Level_2_3");
+    public void levelChangeTo22()
+    {
+        AnalyticsManager._instance.analytics_start_level("Level_2_2", DateTime.Now);
+        SceneManager.LoadScene("Level_2_2");
     }
     public void levelChangeTo32()
     {
