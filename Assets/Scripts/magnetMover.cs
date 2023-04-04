@@ -6,8 +6,8 @@ using UnityEngine;
 public class magnetMover : MonoBehaviour
 {
     public float moveSpeed = 5f;
-    public float h_xRange = 1.2f;
-    public float l_xRange = -0.84f;
+    private bool upperLimitReached = false;
+    private bool lowerLimitReached = false;
 
     // Start is called before the first frame update
     void Start()
@@ -21,7 +21,8 @@ public class magnetMover : MonoBehaviour
         float verticalInput = Input.GetAxis("Vertical");
         if (Input.GetKey(KeyCode.UpArrow))
         {
-            if (transform.position.y <= GameObject.Find("Upper Limit").transform.position.y)
+            // if (transform.position.y <= GameObject.Find("Upper Limit").transform.position.y)
+            if (!upperLimitReached)
             {
                 transform.Translate(new Vector3(-(verticalInput * moveSpeed) * Time.deltaTime, 0, 0));
             }
@@ -29,10 +30,39 @@ public class magnetMover : MonoBehaviour
 
         if (Input.GetKey(KeyCode.DownArrow))
         {
-            if (transform.position.y >= GameObject.Find("Lower Limit").transform.position.y)
+            // if (transform.position.y >= GameObject.Find("Lower Limit").transform.position.y)
+            if (!lowerLimitReached)
             {
                 transform.Translate(new Vector3(-(verticalInput * moveSpeed) * Time.deltaTime, 0, 0));
             }
+        }
+    }
+
+    void OnTriggerEnter2D(Collider2D collision)
+    {
+        Debug.Log(collision.gameObject.name);
+        if (collision.gameObject.name == "Upper Limit")
+        {
+            upperLimitReached = true;
+        }
+
+        if (collision.gameObject.name == "Lower Limit")
+        {
+            lowerLimitReached = true;
+        }
+    }
+
+    void OnTriggerExit2D(Collider2D collision)
+    {
+        Debug.Log(collision.gameObject.name);
+        if (collision.gameObject.name == "Upper Limit")
+        {
+            upperLimitReached = false;
+        }
+
+        if (collision.gameObject.name == "Lower Limit")
+        {
+            lowerLimitReached = false;
         }
     }
 }
