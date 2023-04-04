@@ -1302,8 +1302,8 @@ Transform:
   - {fileID: 1542550451}
   - {fileID: 702736268}
   - {fileID: 494966563}
-  - {fileID: 1990653625}
   - {fileID: 938657275}
+  - {fileID: 1990653625}
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -2809,6 +2809,14 @@ PrefabInstance:
       propertyPath: wallTransform
       value: 
       objectReference: {fileID: 1147170970}
+    - target: {fileID: 4355431738454796606, guid: 47e567a5d393d4f49a916f75a7bf5c99, type: 3}
+      propertyPath: forceFactor
+      value: 1000
+      objectReference: {fileID: 0}
+    - target: {fileID: 4355431738454796607, guid: 47e567a5d393d4f49a916f75a7bf5c99, type: 3}
+      propertyPath: moveSpeed
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4355431740108702444, guid: 47e567a5d393d4f49a916f75a7bf5c99, type: 3}
       propertyPath: m_RootOrder
       value: 17
