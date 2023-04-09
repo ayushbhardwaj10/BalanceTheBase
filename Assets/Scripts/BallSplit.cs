@@ -31,6 +31,32 @@ public class BallSplit : MonoBehaviour
         if(!(collision.gameObject.tag != null && collision.gameObject.tag.Contains("Ball")))
             return;
 
+        if(doesBallHaveHalo(collision.gameObject))
+        {
+            removeHalo(collision.gameObject);
+            // if("BlueBall".Equals(collision.gameObject.tag) && "RedSplitterTriangle".Equals(gameObject.tag))
+            // {
+            //     return;
+            // }
+            // else if("RedBall".Equals(collision.gameObject.tag) && "BlueSplitterTriangle".Equals(gameObject.tag))
+            // {
+            //     return;
+            // }
+            // else //Same color splitter
+            // {
+            //     List<int> delIdList = new List<int>(); 
+
+            //     //Kill the splitter
+            //     int delId = gameObject.GetInstanceID();
+            //     delIdList.Add(delId);
+            //     Destroy(gameObject);
+                
+            //     //Update game state
+            //     GameStateTracking.UpdateGameStack(delIdList, "Splitter script: " + gameObject.name);
+            // }
+            // return;
+        }
+
         //Do not change these colors ever
         Color redColor = new Vector4(0.7830189f, 0.1578784f, 0.1071111f,1.0f);
         Color blueColor = new Vector4(0.09019608f, 0.6f, 0.9058824f,1.0f);
@@ -60,6 +86,13 @@ public class BallSplit : MonoBehaviour
         var go = Instantiate(collision.gameObject, collision.transform.position, collision.transform.rotation);
         go.transform.parent = collision.transform.parent;
         go.transform.localScale = collision.transform.localScale;
+
+        if(doesBallHaveHalo(go))
+        {
+            removeHalo(go);
+        }
+
+        updateBallQueueInKillerScript(go);
 
         //Add tags for the new balls
         if(collision.gameObject.tag=="PinkBall_RedBall")
@@ -113,5 +146,52 @@ public class BallSplit : MonoBehaviour
         //Update game state
         GameStateTracking.UpdateGameStack(deletedIdList, "Splitter script: " + gameObject.name);
     
+    }
+
+    bool doesBallHaveHalo(GameObject ball)
+    {
+        foreach (Transform child in ball.transform)
+        {
+            if(child.name == "Halo")
+                return true;
+        }
+        return false;
+    }
+
+    void removeHalo(GameObject go)
+    {
+        foreach (Transform child in go.transform)
+        {
+            // Destroy the child game object
+            Destroy(child.gameObject);
+        }
+    }
+
+    void updateBallQueueInKillerScript(GameObject go)
+    {
+        GameObject wallsParent = GameObject.Find("Parent Walls");
+
+        if (wallsParent != null)
+        {
+            // Check if the "SelectKiller" script is attached to the parent "Walls" GameObject
+            SelectKiller selectKillerScript = wallsParent.GetComponent<SelectKiller>();
+
+            if (selectKillerScript != null)
+            {
+                // "SelectKiller" script is attached
+                SelectKiller.addBallToQueue(go);
+                Debug.Log("The parent Walls GameObject contains a SelectKiller script.");
+            }
+            else
+            {
+                // "SelectKiller" script is not attached
+                Debug.Log("The parent Walls GameObject does not contain a SelectKiller script.");
+            }
+        }
+        else
+        {
+            // Parent "Walls" GameObject not found
+            Debug.LogError("The parent Walls GameObject could not be found.");
+        }
     }
 }
