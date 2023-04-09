@@ -7,6 +7,8 @@ public class EatingTimer : MonoBehaviour
 {
     public float timeLeft = 90;
     public TextMeshProUGUI timeText;
+    public TextMeshProUGUI KillerModeText;
+    
 
     // Start is called before the first frame update
     void Start()
@@ -19,10 +21,14 @@ public class EatingTimer : MonoBehaviour
     {
         if(timeLeft > 0)
         {
+            
             timeLeft -= Time.deltaTime;
+            KillerModeText.text = "Killer Mode ON";
+
         }
         else
         {
+            KillerModeText.text = "Killer Mode OFF";
             timeLeft = 0;
         }
         DisplayTime(timeLeft);
