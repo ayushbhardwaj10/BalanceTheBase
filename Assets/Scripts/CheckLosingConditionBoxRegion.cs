@@ -26,18 +26,29 @@ public class CheckLosingConditionBoxRegion : MonoBehaviour
         lostStatus = false;
         startTime = DateTime.Now;
         levelName = SceneManager.GetActiveScene().name;
-        blueCount = 0;
-        redCount = 0;
     }
 
     void OnTriggerEnter2D(Collider2D collision)
     {
-        Debug.Log("In here");
-        if ("BlueBall".Equals(collision.gameObject.tag) || "PinkBall_BlueBall".Equals(collision.gameObject.tag))
+        Debug.Log("in here");
+        //foreach (ContactPoint2D contact in collision.contacts)
+        //{
+
+        //    if (contact.collider.gameObject.CompareTag("BlueBall") || contact.collider.gameObject.CompareTag("PinkBall_BlueBall"))
+        //    {
+        //        blueCount++;
+        //    }
+        //    if (contact.collider.gameObject.CompareTag("RedBall") || contact.collider.gameObject.CompareTag("PinkBall_RedBall"))
+        //    {
+        //        redCount++;
+        //    }
+        //}
+
+        if (collision.gameObject.CompareTag("BlueBall"))
         {
             blueCount++;
         }
-        if ("RedBall".Equals(collision.gameObject.tag) || "PinkBall_RedBall".Equals(collision.gameObject.tag))
+        if (collision.gameObject.CompareTag("RedBall"))
         {
             redCount++;
         }
@@ -45,8 +56,8 @@ public class CheckLosingConditionBoxRegion : MonoBehaviour
         Debug.Log("BlueCount: " + blueCount);
         Debug.Log("RedCount: " + redCount);
 
-        if (!lostStatus && !GameObject.FindWithTag("BlueSplitterTriangle") && !GameObject.FindWithTag("RedSplitterTriangle") &&
-            !GameObject.FindWithTag("BlinkingSplitter") && redCount != blueCount)
+        if ((!lostStatus && !GameObject.FindWithTag("BlueSplitterTriangle") && !GameObject.FindWithTag("RedSplitterTriangle") &&
+            !GameObject.FindWithTag("BlinkingSplitter") && redCount != blueCount) || (redCount == 0 && blueCount == 0))
         {
             lostStatus = true;
 
@@ -75,6 +86,7 @@ public class CheckLosingConditionBoxRegion : MonoBehaviour
 
     void OnTriggerExit2D(Collider2D collision)
     {
+
         // Remove the GameObject collided with from the list.
         if ("BlueBall".Equals(collision.gameObject.tag) || "PinkBall_BlueBall".Equals(collision.gameObject.tag))
         {
@@ -84,5 +96,7 @@ public class CheckLosingConditionBoxRegion : MonoBehaviour
         {
             redCount--;
         }
+        Debug.Log("BlueCount: " + blueCount);
+        Debug.Log("RedCount: " + redCount);
     }
 }
