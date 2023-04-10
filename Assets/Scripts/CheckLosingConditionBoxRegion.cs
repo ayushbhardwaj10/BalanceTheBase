@@ -5,12 +5,14 @@ using System;
 using UnityEngine.SceneManagement;
 using System.Threading.Tasks;
 
-public class CheckLosingCondition : MonoBehaviour
+public class CheckLosingConditionBoxRegion : MonoBehaviour
 {
     public GameObject losingPopup;
     DateTime startTime, endTime;
     string levelName;
     public static bool lostStatus;
+    int blueCount = 0;
+    int redCount = 0;
 
     public void DisableLoosingPopup()
     {
@@ -24,18 +26,27 @@ public class CheckLosingCondition : MonoBehaviour
         lostStatus = false;
         startTime = DateTime.Now;
         levelName = SceneManager.GetActiveScene().name;
-
-        InvokeRepeating("LossChecker", 0.0f, 1.0f);
+        blueCount = 0;
+        redCount = 0;
     }
 
-    // Update is called once per second
-    void LossChecker()
+    void OnTriggerEnter2D(Collider2D collision)
     {
+        Debug.Log("In here");
+        if ("BlueBall".Equals(collision.gameObject.tag) || "PinkBall_BlueBall".Equals(collision.gameObject.tag))
+        {
+            blueCount++;
+        }
+        if ("RedBall".Equals(collision.gameObject.tag) || "PinkBall_RedBall".Equals(collision.gameObject.tag))
+        {
+            redCount++;
+        }
+
+        Debug.Log("BlueCount: " + blueCount);
+        Debug.Log("RedCount: " + redCount);
 
         if (!lostStatus && !GameObject.FindWithTag("BlueSplitterTriangle") && !GameObject.FindWithTag("RedSplitterTriangle") &&
-            !GameObject.FindWithTag("BlinkingSplitter") &&
-            GameObject.FindGameObjectsWithTag("RedBall").Length + GameObject.FindGameObjectsWithTag("PinkBall_RedBall").Length !=
-            GameObject.FindGameObjectsWithTag("BlueBall").Length + GameObject.FindGameObjectsWithTag("PinkBall_BlueBall").Length)
+            !GameObject.FindWithTag("BlinkingSplitter") && redCount != blueCount)
         {
             lostStatus = true;
 
@@ -51,7 +62,7 @@ public class CheckLosingCondition : MonoBehaviour
             //Debug.Log("setting up Losing Condition pop-up");
 
             RestartButton.prev_level = SceneManager.GetActiveScene().name;
-          
+
             Debug.Log("Prev scene lost " + RestartButton.prev_level);
 
             //Analytics for time taken
@@ -59,6 +70,19 @@ public class CheckLosingCondition : MonoBehaviour
 
             //Analytics for user ratings
             AnalyticsManager._instance.analytics_user_ratings(levelName, time_taken, user_rating, GamesManager.LOST);
+        }
+    }
+
+    void OnTriggerExit2D(Collider2D collision)
+    {
+        // Remove the GameObject collided with from the list.
+        if ("BlueBall".Equals(collision.gameObject.tag) || "PinkBall_BlueBall".Equals(collision.gameObject.tag))
+        {
+            blueCount--;
+        }
+        if ("RedBall".Equals(collision.gameObject.tag) || "PinkBall_RedBall".Equals(collision.gameObject.tag))
+        {
+            redCount--;
         }
     }
 }
