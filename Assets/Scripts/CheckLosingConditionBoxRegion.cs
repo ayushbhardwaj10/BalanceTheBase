@@ -30,20 +30,6 @@ public class CheckLosingConditionBoxRegion : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D collision)
     {
-        Debug.Log("in here");
-        //foreach (ContactPoint2D contact in collision.contacts)
-        //{
-
-        //    if (contact.collider.gameObject.CompareTag("BlueBall") || contact.collider.gameObject.CompareTag("PinkBall_BlueBall"))
-        //    {
-        //        blueCount++;
-        //    }
-        //    if (contact.collider.gameObject.CompareTag("RedBall") || contact.collider.gameObject.CompareTag("PinkBall_RedBall"))
-        //    {
-        //        redCount++;
-        //    }
-        //}
-
         if (collision.gameObject.CompareTag("BlueBall"))
         {
             blueCount++;
@@ -55,9 +41,30 @@ public class CheckLosingConditionBoxRegion : MonoBehaviour
 
         Debug.Log("BlueCount: " + blueCount);
         Debug.Log("RedCount: " + redCount);
+        LossChecker();
+    }
 
-        if ((!lostStatus && !GameObject.FindWithTag("BlueSplitterTriangle") && !GameObject.FindWithTag("RedSplitterTriangle") &&
-            !GameObject.FindWithTag("BlinkingSplitter") && redCount != blueCount) || (redCount == 0 && blueCount == 0))
+    void OnTriggerExit2D(Collider2D collision)
+    {
+
+        // Remove the GameObject collided with from the list.
+        if ("BlueBall".Equals(collision.gameObject.tag))
+        {
+            blueCount--;
+        }
+        if ("RedBall".Equals(collision.gameObject.tag))
+        {
+            redCount--;
+        }
+        Debug.Log("BlueCount: " + blueCount);
+        Debug.Log("RedCount: " + redCount);
+        LossChecker();
+    }
+
+    void LossChecker()
+    {
+        if (!lostStatus && ((!GameObject.FindWithTag("BlueSplitterTriangle") && !GameObject.FindWithTag("RedSplitterTriangle") &&
+            !GameObject.FindWithTag("BlinkingSplitter") && redCount != blueCount) || (redCount == 0 && blueCount == 0)))
         {
             lostStatus = true;
 
@@ -82,21 +89,5 @@ public class CheckLosingConditionBoxRegion : MonoBehaviour
             //Analytics for user ratings
             AnalyticsManager._instance.analytics_user_ratings(levelName, time_taken, user_rating, GamesManager.LOST);
         }
-    }
-
-    void OnTriggerExit2D(Collider2D collision)
-    {
-
-        // Remove the GameObject collided with from the list.
-        if ("BlueBall".Equals(collision.gameObject.tag) || "PinkBall_BlueBall".Equals(collision.gameObject.tag))
-        {
-            blueCount--;
-        }
-        if ("RedBall".Equals(collision.gameObject.tag) || "PinkBall_RedBall".Equals(collision.gameObject.tag))
-        {
-            redCount--;
-        }
-        Debug.Log("BlueCount: " + blueCount);
-        Debug.Log("RedCount: " + redCount);
     }
 }
