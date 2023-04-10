@@ -91,6 +91,7 @@ public class LevelManagement : MonoBehaviour
     {
         Debug.Log("level manager called");
         SceneManager.LoadScene("Level Manager");
+       
     }
     public void restartLevel() {
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
