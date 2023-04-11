@@ -36,14 +36,19 @@ public class CheckLosingConditionBoxRegion : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D collision)
     {
+        Debug.Log("Game object tag: " + collision.gameObject.name);
         if (collision.gameObject.CompareTag("BlueBall"))
         {
-            blueCount++;
+            blueCount = GameObject.FindGameObjectsWithTag("BlueBall").Length;
+            redCount = GameObject.FindGameObjectsWithTag("RedBall").Length;
             findBallCountShakeVarient.blueCountInt = blueCount;
+            findBallCountShakeVarient.redCountInt = redCount;
         }
         if (collision.gameObject.CompareTag("RedBall"))
         {
-            redCount++;
+            blueCount = GameObject.FindGameObjectsWithTag("BlueBall").Length;
+            redCount = GameObject.FindGameObjectsWithTag("RedBall").Length;
+            findBallCountShakeVarient.blueCountInt = blueCount;
             findBallCountShakeVarient.redCountInt = redCount;
         }
 
@@ -53,16 +58,20 @@ public class CheckLosingConditionBoxRegion : MonoBehaviour
 
     void OnTriggerExit2D(Collider2D collision)
     {
-
+        Debug.Log("Exit Game object tag: " + collision.gameObject.name);
         // Remove the GameObject collided with from the list.
         if ("BlueBall".Equals(collision.gameObject.tag))
         {
-            blueCount--;
+            blueCount = GameObject.FindGameObjectsWithTag("BlueBall").Length;
+            redCount = GameObject.FindGameObjectsWithTag("RedBall").Length;
             findBallCountShakeVarient.blueCountInt = blueCount;
+            findBallCountShakeVarient.redCountInt = redCount;
         }
         if ("RedBall".Equals(collision.gameObject.tag))
         {
-            redCount--;
+            blueCount = GameObject.FindGameObjectsWithTag("BlueBall").Length;
+            redCount = GameObject.FindGameObjectsWithTag("RedBall").Length;
+            findBallCountShakeVarient.blueCountInt = blueCount;
             findBallCountShakeVarient.redCountInt = redCount;
         }
         Debug.Log("Exit BlueCount: " + blueCount);
