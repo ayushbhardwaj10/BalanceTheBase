@@ -47,10 +47,12 @@ public class CheckWinCondition : MonoBehaviour
             endTime = DateTime.Now;
             int time_taken = (int)(endTime - startTime).TotalSeconds;
             Debug.Log("time taken" + time_taken);
-            int user_rating = GamesManager._instance.calculate_user_ratings(GamesManager.WIN, levelName, time_taken);
-            Debug.Log("User rating is " + user_rating);
-            GetComponent<StarHandler>().starsAcheived(user_rating);
-            Debug.Log("setting up winning pop-up");
+            
+            int user_rating = 3;
+            // GamesManager._instance.calculate_user_ratings(GamesManager.WIN, levelName, time_taken);
+            // Debug.Log("User rating is " + user_rating);
+            // GetComponent<StarHandler>().starsAcheived(user_rating);
+            // Debug.Log("setting up winning pop-up");
             
 
             winningPopup.SetActive(true);

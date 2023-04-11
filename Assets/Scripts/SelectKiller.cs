@@ -6,8 +6,10 @@ using TMPro;
 public class SelectKiller : MonoBehaviour
 {
     static Queue<GameObject> ballsQueue = new Queue<GameObject>();
+    public TextMeshProUGUI killerModeStatus;
 
     private bool keyPressed = false;
+    private bool killerModeKeyPressed = false;
 
     // Start is called before the first frame update
     void Start()
@@ -48,10 +50,55 @@ public class SelectKiller : MonoBehaviour
         Debug.Log("Removed ball from queue. New size: " + ballsQueue.Count);
     }
 
+    public static void removeHaloFromAllBalls()
+    {
+        GameObject[] redBalls = GameObject.FindGameObjectsWithTag("RedBall");
+        GameObject[] blueBalls = GameObject.FindGameObjectsWithTag("BlueBall");
+
+        foreach (GameObject redBall in redBalls)
+        {
+            foreach (Transform child in redBall.transform)
+            {
+                Destroy(child.gameObject);
+            }
+        }
+
+        foreach (GameObject blueBall in blueBalls)
+        {
+            foreach (Transform child in blueBall.transform)
+            {
+                Destroy(child.gameObject);
+            }
+        }
+    }
+
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKey(KeyCode.Space) && !keyPressed)
+        // Turning the killer mode ON/OFF
+        if (Input.GetKey(KeyCode.K) && !killerModeKeyPressed)
+        {
+            killerModeKeyPressed = true;
+
+            if(killerModeStatus.text == "ON")
+            {
+                removeHaloFromAllBalls();
+                killerModeStatus.text = "OFF";
+            }
+            else
+            {
+                killerModeStatus.text = "ON";
+            }
+        }
+
+        // Reset the flag if the key is released
+        if (Input.GetKeyUp(KeyCode.K))
+        {
+            killerModeKeyPressed = false;
+        }
+
+        //Choosing the killer ball
+        if (Input.GetKey(KeyCode.Space) && killerModeStatus.text == "ON" && !keyPressed)
         {
             keyPressed = true;
 
