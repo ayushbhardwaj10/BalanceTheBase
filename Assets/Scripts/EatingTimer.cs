@@ -5,9 +5,9 @@ using TMPro;
 
 public class EatingTimer : MonoBehaviour
 {
-    public float timeLeft = 90;
+    public static float timeLeft = 60;
     public TextMeshProUGUI timeText;
-    public TextMeshProUGUI KillerModeText;
+    public TextMeshProUGUI killerModeStatus;
     
 
     // Start is called before the first frame update
@@ -19,17 +19,19 @@ public class EatingTimer : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(timeLeft > 0)
+        if(timeLeft > 0 && (killerModeStatus.text == "ON"))
         {
             
             timeLeft -= Time.deltaTime;
-            KillerModeText.text = "Killer Mode ON";
+            // KillerModeText.text = "Killer Mode ON";
 
         }
-        else
+        else if(timeLeft <= 0)
         {
-            KillerModeText.text = "Killer Mode OFF";
+            // KillerModeText.text = "Killer Mode OFF";
             timeLeft = 0;
+            SelectKiller.removeHaloFromAllBalls();
+            killerModeStatus.text = "OFF";
         }
         DisplayTime(timeLeft);
     }
@@ -43,4 +45,6 @@ public class EatingTimer : MonoBehaviour
         float seconds = Mathf.FloorToInt(timeToDisplay);
         timeText.text = string.Format("{0:00}", seconds);
     }
+
+    
 }
