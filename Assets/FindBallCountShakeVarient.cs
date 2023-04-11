@@ -9,6 +9,7 @@ public class FindBallCountShakeVarient : MonoBehaviour
     public TextMeshProUGUI ballCountText;
     public TextMeshProUGUI blueBallCountText;
     BlueFindBallCountShakeVarient ballCountShakeVarient;
+    RedFindBallCountShakeVarient redFindBallCountShakeVarient;
     private volatile int countRed;
     private volatile int countBlue;
 
@@ -33,6 +34,7 @@ public class FindBallCountShakeVarient : MonoBehaviour
         set
         {
             countRed = value;
+            RedUISetter(countRed);
             Debug.Log("updated red count: " + countRed);
         }
     }
@@ -41,6 +43,7 @@ public class FindBallCountShakeVarient : MonoBehaviour
     void Start()
     {
         ballCountShakeVarient = new BlueFindBallCountShakeVarient();
+        redFindBallCountShakeVarient = new RedFindBallCountShakeVarient();
     }
 
     void BlueUISetter(int countBlueParam)
@@ -48,6 +51,13 @@ public class FindBallCountShakeVarient : MonoBehaviour
         ballCountShakeVarient = new BlueFindBallCountShakeVarient();
         ballCountShakeVarient.blueCountIntText = countBlueParam;
         Debug.Log("BlueUISetter: " + countBlueParam);
+    }
+
+    void RedUISetter(int countRedParam)
+    {
+        redFindBallCountShakeVarient = new RedFindBallCountShakeVarient();
+        redFindBallCountShakeVarient.redCountIntText = countRedParam;
+        Debug.Log("RedUISetter: " + countRedParam);
     }
 
     // Update is called once per frame

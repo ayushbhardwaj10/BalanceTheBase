@@ -6,7 +6,7 @@ using TMPro;
 public class BlueFindBallCountShakeVarient : MonoBehaviour
 {
     public TextMeshProUGUI ballCountText;
-    int countBlue;
+    public volatile int countBlue;
 
     public int blueCountIntText
     {

@@ -65,8 +65,8 @@ public class CheckLosingConditionBoxRegion : MonoBehaviour
             redCount--;
             findBallCountShakeVarient.redCountInt = redCount;
         }
-        Debug.Log("BlueCount: " + blueCount);
-        Debug.Log("RedCount: " + redCount);
+        Debug.Log("Exit BlueCount: " + blueCount);
+        Debug.Log("Exit RedCount: " + redCount);
     }
 
     void LossChecker()
