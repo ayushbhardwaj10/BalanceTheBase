@@ -180,7 +180,7 @@ public class BallSplit : MonoBehaviour
             if (selectKillerScript != null)
             {
                 // "SelectKiller" script is attached
-                SelectKiller.addBallToQueue(go);
+                GameObject.Find("Parent Walls").GetComponent<SelectKiller>().addBallToQueue(go);
                 Debug.Log("The parent Walls GameObject contains a SelectKiller script.");
             }
             else
