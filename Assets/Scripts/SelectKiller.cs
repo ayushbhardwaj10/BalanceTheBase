@@ -5,7 +5,7 @@ using TMPro;
 
 public class SelectKiller : MonoBehaviour
 {
-    static Queue<GameObject> ballsQueue = new Queue<GameObject>();
+    Queue<GameObject> ballsQueue = new Queue<GameObject>();
     public TextMeshProUGUI killerModeStatus;
 
     private bool keyPressed = false;
@@ -29,12 +29,12 @@ public class SelectKiller : MonoBehaviour
         Debug.Log(ballsQueue.Count);
     }
 
-    public static void addBallToQueue(GameObject ball)
+    public void addBallToQueue(GameObject ball)
     {
         ballsQueue.Enqueue(ball);
     }
 
-    public static void removeBallFromQueue(int deletedID)
+    public void removeBallFromQueue(int deletedID)
     {
         Queue<GameObject> tmpQueue = new Queue<GameObject>();
         while (ballsQueue.Count > 0)

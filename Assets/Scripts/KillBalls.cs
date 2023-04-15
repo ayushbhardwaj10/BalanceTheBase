@@ -41,7 +41,7 @@ public class KillBalls : MonoBehaviour
                 delIdList.Add(delId);
                 Destroy(collision.gameObject);
 
-                SelectKiller.removeBallFromQueue(delId);
+                GameObject.Find("Parent Walls").GetComponent<SelectKiller>().removeBallFromQueue(delId);
                 
                 //Update game state
                 GameStateTracking.UpdateGameStack(delIdList, "Kill balls script: " + gameObject.name);
