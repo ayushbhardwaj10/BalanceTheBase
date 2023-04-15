@@ -104,7 +104,7 @@ public class SelectKiller : MonoBehaviour
 
             // Revoke the killer power from current ball
             GameObject currentBall = ballsQueue.Dequeue();
-            // Get all child game objects
+            Debug.Log("Balls queue count - " + ballsQueue.Count);
             foreach (Transform child in currentBall.transform)
             {
                 // Destroy the child game object
