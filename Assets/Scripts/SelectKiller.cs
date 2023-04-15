@@ -5,7 +5,7 @@ using TMPro;
 
 public class SelectKiller : MonoBehaviour
 {
-    static Queue<GameObject> ballsQueue = new Queue<GameObject>();
+    Queue<GameObject> ballsQueue = new Queue<GameObject>();
     public TextMeshProUGUI killerModeStatus;
 
     private bool keyPressed = false;
@@ -29,12 +29,12 @@ public class SelectKiller : MonoBehaviour
         Debug.Log(ballsQueue.Count);
     }
 
-    public static void addBallToQueue(GameObject ball)
+    public void addBallToQueue(GameObject ball)
     {
         ballsQueue.Enqueue(ball);
     }
 
-    public static void removeBallFromQueue(int deletedID)
+    public void removeBallFromQueue(int deletedID)
     {
         Queue<GameObject> tmpQueue = new Queue<GameObject>();
         while (ballsQueue.Count > 0)
@@ -87,6 +87,7 @@ public class SelectKiller : MonoBehaviour
             }
             else
             {
+                CreateKillerBall();
                 killerModeStatus.text = "ON";
             }
         }
@@ -102,30 +103,7 @@ public class SelectKiller : MonoBehaviour
         {
             keyPressed = true;
 
-            // Revoke the killer power from current ball
-            GameObject currentBall = ballsQueue.Dequeue();
-            // Get all child game objects
-            foreach (Transform child in currentBall.transform)
-            {
-                // Destroy the child game object
-                Destroy(child.gameObject);
-            }
-            ballsQueue.Enqueue(currentBall);
-
-
-            // Making a normal ball into a killer ball
-            GameObject chosenBall = ballsQueue.Peek();
-
-            Debug.Log(chosenBall.name);
-
-            // Create a new game object with a circle sprite
-            GameObject circleObject = new GameObject("Halo");
-            SpriteRenderer circleRenderer = circleObject.AddComponent<SpriteRenderer>();
-            circleRenderer.sprite = Resources.Load<Sprite>("Sprites/Circle");
-            circleRenderer.color = Color.cyan;
-            circleObject.transform.SetParent(chosenBall.transform);
-            circleObject.transform.localPosition = Vector3.zero;
-            circleObject.transform.localScale = chosenBall.transform.localScale * 2f;
+            CreateKillerBall();
         }
 
         // Reset the flag if the key is released
@@ -133,5 +111,30 @@ public class SelectKiller : MonoBehaviour
         {
             keyPressed = false;
         }
+    }
+
+    void CreateKillerBall()
+    {
+        // Revoke the killer power from current ball
+        GameObject currentBall = ballsQueue.Dequeue();
+        // Remove halo
+        foreach (Transform child in currentBall.transform)
+        {
+            // Destroy the child game object
+            Destroy(child.gameObject);
+        }
+        ballsQueue.Enqueue(currentBall);
+
+        // Making a normal ball into a killer ball
+        GameObject chosenBall = ballsQueue.Peek();
+
+        // Create a new game object with a circle sprite
+        GameObject circleObject = new GameObject("Halo");
+        SpriteRenderer circleRenderer = circleObject.AddComponent<SpriteRenderer>();
+        circleRenderer.sprite = Resources.Load<Sprite>("Sprites/Circle");
+        circleRenderer.color = Color.cyan;
+        circleObject.transform.SetParent(chosenBall.transform);
+        circleObject.transform.localPosition = Vector3.zero;
+        circleObject.transform.localScale = chosenBall.transform.localScale * 2f;
     }
 }

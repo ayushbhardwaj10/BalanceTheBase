@@ -5,7 +5,7 @@ using TMPro;
 
 public class EatingTimer : MonoBehaviour
 {
-    public static float timeLeft = 60;
+    public float timeLeft = 60;
     public TextMeshProUGUI timeText;
     public TextMeshProUGUI killerModeStatus;
     

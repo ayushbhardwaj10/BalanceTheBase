@@ -31,7 +31,8 @@ public class KillerLevelCheckLosingCondition : MonoBehaviour
     // Update is called once per second
     void LossChecker()
     {
-        if (EatingTimer.timeLeft == 0 && !lostStatus && !GameObject.FindWithTag("BlueSplitterTriangle") && !GameObject.FindWithTag("RedSplitterTriangle") &&
+        GameObject timerLeft = GameObject.Find("TimerLeft");
+        if (timerLeft.GetComponent<EatingTimer>().timeLeft == 0 && !lostStatus && !GameObject.FindWithTag("BlueSplitterTriangle") && !GameObject.FindWithTag("RedSplitterTriangle") &&
             !GameObject.FindWithTag("BlinkingSplitter") &&
             GameObject.FindGameObjectsWithTag("RedBall").Length + GameObject.FindGameObjectsWithTag("PinkBall_RedBall").Length !=
             GameObject.FindGameObjectsWithTag("BlueBall").Length + GameObject.FindGameObjectsWithTag("PinkBall_BlueBall").Length)
