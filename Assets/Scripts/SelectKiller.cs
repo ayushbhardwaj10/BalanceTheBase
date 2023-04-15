@@ -101,6 +101,7 @@ public class SelectKiller : MonoBehaviour
         //Choosing the killer ball
         if (Input.GetKey(KeyCode.Space) && killerModeStatus.text == "ON" && !keyPressed)
         {
+            Debug.Log("pressed space");
             keyPressed = true;
 
             CreateKillerBall();
@@ -128,6 +129,7 @@ public class SelectKiller : MonoBehaviour
         // Making a normal ball into a killer ball
         GameObject chosenBall = ballsQueue.Peek();
 
+        Debug.Log("chosen ball: " + chosenBall.name);
         // Create a new game object with a circle sprite
         GameObject circleObject = new GameObject("Halo");
         SpriteRenderer circleRenderer = circleObject.AddComponent<SpriteRenderer>();
