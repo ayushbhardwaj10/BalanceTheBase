@@ -14,6 +14,7 @@ public class CheckLosingConditionBoxRegion : MonoBehaviour
     int blueCount = 0;
     int redCount = 0;
     FindBallCountShakeVarient findBallCountShakeVarient;
+    public static List<int> exitedIdList; 
 
     public void DisableLoosingPopup()
     {
@@ -31,20 +32,15 @@ public class CheckLosingConditionBoxRegion : MonoBehaviour
         findBallCountShakeVarient.blueCountInt = blueCount;
         findBallCountShakeVarient.redCountInt = redCount;
 
+        exitedIdList = new List<int>();
+
         InvokeRepeating("LossChecker", 0.0f, 1.0f);
     }
 
     void OnTriggerEnter2D(Collider2D collision)
     {
         Debug.Log("Game object tag: " + collision.gameObject.name);
-        if (collision.gameObject.CompareTag("BlueBall"))
-        {
-            blueCount = GameObject.FindGameObjectsWithTag("BlueBall").Length;
-            redCount = GameObject.FindGameObjectsWithTag("RedBall").Length;
-            findBallCountShakeVarient.blueCountInt = blueCount;
-            findBallCountShakeVarient.redCountInt = redCount;
-        }
-        if (collision.gameObject.CompareTag("RedBall"))
+        if (collision.gameObject.CompareTag("BlueBall") || collision.gameObject.CompareTag("RedBall"))
         {
             blueCount = GameObject.FindGameObjectsWithTag("BlueBall").Length;
             redCount = GameObject.FindGameObjectsWithTag("RedBall").Length;
@@ -60,23 +56,50 @@ public class CheckLosingConditionBoxRegion : MonoBehaviour
     {
         Debug.Log("Exit Game object tag: " + collision.gameObject.name);
         // Remove the GameObject collided with from the list.
-        if ("BlueBall".Equals(collision.gameObject.tag))
+        if ("BlueBall".Equals(collision.gameObject.tag) || "RedBall".Equals(collision.gameObject.tag))
         {
-            blueCount = GameObject.FindGameObjectsWithTag("BlueBall").Length;
-            redCount = GameObject.FindGameObjectsWithTag("RedBall").Length;
+            //Destroy the game object
+            exitedIdList.Add(collision.gameObject.GetInstanceID());
+
+            blueCount = 0;
+            foreach (GameObject ball in GameObject.FindGameObjectsWithTag("BlueBall"))
+            {
+                //exitedIdList is needed to handle ball counts when multiple balls exit at the same time
+                if (exitedIdList.Contains(ball.GetInstanceID()))
+                    continue;
+                blueCount += 1;
+            }
+
+            redCount = 0;
+            foreach (GameObject ball in GameObject.FindGameObjectsWithTag("RedBall"))
+            {
+                if (exitedIdList.Contains(ball.GetInstanceID()))
+                    continue;
+                redCount += 1;
+            }
+
             findBallCountShakeVarient.blueCountInt = blueCount;
             findBallCountShakeVarient.redCountInt = redCount;
         }
-        if ("RedBall".Equals(collision.gameObject.tag))
-        {
-            blueCount = GameObject.FindGameObjectsWithTag("BlueBall").Length;
-            redCount = GameObject.FindGameObjectsWithTag("RedBall").Length;
-            findBallCountShakeVarient.blueCountInt = blueCount;
-            findBallCountShakeVarient.redCountInt = redCount;
-        }
+        
         Debug.Log("Exit BlueCount: " + blueCount);
         Debug.Log("Exit RedCount: " + redCount);
     }
+
+    // int DestroyBallOnExit(Collider2D collision)
+    // {
+    //     List<int> deletedIdList = new List<int>(); 
+        
+    //     //Get instance ID of the deleted objects for updating state
+    //     int deletedID = collision.gameObject.GetInstanceID();
+    //     deletedIdList.Add(deletedID);
+    //     Destroy(collision.gameObject);
+
+    //     //Update game state
+    //     GameStateTracking.UpdateGameStack(deletedIdList, "Destroy out of bounds script: " + collision.gameObject.name);
+
+    //     return deletedID;
+    // }
 
     void LossChecker()
     {
