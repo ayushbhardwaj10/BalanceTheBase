@@ -31,10 +31,12 @@ public class CheckLosingConditionBoxRegion : MonoBehaviour
         findBallCountShakeVarient = new FindBallCountShakeVarient();
         findBallCountShakeVarient.blueCountInt = blueCount;
         findBallCountShakeVarient.redCountInt = redCount;
+        blueCount = GameObject.FindGameObjectsWithTag("BlueBall").Length;
+        redCount = GameObject.FindGameObjectsWithTag("RedBall").Length;
 
         exitedIdList = new List<int>();
 
-        InvokeRepeating("LossChecker", 0.0f, 1.0f);
+        InvokeRepeating("LossChecker", 0.5f, 1.0f);
     }
 
     void OnTriggerEnter2D(Collider2D collision)

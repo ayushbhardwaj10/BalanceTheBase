@@ -66,20 +66,26 @@ public class CheckWinCondition : MonoBehaviour
             yield return new WaitForSeconds(4);
             //Auto Level Movement
             inner_level++;
-            if(levelName == "Level_0_3")
+            if (levelName == "Level_0_3")
             {
                 outer_level++;
                 inner_level = 2;
             }
-            else if(levelName == "Level_1_4")
+            else if (levelName == "Level_1_4")
             {
                 inner_level = 1;
             }
-            else if(levelName == "Level_1_1")
+            else if (levelName == "Level_1_1")
             {
                 outer_level = 0;
                 inner_level = 4;
             }
+            else if (levelName == "Level_2_3")
+            {
+                outer_level = 4;
+                inner_level = 1;
+            }
+
 
             string load_scene = "Level_" + outer_level.ToString() + "_" + inner_level.ToString();
             RestartButton.prev_level = SceneManager.GetActiveScene().name;
