@@ -16,7 +16,6 @@ public class GameStateTracking : MonoBehaviour
         //Start every game with a clear stack
         clearStack();
         
-        
         UpdateGameStack(new List<int>(), "Start function");
     }
 

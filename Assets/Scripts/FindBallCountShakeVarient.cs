@@ -70,7 +70,7 @@ public class FindBallCountShakeVarient : MonoBehaviour
         //blueBallCountText.text = countBlue.ToString() + " B";
 
         //ballCountShakeVarient.blueCountIntText = blueCountInt;
-        Debug.Log("getter = " + blueCountInt);
+        // Debug.Log("getter = " + blueCountInt);
 
         if (redCountInt == blueCountInt)
         {
