@@ -47,10 +47,56 @@ public class LevelManagement : MonoBehaviour
         AnalyticsManager._instance.analytics_start_level("Level_1_4", DateTime.Now);
         SceneManager.LoadScene("Level_1_4");
     }
+    public void levelChangeTo21()
+    {
+        AnalyticsManager._instance.analytics_start_level("Level_2_1", DateTime.Now);
+        SceneManager.LoadScene("Level_2_1");
+    }
+    public void levelChangeTo23()
+    {
+        AnalyticsManager._instance.analytics_start_level("Level_2_3", DateTime.Now);
+        SceneManager.LoadScene("Level_2_3");
+    }
+    public void levelChangeTo22()
+    {
+        AnalyticsManager._instance.analytics_start_level("Level_2_2", DateTime.Now);
+        SceneManager.LoadScene("Level_2_2");
+    }
+    public void levelChangeTo31()
+    {
+        AnalyticsManager._instance.analytics_start_level("Level_3_1", DateTime.Now);
+        SceneManager.LoadScene("Level_3_1");
+    }
+    public void levelChangeTo32()
+    {
+        AnalyticsManager._instance.analytics_start_level("Level_3_2", DateTime.Now);
+        SceneManager.LoadScene("Level_3_2");
+    }
+    public void levelChangeTo42()
+    {
+        AnalyticsManager._instance.analytics_start_level("Level_4_2", DateTime.Now);
+        SceneManager.LoadScene("Level_4_2");
+    }
+    public void levelChangeTo43()
+    {
+        AnalyticsManager._instance.analytics_start_level("Level_4_3", DateTime.Now);
+        SceneManager.LoadScene("Level_4_3");
+    }
+    public void levelChangeTo51()
+    {
+        AnalyticsManager._instance.analytics_start_level("Level_5_1", DateTime.Now);
+        SceneManager.LoadScene("Level_5_1");
+    }
+    public void levelChangeTo52()
+    {
+        AnalyticsManager._instance.analytics_start_level("Level_5_2", DateTime.Now);
+        SceneManager.LoadScene("Level_5_2");
+    }
     public void levelChangeToLevelManager()
     {
         Debug.Log("level manager called");
         SceneManager.LoadScene("Level Manager");
+       
     }
     public void restartLevel() {
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);

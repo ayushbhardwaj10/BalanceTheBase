@@ -47,10 +47,12 @@ public class CheckWinCondition : MonoBehaviour
             endTime = DateTime.Now;
             int time_taken = (int)(endTime - startTime).TotalSeconds;
             Debug.Log("time taken" + time_taken);
-            int user_rating = GamesManager._instance.calculate_user_ratings(GamesManager.WIN, levelName, time_taken);
-            Debug.Log("User rating is " + user_rating);
-            GetComponent<StarHandler>().starsAcheived(user_rating);
-            Debug.Log("setting up winning pop-up");
+            
+            int user_rating = 3;
+            // GamesManager._instance.calculate_user_ratings(GamesManager.WIN, levelName, time_taken);
+            // Debug.Log("User rating is " + user_rating);
+            // GetComponent<StarHandler>().starsAcheived(user_rating);
+            // Debug.Log("setting up winning pop-up");
             
 
             winningPopup.SetActive(true);
@@ -83,7 +85,7 @@ public class CheckWinCondition : MonoBehaviour
             RestartButton.prev_level = SceneManager.GetActiveScene().name;
 
             Debug.Log("Auto Load scene " + load_scene);
-            if (load_scene != "Level_0_5")
+            if (load_scene != "Level_0_5" || load_scene !="Level_2_4")
             {
                 SceneManager.LoadScene(load_scene);
             }

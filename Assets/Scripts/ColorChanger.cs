@@ -4,26 +4,41 @@ using UnityEngine;
 
 public class ColorChanger : MonoBehaviour
 {
-     bool check = false;
-     Color redColor = new Vector4(0.7830189f, 0.1578784f, 0.1071111f,1.0f);
-     Color blueColor = new Vector4(0.09019608f, 0.6f, 0.9058824f,1.0f);
-
-    // Start is called before the first frame update
     
+    Color redColor = new Vector4(0.7830189f, 0.1578784f, 0.1071111f,1.0f);
+    Color blueColor = new Vector4(0.09019608f, 0.6f, 0.9058824f,1.0f);
+    public Color currentColor;
+    bool check = false;
     void Start()
     {
-        InvokeRepeating("changeColor", 1.0f, 4.0f);
+       currentColor = blueColor;
     }
 
-    void changeColor()
+   // Update is called once per frame
+    void Update()
     {
-        if(check==true){
-            gameObject.GetComponent<SpriteRenderer> ().color = redColor;
-            check = false;
-        } else {
-            gameObject.GetComponent<SpriteRenderer> ().color = blueColor;
-            check = true;
-        }  
+        float alpha = this.transform.GetComponent<SpriteRenderer>().color.a;
+        if(alpha <= 0.3){
+            check = !check;
+            alpha = 1.0f;
+        }
+        
+        if(check){
+            currentColor = redColor;
+            this.transform.GetComponent<SpriteRenderer>().color = currentColor;
+        }
+        if(!check){
+            currentColor = blueColor;
+            this.transform.GetComponent<SpriteRenderer>().color = currentColor;
+        }
+        if(alpha > 0.3) {
+            alpha -= 0.00007f;
+            Color newColor = currentColor;
+            newColor.a = alpha;
+            this.transform.GetComponent<SpriteRenderer>().color = newColor;
+        }
+        
     }
-    
+
 }
+

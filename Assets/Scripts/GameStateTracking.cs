@@ -16,7 +16,6 @@ public class GameStateTracking : MonoBehaviour
         //Start every game with a clear stack
         clearStack();
         
-        
         UpdateGameStack(new List<int>(), "Start function");
     }
 
@@ -144,10 +143,10 @@ public class GameStateTracking : MonoBehaviour
 
     private static void setGameObjectTransform(GameObject newObject, State state)
     {
+        newObject.transform.parent = state.parent;
         newObject.transform.position = state.transform.position;
         newObject.transform.rotation = state.transform.rotation;
         newObject.transform.localScale = state.transform.scale;
-        newObject.transform.parent = state.parent;
         
         newObject.name = state.name;
     }
