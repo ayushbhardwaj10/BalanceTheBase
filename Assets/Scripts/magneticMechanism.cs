@@ -30,21 +30,6 @@ public class magneticMechanism : MonoBehaviour
 
     }
 
-
-    private void FixedUpdate()
-    {
-        // if (isMagnetActive == true) {
-
-        //     foreach (Rigidbody2D rgbBall in rgbBalls)
-        //     {
-        //         //rgbBall.AddForce((magnetPoint.position - rgbBall.position) * forceFactor * Time.fixedDeltaTime);
-        //         rgbBall.AddForce((magnetPoint.position - new Vector3(rgbBall.position.x, rgbBall.position.y, 0f)).normalized * forceFactor * Time.fixedDeltaTime);
-        //         rgbBall.velocity *= (1 - dampingValue * Time.fixedDeltaTime);
-        //     }
-        // }
-
-    }
-
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (isBlue == true)
