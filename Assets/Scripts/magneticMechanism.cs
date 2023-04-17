@@ -33,15 +33,15 @@ public class magneticMechanism : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if (isMagnetActive == true) {
+        // if (isMagnetActive == true) {
 
-            foreach (Rigidbody2D rgbBall in rgbBalls)
-            {
-                //rgbBall.AddForce((magnetPoint.position - rgbBall.position) * forceFactor * Time.fixedDeltaTime);
-                rgbBall.AddForce((magnetPoint.position - new Vector3(rgbBall.position.x, rgbBall.position.y, 0f)).normalized * forceFactor * Time.fixedDeltaTime);
-                rgbBall.velocity *= (1 - dampingValue * Time.fixedDeltaTime);
-            }
-        }
+        //     foreach (Rigidbody2D rgbBall in rgbBalls)
+        //     {
+        //         //rgbBall.AddForce((magnetPoint.position - rgbBall.position) * forceFactor * Time.fixedDeltaTime);
+        //         rgbBall.AddForce((magnetPoint.position - new Vector3(rgbBall.position.x, rgbBall.position.y, 0f)).normalized * forceFactor * Time.fixedDeltaTime);
+        //         rgbBall.velocity *= (1 - dampingValue * Time.fixedDeltaTime);
+        //     }
+        // }
 
     }
 
@@ -49,22 +49,27 @@ public class magneticMechanism : MonoBehaviour
     {
         if (isBlue == true)
         {
-            if (other.CompareTag("BlueBall"))
+            Rigidbody2D rb2d = other.GetComponent<Rigidbody2D>();
+            if (other.CompareTag("BlueBall") && rb2d != null && !rgbBalls.Contains(rb2d))
             {
-                rgbBalls.Add(other.GetComponent<Rigidbody2D>());
+                rgbBalls.Add(rb2d);
             }
+            Debug.Log("Updated ball count - " + rgbBalls.Count);
         }
-        else {
-            if (other.CompareTag("RedBall"))
+        else
+        {
+            Rigidbody2D rb2d = other.GetComponent<Rigidbody2D>();
+            if (other.CompareTag("RedBall") && rb2d != null && !rgbBalls.Contains(rb2d))
             {
-                rgbBalls.Add(other.GetComponent<Rigidbody2D>());
+                rgbBalls.Add(rb2d);
             }
-        }  
+            Debug.Log("Updated ball count - " + rgbBalls.Count);
+        } 
     }
     private void OnTriggerExit2D(Collider2D other)
     {
         Debug.Log("exit..");
-        rgbBalls.Clear();
+        // rgbBalls.Clear();
 
         if (other.CompareTag("BlueBall") || other.CompareTag("RedBall"))
         {
@@ -77,23 +82,37 @@ public class magneticMechanism : MonoBehaviour
     {
         if (isBlue == true)
         {
-            if (other.CompareTag("BlueBall"))
+            Rigidbody2D rb2d = other.GetComponent<Rigidbody2D>();
+            if (other.CompareTag("BlueBall") && rb2d != null && !rgbBalls.Contains(rb2d))
             {
-                rgbBalls.Add(other.GetComponent<Rigidbody2D>());
+                rgbBalls.Add(rb2d);
             }
+            Debug.Log("Updated ball count - " + rgbBalls.Count);
         }
         else
         {
-            if (other.CompareTag("RedBall"))
+            Rigidbody2D rb2d = other.GetComponent<Rigidbody2D>();
+            if (other.CompareTag("RedBall") && rb2d != null && !rgbBalls.Contains(rb2d))
             {
-                rgbBalls.Add(other.GetComponent<Rigidbody2D>());
+                rgbBalls.Add(rb2d);
             }
+            Debug.Log("Updated ball count - " + rgbBalls.Count);
         }
 
     }
 
     void Update()
     {
+        if (isMagnetActive == true) {
+
+            foreach (Rigidbody2D rgbBall in rgbBalls)
+            {
+                //rgbBall.AddForce((magnetPoint.position - rgbBall.position) * forceFactor * Time.fixedDeltaTime);
+                rgbBall.AddForce((magnetPoint.position - new Vector3(rgbBall.position.x, rgbBall.position.y, 0f)).normalized * forceFactor * Time.fixedDeltaTime);
+                rgbBall.velocity *= (1 - dampingValue * Time.fixedDeltaTime);
+            }
+        }
+
         // Toggle switching ON and OFF of magnet
         if (Input.GetKeyUp(KeyCode.LeftShift) || Input.GetKeyUp(KeyCode.LeftShift))
         {
