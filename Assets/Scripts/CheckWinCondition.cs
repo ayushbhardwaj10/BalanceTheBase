@@ -73,7 +73,8 @@ public class CheckWinCondition : MonoBehaviour
             }
             else if (levelName == "Level_1_4")
             {
-                inner_level = 1;
+                outer_level = 2;
+                 inner_level = 1;
             }
             else if (levelName == "Level_1_1")
             {
@@ -85,7 +86,34 @@ public class CheckWinCondition : MonoBehaviour
                 outer_level = 4;
                 inner_level = 1;
             }
-
+            else if (levelName == "Level_4_3")
+            {
+                SceneManager.LoadScene("killerlevel_5_1");
+            }
+            else if (levelName == "killerlevel_5_1")
+            {
+                SceneManager.LoadScene("killerlevel_5_2");
+            }
+            else if (levelName == "killerlevel_5_2")
+            {
+                SceneManager.LoadScene("foglevel_3_1");
+            }
+            else if (levelName == "foglevel_3_1")
+            {
+                SceneManager.LoadScene("foglevel_3_2");
+            }
+            else if (levelName == "foglevel_3_2")
+            {
+                SceneManager.LoadScene("Level_6_1");
+            }
+            else if (levelName == "Level_6_3")
+            {
+                SceneManager.LoadScene("Level_0_4");
+            }
+            else if (levelName == "Level_0_4")
+            {
+                SceneManager.LoadScene("Level_1_1");
+            }
 
             string load_scene = "Level_" + outer_level.ToString() + "_" + inner_level.ToString();
             RestartButton.prev_level = SceneManager.GetActiveScene().name;
