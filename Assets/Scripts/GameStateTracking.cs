@@ -66,7 +66,7 @@ public class GameStateTracking : MonoBehaviour
         }
 
         // Destroy all current inner game objects
-        DestroyAllObjects();
+        List<int> deletedObjects = DestroyAllObjects();
 
         // Resurrect everything from history
         GameState prevState = gameStack.Peek();
@@ -169,8 +169,41 @@ public class GameStateTracking : MonoBehaviour
             setGameObjectTransform(newObject, state);
         }
 
+        if(currentSceneName.Contains("killer"))
+        {
+            updateBallQueueInKillerScript(deletedObjects);
+        }
+
         string levelName = SceneManager.GetActiveScene().name;
         AnalyticsManager._instance.analytics_undo_last_move(levelName, gameStack.Count);
+    }
+
+    private static void updateBallQueueInKillerScript(List<int> deletedIdList)
+    {
+        GameObject wallsParent = GameObject.Find("Parent Walls");
+
+        if (wallsParent != null)
+        {
+            // Check if the "SelectKiller" script is attached to the parent "Walls" GameObject
+            SelectKiller selectKillerScript = wallsParent.GetComponent<SelectKiller>();
+
+            if (selectKillerScript != null)
+            {
+                // "SelectKiller" script is attached
+                GameObject.Find("Parent Walls").GetComponent<SelectKiller>().refreshKillerBallQueue(deletedIdList);
+                Debug.Log("Refreshing killer ball queue");
+            }
+            else
+            {
+                // "SelectKiller" script is not attached
+                Debug.Log("The parent Walls GameObject does not contain a SelectKiller script.");
+            }
+        }
+        else
+        {
+            // Parent "Walls" GameObject not found
+            Debug.LogError("The parent Walls GameObject could not be found.");
+        }
     }
 
     private static void setGameObjectTransform(GameObject newObject, State state)
@@ -183,8 +216,10 @@ public class GameStateTracking : MonoBehaviour
         newObject.name = state.name;
     }
 
-    private static void DestroyAllObjects()
-    { 
+    private static List<int> DestroyAllObjects()
+    {
+        List<int> deletedIdList = new List<int>(); 
+
         string[] tags = new string[]{"BlueSplitterTriangle", "RedSplitterTriangle", "BlinkingSplitter", "BlueBall", "RedBall", "PinkBall_BlueBall", "PinkBall_RedBall", "Inner_White_Wall", "Pink_Wall", "Star_Canvas"};
 
         foreach (string tag in tags)
@@ -192,8 +227,11 @@ public class GameStateTracking : MonoBehaviour
             foreach (GameObject obj in GameObject.FindGameObjectsWithTag(tag))
             {
                 Destroy(obj);
+                deletedIdList.Add(obj.GetInstanceID());
             }
         }
+
+        return deletedIdList;
     }
 
     private static List<State> getState(string tag, List<int> deletedIDs)
