@@ -794,7 +794,7 @@ PrefabInstance:
     - target: {fileID: 317462722509493276, guid: 36322ddd64ede447f8a6fbffa428a4bd, type: 3}
       propertyPath: winningPopup
       value: 
-      objectReference: {fileID: 1850418451}
+      objectReference: {fileID: 826166758}
     - target: {fileID: 2911653850526773525, guid: 36322ddd64ede447f8a6fbffa428a4bd, type: 3}
       propertyPath: m_Name
       value: Goal Region
@@ -1680,6 +1680,11 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 4979364627683823102, guid: cf1990133d6644c75bd56049e9a41ec3, type: 3}
   m_PrefabInstance: {fileID: 826166756}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &826166758 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4979364627683823103, guid: cf1990133d6644c75bd56049e9a41ec3, type: 3}
+  m_PrefabInstance: {fileID: 826166756}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &934788573
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2203,8 +2208,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 20
   minSpeed: 20
-  maxSpeed: 20
-  acceleration: 100
+  maxSpeed: 100
+  acceleration: 20
   customPivot: {x: 0, y: 0, z: 0}
 --- !u!114 &1218782039
 MonoBehaviour:
@@ -3376,11 +3381,6 @@ PrefabInstance:
 --- !u!224 &1850418450 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 14615013505231104, guid: 7fc47fdc0962d1e489f99123b6120cd4, type: 3}
-  m_PrefabInstance: {fileID: 1850418449}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &1850418451 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 14615013505231105, guid: 7fc47fdc0962d1e489f99123b6120cd4, type: 3}
   m_PrefabInstance: {fileID: 1850418449}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1863943304

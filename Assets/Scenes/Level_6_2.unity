@@ -521,8 +521,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 20
   minSpeed: 20
-  maxSpeed: 20
-  acceleration: 100
+  maxSpeed: 100
+  acceleration: 20
   customPivot: {x: 0, y: 0, z: 0}
 --- !u!1 &328886545
 GameObject:
