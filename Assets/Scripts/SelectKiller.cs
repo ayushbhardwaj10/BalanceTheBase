@@ -14,19 +14,34 @@ public class SelectKiller : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        refreshKillerBallQueue(new List<int>());
+    }
+
+    public void refreshKillerBallQueue(List<int> deletedIdList)
+    {
+        ballsQueue.Clear();
+        Debug.Log("Refreshing killer ball queue - Old ball count: " + ballsQueue.Count);
+
         GameObject[] redBalls = GameObject.FindGameObjectsWithTag("RedBall");
         GameObject[] blueBalls = GameObject.FindGameObjectsWithTag("BlueBall");
 
         foreach (GameObject redBall in redBalls)
         {
-            ballsQueue.Enqueue(redBall);
+            if(!deletedIdList.Contains(redBall.GetInstanceID()))
+            {
+                ballsQueue.Enqueue(redBall);
+            }
         }
 
         foreach (GameObject blueBall in blueBalls)
         {
-            ballsQueue.Enqueue(blueBall);
+            if(!deletedIdList.Contains(blueBall.GetInstanceID()))
+            {
+                ballsQueue.Enqueue(blueBall);
+            }
         }
-        Debug.Log(ballsQueue.Count);
+
+        Debug.Log("Refreshing killer ball queue - New ball count: " + ballsQueue.Count);
     }
 
     public void addBallToQueue(GameObject ball)
