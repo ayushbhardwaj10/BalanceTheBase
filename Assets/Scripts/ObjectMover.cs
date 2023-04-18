@@ -19,17 +19,9 @@ public class ObjectMover : MonoBehaviour
         mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         mousePosition.z = 0f;
 
-        // calculate the distance between the mouse position and the starting position of the object
-        float distance = Vector3.Distance(startingPosition, mousePosition);
-
-        // if the mouse is outside the boundary, move the object towards the closest point on the boundary
-        if (distance < boundarySize)
-        {
-            Vector3 direction = mousePosition - startingPosition;
-            direction.Normalize();
-            mousePosition = startingPosition + direction * boundarySize;
-        }
-       
+        // clamp the mouse position to the boundary
+        mousePosition.x = Mathf.Clamp(mousePosition.x, startingPosition.x - boundarySize, startingPosition.x + boundarySize);
+        mousePosition.y = Mathf.Clamp(mousePosition.y, startingPosition.y - boundarySize, startingPosition.y + boundarySize);
 
         // move the object towards the mouse position
         transform.position = Vector3.MoveTowards(transform.position, mousePosition, moveSpeed * Time.deltaTime);
