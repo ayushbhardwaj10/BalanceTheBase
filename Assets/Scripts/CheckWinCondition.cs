@@ -115,6 +115,12 @@ public class CheckWinCondition : MonoBehaviour
                 SceneManager.LoadScene("Level_1_1");
             }
 
+            //remove after week 14 presentation
+            if (outer_level == 6 && inner_level == 2)
+            {
+                inner_level = 3;
+            }
+
             string load_scene = "Level_" + outer_level.ToString() + "_" + inner_level.ToString();
             RestartButton.prev_level = SceneManager.GetActiveScene().name;
 
