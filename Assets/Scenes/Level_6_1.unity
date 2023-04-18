@@ -474,7 +474,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 78edaad083e0b448a9b30df33c484cde, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  radius: 5
+  speed: 1.25
+  radius: 4.5
 --- !u!1 &375098003 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6102056034570217950, guid: 6afc65bbb47944e6e8330a1f2096b039, type: 3}
@@ -642,7 +643,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   radius: 4.5
-  lineWidth: 0.1
+  lineWidth: 0.01
   lineColor: {r: 0.9433962, g: 0.9366592, b: 0.85884655, a: 1}
 --- !u!4 &409923305
 Transform:
