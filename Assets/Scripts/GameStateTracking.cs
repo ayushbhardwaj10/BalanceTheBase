@@ -50,6 +50,8 @@ public class GameStateTracking : MonoBehaviour
         //Side effect
         CheckLosingCondition.lostStatus = false;
 
+        //Only for fog lighting levels
+        string currentSceneName = SceneManager.GetActiveScene().name;
         
         if (gameStack.Count < 1) // Worst case - Just as a fail safe
         {
@@ -79,13 +81,25 @@ public class GameStateTracking : MonoBehaviour
         
         foreach (State state in prevState.blueSplitters)
         {
-            GameObject newObject = Instantiate(Resources.Load<GameObject>("Prefabs/Splitter-Blue"));
+            string prefabPath = "Prefabs/Splitter-Blue";
+            if(currentSceneName.Contains("fog"))
+            {
+                prefabPath = "Prefabs/Splitter-Blue With Light";
+            }
+
+            GameObject newObject = Instantiate(Resources.Load<GameObject>(prefabPath));
             setGameObjectTransform(newObject, state);
         }
 
         foreach (State state in prevState.redSplitters)
         {
-            GameObject newObject = Instantiate(Resources.Load<GameObject>("Prefabs/Splitter-Red"));
+            string prefabPath = "Prefabs/Splitter-Red";
+            if(currentSceneName.Contains("fog"))
+            {
+                prefabPath = "Prefabs/Splitter-Red With Light";
+            }
+
+            GameObject newObject = Instantiate(Resources.Load<GameObject>(prefabPath));
             setGameObjectTransform(newObject, state);
         }
 
@@ -97,13 +111,25 @@ public class GameStateTracking : MonoBehaviour
 
         foreach (State state in prevState.blueBalls)
         {
-            GameObject newObject = Instantiate(Resources.Load<GameObject>("Prefabs/Blue Ball"));
+            string prefabPath = "Prefabs/Blue Ball";
+            if(currentSceneName.Contains("fog"))
+            {
+                prefabPath = "Prefabs/Blue Ball With Light";
+            }
+
+            GameObject newObject = Instantiate(Resources.Load<GameObject>(prefabPath));
             setGameObjectTransform(newObject, state);
         }
 
         foreach (State state in prevState.redBalls)
         {
-            GameObject newObject = Instantiate(Resources.Load<GameObject>("Prefabs/Red Ball"));
+            string prefabPath = "Prefabs/Red Ball";
+            if(currentSceneName.Contains("fog"))
+            {
+                prefabPath = "Prefabs/Red Ball With Light";
+            }
+
+            GameObject newObject = Instantiate(Resources.Load<GameObject>(prefabPath));
             setGameObjectTransform(newObject, state);
         }
 
@@ -127,7 +153,13 @@ public class GameStateTracking : MonoBehaviour
 
         foreach (State state in prevState.pinkWalls)
         {
-            GameObject newObject = Instantiate(Resources.Load<GameObject>("Prefabs/Pink Wall"));
+            string prefabPath = "Prefabs/Pink Wall";
+            if(currentSceneName.Contains("fog"))
+            {
+                prefabPath = "Prefabs/Pink Wall With Light";
+            }
+
+            GameObject newObject = Instantiate(Resources.Load<GameObject>(prefabPath));
             setGameObjectTransform(newObject, state);
         }
 
