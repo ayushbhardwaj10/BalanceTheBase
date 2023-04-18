@@ -4,64 +4,30 @@ using UnityEngine;
 
 public class CircularMagnet : MonoBehaviour
 {
-
-
-    // *********************************** This is wrt Keyboard Control ********************************************** 
-
-    //public float moveSpeed = 5f; // the speed at which the object moves
-    //public float boundaryRadius = 5f; // the radius of the circular boundary
-
-    //private Vector2 centerPosition; // the center position of the circular boundary
-
-
-    //void Start()
-    //{
-    //    centerPosition = transform.position; // set the center position to the initial position of the object
-    //}
-
-    //void Update()
-    //{
-    //    // get the horizontal and vertical input from the keyboard
-    //    float horizontalInput = Input.GetAxisRaw("Horizontal");
-    //    float verticalInput = Input.GetAxisRaw("Vertical");
-    //    // calculate the movement direction based on the keyboard input
-    //    Vector2 movementDirection = new Vector2(horizontalInput, verticalInput).normalized;
-
-    //    // calculate the target position based on the movement direction, the speed, and the center position
-    //    Vector2 targetPosition = centerPosition + movementDirection * boundaryRadius;
-
-    //    // move the object towards the target position
-    //    transform.position = Vector2.MoveTowards(transform.position, targetPosition, moveSpeed * Time.deltaTime);
-
-    //    // clamp the object within the circular boundary
-    //    float distanceFromCenter = Vector2.Distance(centerPosition, transform.position);
-    //    if (distanceFromCenter > boundaryRadius)
-    //    {
-    //        transform.position = (Vector3)centerPosition + ((Vector3)(transform.position) - (Vector3)(centerPosition)).normalized * boundaryRadius;
-    //    }
-    //}
-
-
-    public float radius = 5f; // the radius within which the object can be moved
-    private Vector3 originalPos; // the object's original position
-    private Vector3 mousePos; // the current position of the mouse
-    private Vector3 newPos; // the new position of the object
+    public float speed = 5f;
+    public float radius = 4.5f;
 
     private float angle = 0f;
 
-    void Update()
+    private void Update()
     {
-        
+        // Get the vertical input axis to move the sprite up and down the circle
+        float verticalInput = Input.GetAxis("Vertical");
 
-        // calculate the distance between the mouse and the original position of the object
-        float distance = Vector3.Distance(originalPos, mousePos);
+        // Update the angle based on the vertical input axis and the speed
+        angle += verticalInput * speed * Time.deltaTime;
 
-        // check if the mouse is within the radius
-        
-            newPos = originalPos + (mousePos - originalPos).normalized * radius; // set the new position to the edge of the radius
-        
+        // Calculate the x and y position of the sprite on the circle
+        float x = Mathf.Cos(angle) * radius;
+        float y = Mathf.Sin(angle) * radius;
 
-        // move the object to the new position
-        transform.position = newPos;
+        // Set the position of the sprite
+        transform.position = new Vector3(x, y, 0f);
+
+        // Calculate the angle between the sprite and the center of the circle
+        float angleToCenter = Mathf.Atan2(transform.position.y, transform.position.x) * Mathf.Rad2Deg;
+
+        // Rotate the sprite so that its longer length is parallel to the tangent of the circle
+        transform.rotation = Quaternion.Euler(0f, 0f, angleToCenter - 90f);
     }
 }
