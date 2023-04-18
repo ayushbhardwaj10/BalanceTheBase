@@ -15,6 +15,7 @@ public class MessageOrder51 : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        instruction1.enabled = true;
         instruction2.enabled = false;
         instruction3.enabled = false;
         instruction4.enabled = false;
@@ -27,44 +28,26 @@ public class MessageOrder51 : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.K) && flag == 1)
         {
             instruction1.enabled = false;
-
-            flag = 2;
-        }
-
-        if (flag == 2)
-        {
             instruction2.enabled = true;
-
-            if (Input.GetKeyDown(KeyCode.Space))
-            {
-                instruction2.enabled = false;
-                flag = 3;
-            }
+            flag++;
         }
-
-        if (flag == 3)
+        else if (Input.GetKeyDown(KeyCode.Space) && flag == 2)
         {
+            instruction2.enabled = false;
             instruction3.enabled = true;
-            if (Input.GetKeyDown(KeyCode.Space))
-            {
-                instruction3.enabled = false;
-                flag = 4;
-            }
+            flag++;
         }
-
-        if (flag == 4)
+        else if (Input.GetKeyDown(KeyCode.Space) && flag == 3)
         {
+            instruction3.enabled = false;
             instruction4.enabled = true;
-            if (Input.GetKeyDown(KeyCode.Space))
-            {
-                instruction4.enabled = false;
-                flag = 5;
-            }
+            flag++;
         }
-
-        if (flag == 5)
+        else if (Input.GetKeyDown(KeyCode.Space) && flag == 4)
         {
+            instruction4.enabled = false;
             instruction5.enabled = true;
+            flag++;
         }
     }
 }
