@@ -47,16 +47,11 @@ public class CircularMagnet : MonoBehaviour
     private Vector3 mousePos; // the current position of the mouse
     private Vector3 newPos; // the new position of the object
 
-    void Start()
-    {
-        originalPos = transform.position; // set the object's original position
-    }
+    private float angle = 0f;
 
     void Update()
     {
-        // get the current position of the mouse
-        mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        mousePos.z = 0; // make sure the z-coordinate is zero
+        
 
         // calculate the distance between the mouse and the original position of the object
         float distance = Vector3.Distance(originalPos, mousePos);
