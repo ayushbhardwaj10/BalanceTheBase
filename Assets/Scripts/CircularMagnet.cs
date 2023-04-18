@@ -4,39 +4,25 @@ using UnityEngine;
 
 public class CircularMagnet : MonoBehaviour
 {
-    public float radius = 5f; // the radius within which the object can be moved
-    private Vector3 originalPos; // the object's original position
-    private Vector3 mousePos; // the current position of the mouse
-    private Vector3 newPos; // the new position of the object
+    public float speed = 5f;
+    public float radius = 5f;
 
-    void Start()
-    {
-        originalPos = transform.position; // set the object's original position
-    }
+    private float angle = 0f;
 
     void Update()
     {
-        // get the current position of the mouse
-        mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        mousePos.z = 0; // make sure the z-coordinate is zero
+        if (Input.GetKey(KeyCode.UpArrow))
+        {
+            angle += speed * Time.deltaTime;
+        }
+        else if (Input.GetKey(KeyCode.DownArrow))
+        {
+            angle -= speed * Time.deltaTime;
+        }
 
+        float x = Mathf.Cos(angle) * radius;
+        float y = Mathf.Sin(angle) * radius;
 
-        // calculate the distance between the mouse and the original position of the object
-        float distance = Vector3.Distance(originalPos, mousePos);
-
-        // check if the mouse is within the radius
-        //if (distance == radius)
-        //{
-        //    newPos = mousePos; // set the new position to the mouse position
-        //    Debug.Log("1");
-        //}
-        //else
-        //{
-            newPos = originalPos + (mousePos - originalPos).normalized * radius; // set the new position to the edge of the radius
-            
-       // }
-
-        // move the object to the new position
-        transform.position = newPos;
+        transform.position = new Vector3(x, y, 0f);
     }
 }
