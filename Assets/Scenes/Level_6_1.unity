@@ -393,11 +393,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1409296339387012826, guid: 9faa6c9658dd04cf4aa97c9d54f35976, type: 3}
       propertyPath: forceFactor
-      value: 5000
+      value: 500
       objectReference: {fileID: 0}
     - target: {fileID: 1409296339387012826, guid: 9faa6c9658dd04cf4aa97c9d54f35976, type: 3}
       propertyPath: dampingValue
-      value: 0.8
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 1409296339387012827, guid: 9faa6c9658dd04cf4aa97c9d54f35976, type: 3}
       propertyPath: m_Size.x
