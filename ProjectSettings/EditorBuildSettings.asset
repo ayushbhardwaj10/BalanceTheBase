@@ -60,10 +60,10 @@ EditorBuildSettings:
     path: Assets/Scenes/Level_4_3.unity
     guid: 52b1a680e32644616afc0aa74d781a42
   - enabled: 1
-    path: Assets/Scenes/Level_5_1.unity
+    path: Assets/Scenes/killerlevel_5_1.unity
     guid: d408fc85d331d426f8a99d2c570d7a20
   - enabled: 1
-    path: Assets/Scenes/Level_5_2.unity
+    path: Assets/Scenes/killerlevel_5_2.unity
     guid: 8f161e713484a4e38a4e6682ebf64eaa
   - enabled: 1
     path: Assets/Scenes/Level_4_1.unity

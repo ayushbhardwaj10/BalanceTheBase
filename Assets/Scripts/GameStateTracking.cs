@@ -2,13 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using TMPro;
 
 public class GameStateTracking : MonoBehaviour
 {
-    public static GameObject blueTrianglePrefab;
-    
-
-    
     static Stack<GameState> gameStack = new Stack<GameState>();
 
     void Start()
@@ -28,6 +25,24 @@ public class GameStateTracking : MonoBehaviour
     public static void UpdateGameStack(List<int> deletedIDs, string message)
     {
         Debug.Log("UPDATE: Triggered by - " + message);
+        
+        string timeLeftVal = "0";
+        string killerModeStatusVal = "OFF";
+
+        if(SceneManager.GetActiveScene().name.Contains("killer"))
+        {
+            TextMeshProUGUI timeLeftObj = GameObject.Find("TimerLeft").GetComponent<TextMeshProUGUI>();
+            TextMeshProUGUI killerModeStatusObj = GameObject.Find("KillerModeStatus").GetComponent<TextMeshProUGUI>();
+
+            if(timeLeftObj != null && killerModeStatusObj != null)
+            {
+                timeLeftVal = timeLeftObj.text;
+                Debug.Log("Undo killer test - " + timeLeftVal);
+
+                killerModeStatusVal = killerModeStatusObj.text;
+                Debug.Log("Undo killer test - " + killerModeStatusVal);
+            }
+        }
 
         gameStack.Push(new GameState(getState("BlueSplitterTriangle", deletedIDs),
                                         getState("RedSplitterTriangle", deletedIDs),
@@ -39,7 +54,9 @@ public class GameStateTracking : MonoBehaviour
                                         getState("Inner_White_Wall", deletedIDs),
                                         getState("Pink_Wall", deletedIDs),
                                         getState("MazeWalls", deletedIDs),
-                                        getState("Star_Canvas", deletedIDs))
+                                        getState("Star_Canvas", deletedIDs),
+                                        timeLeftVal,
+                                        killerModeStatusVal)
                                         );
 
         Debug.Log("UPDATE: Game state stack size after update - " + gameStack.Count);
@@ -172,6 +189,17 @@ public class GameStateTracking : MonoBehaviour
         if(currentSceneName.Contains("killer"))
         {
             updateBallQueueInKillerScript(deletedObjects);
+
+            //Set back timer and killer mode
+            TextMeshProUGUI timeLeftObj = GameObject.Find("TimerLeft").GetComponent<TextMeshProUGUI>();
+            TextMeshProUGUI killerModeStatusObj = GameObject.Find("KillerModeStatus").GetComponent<TextMeshProUGUI>();
+
+            if(timeLeftObj != null && killerModeStatusObj != null)
+            {
+                timeLeftObj.GetComponent<EatingTimer>().timeLeft = int.Parse(prevState.timeLeft);
+
+                killerModeStatusObj.text = "OFF"; //prevState.killerModeStatus;
+            }
         }
 
         string levelName = SceneManager.GetActiveScene().name;
@@ -284,6 +312,10 @@ public class GameStateTracking : MonoBehaviour
         // Stars
         public List<State> stars;
 
+        //Killer stats
+        public string killerModeStatus = "OFF";
+        public string timeLeft = "0";
+
         public GameState(List<State> blueSplittersObj,
                         List<State> redSplittersObj,
                         List<State> blinkingSplittersObj,
@@ -307,6 +339,35 @@ public class GameStateTracking : MonoBehaviour
             pinkWalls = pinkWallsObj;
             mazeWalls = mazeWallsObj;
             stars = starsObj;
+        }
+
+        public GameState(List<State> blueSplittersObj,
+                        List<State> redSplittersObj,
+                        List<State> blinkingSplittersObj,
+                        List<State> blueBallsObj,
+                        List<State> redBallsObj,
+                        List<State> pinkBlueBallsObj,
+                        List<State> pinkRedBallsObj,
+                        List<State> innerWhiteWallsObj,
+                        List<State> pinkWallsObj,
+                        List<State> mazeWallsObj,
+                        List<State> starsObj,
+                        string timeLeftVal,
+                        string killerModeStatusVal)
+        {
+            blueSplitters = blueSplittersObj;
+            redSplitters = redSplittersObj;
+            blinkingSplitters = blinkingSplittersObj;
+            blueBalls = blueBallsObj;
+            redBalls = redBallsObj;
+            pinkBlueBalls = pinkBlueBallsObj;
+            pinkRedBalls = pinkRedBallsObj;
+            innerWhiteWalls = innerWhiteWallsObj;
+            pinkWalls = pinkWallsObj;
+            mazeWalls = mazeWallsObj;
+            stars = starsObj;
+            timeLeft = timeLeftVal;
+            killerModeStatus = killerModeStatusVal;
         }
     }
 
