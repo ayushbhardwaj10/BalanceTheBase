@@ -12,6 +12,8 @@ public class FindBallCountShakeVarient : MonoBehaviour
     RedFindBallCountShakeVarient redFindBallCountShakeVarient;
     private volatile int countRed;
     private volatile int countBlue;
+    int bcount;
+    int rcount;
 
     public event Action<int> OnMyIntChanged;
 
@@ -51,6 +53,7 @@ public class FindBallCountShakeVarient : MonoBehaviour
         ballCountShakeVarient = new BlueFindBallCountShakeVarient();
         ballCountShakeVarient.blueCountIntText = countBlueParam;
         Debug.Log("BlueUISetter: " + countBlueParam);
+        bcount = countBlueParam;
     }
 
     void RedUISetter(int countRedParam)
@@ -58,6 +61,7 @@ public class FindBallCountShakeVarient : MonoBehaviour
         redFindBallCountShakeVarient = new RedFindBallCountShakeVarient();
         redFindBallCountShakeVarient.redCountIntText = countRedParam;
         Debug.Log("RedUISetter: " + countRedParam);
+        rcount = countRedParam;
     }
 
     // Update is called once per frame
@@ -72,7 +76,7 @@ public class FindBallCountShakeVarient : MonoBehaviour
         //ballCountShakeVarient.blueCountIntText = blueCountInt;
         // Debug.Log("getter = " + blueCountInt);
 
-        if (redCountInt == blueCountInt)
+        if (bcount == rcount)
         {
             ballCountText.text = "";
         }
