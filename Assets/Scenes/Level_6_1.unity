@@ -2395,10 +2395,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1064512865}
-  - component: {fileID: 1064512864}
   - component: {fileID: 1064512863}
-  - component: {fileID: 1064512866}
-  - component: {fileID: 1064512867}
   m_Layer: 0
   m_Name: CircularBorder
   m_TagString: Untagged
@@ -2422,21 +2419,6 @@ MonoBehaviour:
   lineWidth: 0.1
   thickness: 0.1
   lineColor: {r: 1, g: 1, b: 1, a: 1}
---- !u!114 &1064512864
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1064512862}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 742b5e7130616476a9fc42fbc5264ca1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  radius: 4.5
-  lineWidth: 0.01
-  lineColor: {r: 0.9433962, g: 0.9366592, b: 0.85884655, a: 1}
 --- !u!4 &1064512865
 Transform:
   m_ObjectHideFlags: 0
@@ -2452,48 +2434,6 @@ Transform:
   m_Father: {fileID: 88741640}
   m_RootOrder: 14
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!58 &1064512866
-CircleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1064512862}
-  m_Enabled: 0
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  serializedVersion: 2
-  m_Radius: 5.2
---- !u!61 &1064512867
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1064512862}
-  m_Enabled: 0
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0, y: 0}
-    oldSize: {x: 0, y: 0}
-    newSize: {x: 0, y: 0}
-    adaptiveTilingThreshold: 0
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 10, y: 10}
-  m_EdgeRadius: 0
 --- !u!1 &1150988973 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6102056034025189132, guid: 6afc65bbb47944e6e8330a1f2096b039, type: 3}
