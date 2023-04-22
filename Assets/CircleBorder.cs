@@ -58,6 +58,7 @@ public class CircleBorder : MonoBehaviour
 {
     public float radius = 4f; // the radius of the circle
     public float lineWidth = 0.1f; // the width of the circle's boundary line
+    public float thickness = 0.1f;
     public Color lineColor = Color.white; // the color of the circle's boundary line
 
     private LineRenderer lineRenderer; // the LineRenderer component used to draw the circle
@@ -89,6 +90,17 @@ public class CircleBorder : MonoBehaviour
         }
         lineRenderer.positionCount = segments + 1; // set the number of points in the line renderer
         lineRenderer.SetPositions(points); // set the positions of the points in the line renderer
+
+        EdgeCollider2D edgeCollider = gameObject.AddComponent<EdgeCollider2D>();
+        int pointCount = lineRenderer.positionCount;
+        Vector2[] pts = new Vector2[pointCount];
+
+        for (int i = 0; i < pointCount; i++)
+        {
+            pts[i] = lineRenderer.GetPosition(i);
+        }
+
+        edgeCollider.points = pts;
     }
 
     public void AttachToCircle(GameObject obj)
@@ -105,8 +117,17 @@ public class CircleBorder : MonoBehaviour
         //FixedJoint2D fj = obj.AddComponent<FixedJoint2D>();
         //fj.connectedBody = this.GetComponent<Rigidbody2D>();
 
-        //CircleCollider2D collider = gameObject.AddComponent<CircleCollider2D>();
-        //collider.radius = radius;
+        // CircleCollider2D outerCollider = gameObject.AddComponent<CircleCollider2D>();
+        // CircleCollider2D innerCollider = gameObject.AddComponent<CircleCollider2D>();
+        // collider.radius = radius;
+        // collider.offset = Vector2.zero;
+        // collider.edgeRadius = thickness / 2f;
+
+        // innerCollider.radius = radius - thickness / 2f;
+        // outerCollider.radius = radius + thickness / 2f;
+        // outerCollider.isTrigger = true;
+
+        // Physics2D.IgnoreCollision(innerCollider, outerCollider);
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
