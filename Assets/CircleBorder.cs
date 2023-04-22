@@ -61,6 +61,7 @@ public class CircleBorder : MonoBehaviour
     public Color lineColor = Color.white; // the color of the circle's boundary line
 
     private LineRenderer lineRenderer; // the LineRenderer component used to draw the circle
+    private PolygonCollider2D polyCollider;
 
     void Start()
     {
@@ -70,6 +71,10 @@ public class CircleBorder : MonoBehaviour
         lineRenderer.endWidth = lineWidth; // set the line width
         lineRenderer.material.color = lineColor; // set the line color
         DrawCircle(); // draw the circle
+
+        AttachToCircle(gameObject);
+
+        //GeneratePolygonCollider();
     }
 
     void DrawCircle()
@@ -95,9 +100,30 @@ public class CircleBorder : MonoBehaviour
         }
         rb.gravityScale = 0;
         rb.constraints = RigidbodyConstraints2D.FreezeRotation;
+        rb.constraints = RigidbodyConstraints2D.FreezePosition;
 
-        FixedJoint2D fj = obj.AddComponent<FixedJoint2D>();
-        fj.connectedBody = this.GetComponent<Rigidbody2D>();
+        //FixedJoint2D fj = obj.AddComponent<FixedJoint2D>();
+        //fj.connectedBody = this.GetComponent<Rigidbody2D>();
+
+        //CircleCollider2D collider = gameObject.AddComponent<CircleCollider2D>();
+        //collider.radius = radius;
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        Debug.Log("Collided with " + collision.gameObject.name);
+    }
+
+    void GeneratePolygonCollider()
+    {
+        polyCollider = gameObject.AddComponent<PolygonCollider2D>();
+        int pointCount = lineRenderer.positionCount; // get the number of points in the line renderer
+        Vector2[] colliderPoints = new Vector2[pointCount]; // create an array to hold the collider points
+        for (int i = 0; i < pointCount; i++)
+        {
+            colliderPoints[i] = lineRenderer.GetPosition(i); // get the position of the current point and add it to the collider points array
+        }
+        polyCollider.points = colliderPoints; // set the points of the polygon collider
     }
 }
 
