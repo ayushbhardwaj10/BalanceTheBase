@@ -17,6 +17,7 @@ public class ColorChanger : MonoBehaviour
    // Update is called once per frame
     void Update()
     {
+        float duration = 8f;
         float alpha = this.transform.GetComponent<SpriteRenderer>().color.a;
         if(alpha <= 0.3){
             check = !check;
@@ -32,7 +33,7 @@ public class ColorChanger : MonoBehaviour
             this.transform.GetComponent<SpriteRenderer>().color = currentColor;
         }
         if(alpha > 0.3) {
-            alpha -= 0.00007f;
+            alpha -= Time.deltaTime / duration;
             Color newColor = currentColor;
             newColor.a = alpha;
             this.transform.GetComponent<SpriteRenderer>().color = newColor;
