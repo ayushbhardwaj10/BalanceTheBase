@@ -1066,7 +1066,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Tilt Maze - Left/Right Arrow
+  m_text: Click the Left/Right arrow keys to tilt the maze
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 125cb55b44b24c4393181402bc6200e6, type: 2}
   m_sharedMaterial: {fileID: 2100000, guid: 125cb55b44b24c4393181402bc6200e6, type: 2}
@@ -2250,7 +2250,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.867801, y: 0.68}
   m_AnchorMax: {x: 0.867801, y: 0.68}
-  m_AnchoredPosition: {x: -3.3599854, y: 4}
+  m_AnchoredPosition: {x: -66.17798, y: -131.40002}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1550722665
@@ -2273,11 +2273,11 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Click the light bulb icon to review the instructions again
+  m_text: 'To review the instructions again, click on the light bulb icon
 
 
-    You can
-    begin the game now!
+    You
+    can begin the game now!
 
 '
   m_isRightToLeft: 0
@@ -2900,7 +2900,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.14420022, y: 0.40453514}
   m_AnchorMax: {x: 0.14420022, y: 0.40453514}
-  m_AnchoredPosition: {x: 0, y: -2}
+  m_AnchoredPosition: {x: -33.86438, y: -2}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1889900165
@@ -2923,7 +2923,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Tilt Pink Floor - A/D Keys
+  m_text: Click the A/D keys to tilt the Pink floor
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 125cb55b44b24c4393181402bc6200e6, type: 2}
   m_sharedMaterial: {fileID: 2100000, guid: 125cb55b44b24c4393181402bc6200e6, type: 2}
