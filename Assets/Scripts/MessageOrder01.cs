@@ -32,6 +32,26 @@ public class MessageOrder01 : MonoBehaviour
             instruction2.enabled = false;
             instruction3.enabled = true;
             flag++;
+
+            StartCoroutine(FadeOut());
+        }
+    }
+
+    IEnumerator FadeOut()
+    {
+        if (flag == 3)
+        {
+            yield return new WaitForSeconds(3f);
+            float duration = 2f;
+            float alpha = instruction3.color.a;
+
+            while (instruction3.color.a > 0f)
+            {
+                alpha -= Time.deltaTime / duration;
+                instruction3.color = new Color(instruction3.color.r, instruction3.color.g, instruction3.color.b, alpha);
+                yield return null;
+            }
+            flag++;
         }
     }
 }
