@@ -158,7 +158,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.859, y: 0.558}
   m_AnchorMax: {x: 0.859, y: 0.558}
-  m_AnchoredPosition: {x: 4.6400146, y: -2}
+  m_AnchoredPosition: {x: 4.6400146, y: 14.359985}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2321834
@@ -290,7 +290,7 @@ Transform:
   m_GameObject: {fileID: 17034106}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.88509, y: 0.88509, z: 0.88509}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 268494691}
@@ -1049,7 +1049,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.8475374, y: 0.768699}
   m_AnchorMax: {x: 0.8475374, y: 0.768699}
-  m_AnchoredPosition: {x: 16, y: 0}
+  m_AnchoredPosition: {x: 16, y: -215.19489}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &370303398
@@ -1072,7 +1072,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: USE SPACE TO CHOOSE DIFFERENT KILLER BALLS
+  m_text: CLICK SPACE TO CHOOSE DIFFERENT KILLER BALLS
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 125cb55b44b24c4393181402bc6200e6, type: 2}
   m_sharedMaterial: {fileID: 2100000, guid: 125cb55b44b24c4393181402bc6200e6, type: 2}
@@ -1703,7 +1703,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.114564136, y: 0.48665482}
   m_AnchorMax: {x: 0.114564136, y: 0.48665482}
-  m_AnchoredPosition: {x: 3.5, y: 8}
+  m_AnchoredPosition: {x: 3.5, y: 55.412785}
   m_SizeDelta: {x: 201, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &468201205
@@ -2860,7 +2860,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.8657779, y: 0.2616477}
   m_AnchorMax: {x: 0.8657779, y: 0.2616477}
-  m_AnchoredPosition: {x: -8.359985, y: 14}
+  m_AnchoredPosition: {x: -8.359985, y: 312.42047}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1100105645
@@ -4714,7 +4714,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: USE 'K' TO TURN KILLER MODE ON/OFF
+  m_text: CLICK 'K' TO TURN KILLER MODE ON/OFF
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 125cb55b44b24c4393181402bc6200e6, type: 2}
   m_sharedMaterial: {fileID: 2100000, guid: 125cb55b44b24c4393181402bc6200e6, type: 2}

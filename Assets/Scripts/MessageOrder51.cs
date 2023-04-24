@@ -48,6 +48,34 @@ public class MessageOrder51 : MonoBehaviour
             instruction4.enabled = false;
             instruction5.enabled = true;
             flag++;
+
+            //Set back timer and killer mode
+            TextMeshProUGUI timeLeftObj = GameObject.Find("TimerLeft").GetComponent<TextMeshProUGUI>();
+
+            if(timeLeftObj != null)
+            {
+                timeLeftObj.GetComponent<EatingTimer>().timeLeft = 60;
+            }
+
+            StartCoroutine(FadeOut());
+        }
+    }
+
+    IEnumerator FadeOut()
+    {
+        if (flag == 5)
+        {
+            yield return new WaitForSeconds(3f);
+            float duration = 2f;
+            float alpha = instruction5.color.a;
+
+            while (instruction5.color.a > 0f)
+            {
+                alpha -= Time.deltaTime / duration;
+                instruction5.color = new Color(instruction5.color.r, instruction5.color.g, instruction5.color.b, alpha);
+                yield return null;
+            }
+            flag++;
         }
     }
 }
