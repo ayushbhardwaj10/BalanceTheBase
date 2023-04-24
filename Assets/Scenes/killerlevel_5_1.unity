@@ -2061,7 +2061,7 @@ PrefabInstance:
     - target: {fileID: 317462722509493276, guid: 36322ddd64ede447f8a6fbffa428a4bd, type: 3}
       propertyPath: winningPopup
       value: 
-      objectReference: {fileID: 1639278252}
+      objectReference: {fileID: 1574177962}
     - target: {fileID: 2911653850526773525, guid: 36322ddd64ede447f8a6fbffa428a4bd, type: 3}
       propertyPath: m_Name
       value: Goal Region
@@ -3787,6 +3787,11 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 14615013505231104, guid: 7fc47fdc0962d1e489f99123b6120cd4, type: 3}
   m_PrefabInstance: {fileID: 1574177960}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1574177962 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 14615013505231105, guid: 7fc47fdc0962d1e489f99123b6120cd4, type: 3}
+  m_PrefabInstance: {fileID: 1574177960}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1634003097
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4005,11 +4010,6 @@ CanvasRenderer:
 Transform:
   m_CorrespondingSourceObject: {fileID: 1577686646177233954, guid: dbd1bf0037261463db80477756d62e78, type: 3}
   m_PrefabInstance: {fileID: 1777898202}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &1639278252 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 4979364627683823103, guid: cf1990133d6644c75bd56049e9a41ec3, type: 3}
-  m_PrefabInstance: {fileID: 122538915}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1673484229
 PrefabInstance:
