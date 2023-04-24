@@ -60,5 +60,34 @@ public class KillerLevelCheckLosingCondition : MonoBehaviour
             //Analytics for user ratings
             AnalyticsManager._instance.analytics_user_ratings(levelName, time_taken, user_rating, GamesManager.LOST);
         }
+
+        if (!lostStatus && GameObject.FindGameObjectsWithTag("RedBall").Length == 0
+            && GameObject.FindGameObjectsWithTag("BlueBall").Length == 0
+            && GameObject.FindGameObjectsWithTag("PinkBall_RedBall").Length == 0
+            && GameObject.FindGameObjectsWithTag("PinkBall_BlueBall").Length == 0)
+        {
+            lostStatus = true;
+
+            Debug.Log("YOU LOSE!");
+            losingPopup.SetActive(true);
+            // this.enabled = false; //added to get out of Update - IMPORTANT
+            endTime = DateTime.Now;
+            int time_taken = (int)(endTime - startTime).TotalSeconds;
+            Debug.Log("time taken in Losing Condition" + time_taken);
+            int user_rating = GamesManager._instance.calculate_user_ratings(GamesManager.LOST, levelName, time_taken);
+            Debug.Log("User rating in Losing Condition " + user_rating);
+            //GetComponent<StarHandler>().starsAcheived(user_rating);            
+            //Debug.Log("setting up Losing Condition pop-up");
+
+            RestartButton.prev_level = SceneManager.GetActiveScene().name;
+          
+            Debug.Log("Prev scene lost " + RestartButton.prev_level);
+
+            //Analytics for time taken
+            AnalyticsManager._instance.analytics_time_takenn(levelName, time_taken, GamesManager.LOST, RestartButton.isRestartClicked);
+
+            //Analytics for user ratings
+            AnalyticsManager._instance.analytics_user_ratings(levelName, time_taken, user_rating, GamesManager.LOST);
+        }
     }
 }
