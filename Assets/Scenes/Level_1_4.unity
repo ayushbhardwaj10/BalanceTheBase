@@ -323,7 +323,7 @@ GameObject:
   - component: {fileID: 101035149}
   - component: {fileID: 101035148}
   m_Layer: 0
-  m_Name: Canvas
+  m_Name: Win/Lose popup
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3442,6 +3442,14 @@ PrefabInstance:
     - target: {fileID: 7167951569370242583, guid: 1939d4fe564e9ea4bb5611e8ce6720a4, type: 3}
       propertyPath: m_fontSizeBase
       value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 7167951569497652720, guid: 1939d4fe564e9ea4bb5611e8ce6720a4, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1357603151}
+    - target: {fileID: 7167951569497652720, guid: 1939d4fe564e9ea4bb5611e8ce6720a4, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: restartLevel
       objectReference: {fileID: 0}
     - target: {fileID: 7167951569497652723, guid: 1939d4fe564e9ea4bb5611e8ce6720a4, type: 3}
       propertyPath: m_SizeDelta.x
