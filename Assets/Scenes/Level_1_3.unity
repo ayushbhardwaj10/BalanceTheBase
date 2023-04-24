@@ -577,8 +577,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 40
-  m_fontSizeBase: 40
+  m_fontSize: 20
+  m_fontSizeBase: 20
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -613,7 +613,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: -40.072693, w: 0}
+  m_margin: {x: 0, y: 0, z: -19.563782, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -1705,6 +1705,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3319366445612980378, guid: 8262ee4e873ba482889b746fe3d6dcaa, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 10.400024
+      objectReference: {fileID: 0}
+    - target: {fileID: 3319366445675311979, guid: 8262ee4e873ba482889b746fe3d6dcaa, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -0.099975586
+      objectReference: {fileID: 0}
     - target: {fileID: 3319366446593444892, guid: 8262ee4e873ba482889b746fe3d6dcaa, type: 3}
       propertyPath: m_RootOrder
       value: 4
@@ -3698,7 +3706,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_UiScaleMode: 0
+  m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
   m_ReferenceResolution: {x: 800, y: 600}
@@ -4103,6 +4111,34 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 131397426816730181, guid: 69ba97d9e1b534117ad188a113dcf6ad, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0.8737501
+      objectReference: {fileID: 0}
+    - target: {fileID: 131397426816730181, guid: 69ba97d9e1b534117ad188a113dcf6ad, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0.836
+      objectReference: {fileID: 0}
+    - target: {fileID: 131397426816730181, guid: 69ba97d9e1b534117ad188a113dcf6ad, type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 0.8737501
+      objectReference: {fileID: 0}
+    - target: {fileID: 131397426816730181, guid: 69ba97d9e1b534117ad188a113dcf6ad, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0.836
+      objectReference: {fileID: 0}
+    - target: {fileID: 131397426816730181, guid: 69ba97d9e1b534117ad188a113dcf6ad, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 113.51999
+      objectReference: {fileID: 0}
+    - target: {fileID: 131397426816730181, guid: 69ba97d9e1b534117ad188a113dcf6ad, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 12.76001
+      objectReference: {fileID: 0}
+    - target: {fileID: 131397426816730181, guid: 69ba97d9e1b534117ad188a113dcf6ad, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -0.6000061
+      objectReference: {fileID: 0}
     - target: {fileID: 3191108899214079720, guid: 69ba97d9e1b534117ad188a113dcf6ad, type: 3}
       propertyPath: m_text
       value: "       - TILT MAZE-LEFT/RIGHT KEYS\n       \n       - TILT PINK FLOOR-A/D

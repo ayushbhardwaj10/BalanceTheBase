@@ -1480,6 +1480,30 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 131397426816730181, guid: 69ba97d9e1b534117ad188a113dcf6ad, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0.86875015
+      objectReference: {fileID: 0}
+    - target: {fileID: 131397426816730181, guid: 69ba97d9e1b534117ad188a113dcf6ad, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0.8371561
+      objectReference: {fileID: 0}
+    - target: {fileID: 131397426816730181, guid: 69ba97d9e1b534117ad188a113dcf6ad, type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 0.86875015
+      objectReference: {fileID: 0}
+    - target: {fileID: 131397426816730181, guid: 69ba97d9e1b534117ad188a113dcf6ad, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0.8371561
+      objectReference: {fileID: 0}
+    - target: {fileID: 131397426816730181, guid: 69ba97d9e1b534117ad188a113dcf6ad, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 16.76001
+      objectReference: {fileID: 0}
+    - target: {fileID: 131397426816730181, guid: 69ba97d9e1b534117ad188a113dcf6ad, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3191108899214079720, guid: 69ba97d9e1b534117ad188a113dcf6ad, type: 3}
       propertyPath: m_text
       value: "       - TILT MAZE-LEFT/RIGHT KEYS\n       \n       - TILT PINK FLOOR-A/D

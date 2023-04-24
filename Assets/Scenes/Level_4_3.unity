@@ -1490,6 +1490,30 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 131397426816730181, guid: 69ba97d9e1b534117ad188a113dcf6ad, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0.86375004
+      objectReference: {fileID: 0}
+    - target: {fileID: 131397426816730181, guid: 69ba97d9e1b534117ad188a113dcf6ad, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0.8204616
+      objectReference: {fileID: 0}
+    - target: {fileID: 131397426816730181, guid: 69ba97d9e1b534117ad188a113dcf6ad, type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 0.86375004
+      objectReference: {fileID: 0}
+    - target: {fileID: 131397426816730181, guid: 69ba97d9e1b534117ad188a113dcf6ad, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0.8204616
+      objectReference: {fileID: 0}
+    - target: {fileID: 131397426816730181, guid: 69ba97d9e1b534117ad188a113dcf6ad, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 20.76001
+      objectReference: {fileID: 0}
+    - target: {fileID: 131397426816730181, guid: 69ba97d9e1b534117ad188a113dcf6ad, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 3191108899214079720, guid: 69ba97d9e1b534117ad188a113dcf6ad, type: 3}
       propertyPath: m_text
       value: "\n     -press 'enter' to shake the grid and \n             yellow walls
