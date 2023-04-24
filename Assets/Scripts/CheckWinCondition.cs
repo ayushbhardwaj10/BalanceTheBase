@@ -116,9 +116,13 @@ public class CheckWinCondition : MonoBehaviour
             }
             else if (levelName == "Level_6_1") 
             {
-                SceneManager.LoadScene("Level_6_3");
+                SceneManager.LoadScene("Level_6_2");
             }
-            else if (levelName == "Level_6_3") 
+            else if (levelName == "Level_6_2")
+            {
+                SceneManager.LoadScene("killerlevel_6_3");
+            }
+            else if (levelName == "killerlevel_6_3") 
             {
                 SceneManager.LoadScene("Level_0_4");
             }
