@@ -15,137 +15,143 @@ public class magneticMechanism : MonoBehaviour
     Color blueCustomColor = new Color(23f / 255f, 153f / 255f, 231f / 255f);
     Color redCustomColor = new Color(1f, 0f, 0f);
 
-    bool isBlue = true;
+    bool isBlue = false;
     bool isMagnetActive = false;
 
     // Start is called before the first frame update
 
     void Start()
     {
-        Debug.Log("started..");
         magnetPoint = GetComponent<Transform>();
         rend = GetComponent<Renderer>();
 
         spriteRenderer = GetComponent<SpriteRenderer>();
-
     }
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (isBlue == true)
+        Rigidbody2D rb2d = other.GetComponent<Rigidbody2D>();
+        if ((other.CompareTag("BlueBall") || other.CompareTag("RedBall")) && rb2d != null && !rgbBalls.Contains(rb2d))
         {
-            Rigidbody2D rb2d = other.GetComponent<Rigidbody2D>();
-            if (other.CompareTag("BlueBall") && rb2d != null && !rgbBalls.Contains(rb2d))
-            {
-                rgbBalls.Add(rb2d);
-            }
-            Debug.Log("Updated ball count - " + rgbBalls.Count);
+            rgbBalls.Add(rb2d);
         }
-        else
-        {
-            Rigidbody2D rb2d = other.GetComponent<Rigidbody2D>();
-            if (other.CompareTag("RedBall") && rb2d != null && !rgbBalls.Contains(rb2d))
-            {
-                rgbBalls.Add(rb2d);
-            }
-            Debug.Log("Updated ball count - " + rgbBalls.Count);
-        } 
-    }
-    private void OnTriggerExit2D(Collider2D other)
-    {
-        Debug.Log("exit..");
-        // rgbBalls.Clear();
-
-        if (other.CompareTag("BlueBall") || other.CompareTag("RedBall"))
-        {
-            rgbBalls.Remove(other.GetComponent<Rigidbody2D>());
-        }
-   
+        Debug.Log("Updated ball count - " + rgbBalls.Count); 
     }
 
     private void OnTriggerStay2D(Collider2D other)
     {
-        if (isBlue == true)
+        Rigidbody2D rb2d = other.GetComponent<Rigidbody2D>();
+        if ((other.CompareTag("BlueBall") || other.CompareTag("RedBall")) && rb2d != null && !rgbBalls.Contains(rb2d))
         {
-            Rigidbody2D rb2d = other.GetComponent<Rigidbody2D>();
-            if (other.CompareTag("BlueBall") && rb2d != null && !rgbBalls.Contains(rb2d))
-            {
-                rgbBalls.Add(rb2d);
-            }
-            Debug.Log("Updated ball count - " + rgbBalls.Count);
+            rgbBalls.Add(rb2d);
         }
-        else
-        {
-            Rigidbody2D rb2d = other.GetComponent<Rigidbody2D>();
-            if (other.CompareTag("RedBall") && rb2d != null && !rgbBalls.Contains(rb2d))
-            {
-                rgbBalls.Add(rb2d);
-            }
-            Debug.Log("Updated ball count - " + rgbBalls.Count);
-        }
+        Debug.Log("Updated ball count - " + rgbBalls.Count);
+    }
 
+    private void OnTriggerExit2D(Collider2D other)
+    {
+        if (other.CompareTag("BlueBall") || other.CompareTag("RedBall"))
+        {
+            rgbBalls.Remove(other.GetComponent<Rigidbody2D>());
+        }
     }
 
     void Update()
     {
         if (isMagnetActive == true) {
-
             foreach (Rigidbody2D rgbBall in rgbBalls)
             {
-                //rgbBall.AddForce((magnetPoint.position - rgbBall.position) * forceFactor * Time.fixedDeltaTime);
-                rgbBall.AddForce((magnetPoint.position - new Vector3(rgbBall.position.x, rgbBall.position.y, 0f)).normalized * forceFactor * Time.fixedDeltaTime);
-                rgbBall.velocity *= (1 - dampingValue * Time.fixedDeltaTime);
+                if(isBlue == true)
+                {
+                    if(rgbBall.gameObject.CompareTag("BlueBall"))
+                    {
+                        rgbBall.AddForce((magnetPoint.position - new Vector3(rgbBall.position.x, rgbBall.position.y, 0f)).normalized * forceFactor * Time.fixedDeltaTime);
+                        rgbBall.velocity *= (1 - dampingValue * Time.fixedDeltaTime);
+                    }
+                }
+                else
+                {
+                    if(rgbBall.gameObject.CompareTag("RedBall"))
+                    {
+                        rgbBall.AddForce((magnetPoint.position - new Vector3(rgbBall.position.x, rgbBall.position.y, 0f)).normalized * forceFactor * Time.fixedDeltaTime);
+                        rgbBall.velocity *= (1 - dampingValue * Time.fixedDeltaTime);
+                    }
+                }
+            }
+        }
+
+        if(Input.GetKeyUp(KeyCode.Tab))
+        {
+            if(isMagnetActive == true && isBlue == false)
+            {
+                spriteRenderer.color = Color.white;
+                isMagnetActive = false;
+            }
+            else if(isMagnetActive == true && isBlue == true)
+            {
+                spriteRenderer.color = redCustomColor;
+                isMagnetActive = true;
+                isBlue = false;
+            }
+            else
+            {
+                spriteRenderer.color = blueCustomColor;
+                isMagnetActive = true;
+                isBlue = true;
             }
         }
 
         // Toggle switching ON and OFF of magnet
-        if (Input.GetKeyUp(KeyCode.LeftShift) || Input.GetKeyUp(KeyCode.LeftShift))
-        {
-            isMagnetActive = !isMagnetActive;
-            Debug.Log("magnet :" + isMagnetActive);
+        // if (Input.GetKeyUp(KeyCode.LeftShift) || Input.GetKeyUp(KeyCode.LeftShift))
+        // {
+        //     Debug.Log("Magnet control - Left-shift clicked");
+        //     isMagnetActive = !isMagnetActive;
+        //     Debug.Log("magnet :" + isMagnetActive);
 
-            if (isMagnetActive == false)
-            {
-                spriteRenderer.color = Color.white;
-                rgbBalls.Clear();
-            }
-            else
-            {
-                if (isBlue)
-                {
-                    spriteRenderer.color = blueCustomColor;      
-                }
-                else
-                {
-                    spriteRenderer.color = redCustomColor;
-                }
-            }
-        }
+        //     if (isMagnetActive == false)
+        //     {
+        //         spriteRenderer.color = Color.white;
+        //         rgbBalls.Clear();
+        //     }
+        //     else
+        //     {
+        //         if (isBlue)
+        //         {
+        //             spriteRenderer.color = blueCustomColor;      
+        //         }
+        //         else
+        //         {
+        //             spriteRenderer.color = redCustomColor;
+        //         }
+        //     }
+        // }
 
-        if (isMagnetActive == true) {
-            // Toggle changing colors of magnet
-            if (Input.GetKeyDown(KeyCode.Tab))
-            {
-                if (isBlue)
-                {
-                    spriteRenderer.color = redCustomColor;
-                    isBlue = false;
+        // if (isMagnetActive == true) {
+        //     // Toggle changing colors of magnet
+        //     if (Input.GetKeyDown(KeyCode.Tab))
+        //     {
+        //         if (isBlue)
+        //         {
+        //             spriteRenderer.color = redCustomColor;
+        //             isBlue = false;
 
-                    rgbBalls.Clear();
-                }
-                else
-                {
-                    spriteRenderer.color = blueCustomColor;
-                    isBlue = true;
+        //             rgbBalls.Clear();
+        //             Debug.Log("Magnet control - TAB clicked");
+        //         }
+        //         else
+        //         {
+        //             spriteRenderer.color = blueCustomColor;
+        //             isBlue = true;
 
-                    rgbBalls.Clear();
-                }
-            }
-        }
+        //             rgbBalls.Clear();
+        //             Debug.Log("Magnet control - TAB clicked");
+        //         }
+        //     }
+        // }
 
-        if (spriteRenderer.color == Color.red)
-        {
-            Debug.Log("The color of the game object is red.");
-        }
+        // if (spriteRenderer.color == Color.red)
+        // {
+        //     Debug.Log("The color of the game object is red.");
+        // }
     }
 }
