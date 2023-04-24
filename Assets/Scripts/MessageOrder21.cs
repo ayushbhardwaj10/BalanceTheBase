@@ -23,7 +23,7 @@ public class MessageOrder21 : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.LeftShift) && flag == 1)
+        if (Input.GetKeyDown(KeyCode.Tab) && flag == 1)
         {
             instruction1.enabled = false;
             instruction2.enabled = true;
@@ -39,6 +39,26 @@ public class MessageOrder21 : MonoBehaviour
         {
             instruction3.enabled = false;
             instruction4.enabled = true;
+            flag++;
+
+            StartCoroutine(FadeOut());
+        }
+    }
+
+    IEnumerator FadeOut()
+    {
+        if (flag == 4)
+        {
+            yield return new WaitForSeconds(9f);
+            float duration = 2f;
+            float alpha = instruction4.color.a;
+
+            while (instruction4.color.a > 0f)
+            {
+                alpha -= Time.deltaTime / duration;
+                instruction4.color = new Color(instruction4.color.r, instruction4.color.g, instruction4.color.b, alpha);
+                yield return null;
+            }
             flag++;
         }
     }

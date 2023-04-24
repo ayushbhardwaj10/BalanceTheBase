@@ -912,9 +912,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'You can begin the game now!
-
-'
+  m_text: "Quick Recap - \n\nUse 'TAB' to switch between OFF/BLUE/RED states of the
+    magnet\n\nUse UP/DOWN arrow keys to move the magnet\n\nYou can begin the game
+    now!\n"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 125cb55b44b24c4393181402bc6200e6, type: 2}
   m_sharedMaterial: {fileID: 2100000, guid: 125cb55b44b24c4393181402bc6200e6, type: 2}
@@ -2763,6 +2763,30 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 224153091}
     m_Modifications:
+    - target: {fileID: 4355431738454796594, guid: 47e567a5d393d4f49a916f75a7bf5c99, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4355431738454796594, guid: 47e567a5d393d4f49a916f75a7bf5c99, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 4355431738454796594, guid: 47e567a5d393d4f49a916f75a7bf5c99, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4355431738454796594, guid: 47e567a5d393d4f49a916f75a7bf5c99, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4355431738454796594, guid: 47e567a5d393d4f49a916f75a7bf5c99, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 4355431738454796594, guid: 47e567a5d393d4f49a916f75a7bf5c99, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: -90
+      objectReference: {fileID: 0}
     - target: {fileID: 4355431738454796605, guid: 47e567a5d393d4f49a916f75a7bf5c99, type: 3}
       propertyPath: m_Size.y
       value: 12.38
@@ -4412,7 +4436,14 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Change Color of Magnet :  Tab'
+  m_text: 'Blue magnet attracts blue balls
+
+
+    Red magnet attracts red balls
+
+
+    Click
+    ''TAB'' again to change the color of the magnet'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 125cb55b44b24c4393181402bc6200e6, type: 2}
   m_sharedMaterial: {fileID: 2100000, guid: 125cb55b44b24c4393181402bc6200e6, type: 2}
@@ -4613,11 +4644,10 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Magnet  - Blue attracts Blue & Red attracts Red
+  m_text: 'That''s a magnet on the slider
 
 
-    Switch Magnet On/Off
-    :  Left-shift'
+    Click ''TAB'' to activate the magnet'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 125cb55b44b24c4393181402bc6200e6, type: 2}
   m_sharedMaterial: {fileID: 2100000, guid: 125cb55b44b24c4393181402bc6200e6, type: 2}
@@ -4752,7 +4782,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Move Magnet : up/Down keys
+  m_text: 'Move the magnet up/down the slider using up/down arrow keys
 
 '
   m_isRightToLeft: 0
