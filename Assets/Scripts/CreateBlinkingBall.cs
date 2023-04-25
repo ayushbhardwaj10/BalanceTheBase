@@ -8,9 +8,12 @@ public class CreateBlinkingBall : MonoBehaviour
    public GameObject prefab;
    public int timer = 0;
 
-   void Start()
+
+    
+    void Start()
    {
-       if("PinkBall_RedBall" == gameObject.tag || "PinkBall_BlueBall" == gameObject.tag){
+
+        if ("PinkBall_RedBall" == gameObject.tag || "PinkBall_BlueBall" == gameObject.tag){
           timer = 8;
 
           //For setting the timer
@@ -23,6 +26,7 @@ public class CreateBlinkingBall : MonoBehaviour
        } else {
          prefab = Resources.Load<GameObject>("Prefabs/PinkBallRedBall");
        }
+
    }
 
    void Update()
@@ -52,7 +56,8 @@ public class CreateBlinkingBall : MonoBehaviour
     void OnTriggerEnter2D(Collider2D collision)
     {
         if("PowerUp_Star" == collision.gameObject.tag){
-          GamesManager.powerAttainStartTime = DateTime.Now; 
+            
+            GamesManager.powerAttainStartTime = DateTime.Now; 
 
           // Destroy the star and the canvas holding it
           // Save ID of deleted game object
@@ -79,5 +84,7 @@ public class CreateBlinkingBall : MonoBehaviour
           GameStateTracking.UpdateGameStack(deletedIdList, "Create blink ball script: " + collision.gameObject.name);
         }
     }
+
+    
 
 }

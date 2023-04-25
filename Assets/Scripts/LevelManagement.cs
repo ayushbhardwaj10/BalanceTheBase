@@ -64,13 +64,18 @@ public class LevelManagement : MonoBehaviour
     }
     public void levelChangeTo31()
     {
-        AnalyticsManager._instance.analytics_start_level("Level_3_1", DateTime.Now);
-        SceneManager.LoadScene("Level_3_1");
+        AnalyticsManager._instance.analytics_start_level("foglevel_3_1", DateTime.Now);
+        SceneManager.LoadScene("foglevel_3_1");
     }
     public void levelChangeTo32()
     {
-        AnalyticsManager._instance.analytics_start_level("Level_3_2", DateTime.Now);
-        SceneManager.LoadScene("Level_3_2");
+        AnalyticsManager._instance.analytics_start_level("foglevel_3_2", DateTime.Now);
+        SceneManager.LoadScene("foglevel_3_2");
+    }
+    public void levelChangeTo41()
+    {
+        AnalyticsManager._instance.analytics_start_level("Level_4_2", DateTime.Now);
+        SceneManager.LoadScene("Level_4_1");
     }
     public void levelChangeTo42()
     {
@@ -84,13 +89,28 @@ public class LevelManagement : MonoBehaviour
     }
     public void levelChangeTo51()
     {
-        AnalyticsManager._instance.analytics_start_level("Level_5_1", DateTime.Now);
-        SceneManager.LoadScene("Level_5_1");
+        AnalyticsManager._instance.analytics_start_level("killerlevel_5_1", DateTime.Now);
+        SceneManager.LoadScene("killerlevel_5_1");
     }
     public void levelChangeTo52()
     {
-        AnalyticsManager._instance.analytics_start_level("Level_5_2", DateTime.Now);
-        SceneManager.LoadScene("Level_5_2");
+        AnalyticsManager._instance.analytics_start_level("killerlevel_5_2", DateTime.Now);
+        SceneManager.LoadScene("killerlevel_5_2");
+    }
+    public void levelChangeTo61()
+    {
+        AnalyticsManager._instance.analytics_start_level("Level_6_1", DateTime.Now);
+        SceneManager.LoadScene("Level_6_1");
+    }
+    public void levelChangeTo62()
+    {
+        AnalyticsManager._instance.analytics_start_level("Level_6_2", DateTime.Now);
+        SceneManager.LoadScene("Level_6_2");
+    }
+    public void levelChangeTo63()
+    {
+        AnalyticsManager._instance.analytics_start_level("killerlevel_6_3", DateTime.Now);
+        SceneManager.LoadScene("killerlevel_6_3");
     }
     public void levelChangeToLevelManager()
     {
