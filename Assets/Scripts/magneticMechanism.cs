@@ -22,6 +22,8 @@ public class magneticMechanism : MonoBehaviour
 
     void Start()
     {
+        Time.fixedDeltaTime = 0.04f;
+
         magnetPoint = GetComponent<Transform>();
         rend = GetComponent<Renderer>();
 
@@ -56,7 +58,7 @@ public class magneticMechanism : MonoBehaviour
         }
     }
 
-    void Update()
+    void FixedUpdate()
     {
         if (isMagnetActive == true) {
             foreach (Rigidbody2D rgbBall in rgbBalls)
@@ -79,7 +81,10 @@ public class magneticMechanism : MonoBehaviour
                 }
             }
         }
+    }
 
+    void Update()
+    {
         if(Input.GetKeyUp(KeyCode.Tab))
         {
             if(isMagnetActive == true && isBlue == false)

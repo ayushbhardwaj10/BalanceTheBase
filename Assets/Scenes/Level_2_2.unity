@@ -2860,9 +2860,13 @@ PrefabInstance:
       propertyPath: forceFactor
       value: 500
       objectReference: {fileID: 0}
+    - target: {fileID: 4355431738454796606, guid: 47e567a5d393d4f49a916f75a7bf5c99, type: 3}
+      propertyPath: dampingValue
+      value: 0.5
+      objectReference: {fileID: 0}
     - target: {fileID: 4355431738454796607, guid: 47e567a5d393d4f49a916f75a7bf5c99, type: 3}
       propertyPath: moveSpeed
-      value: 5
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 4355431740108702444, guid: 47e567a5d393d4f49a916f75a7bf5c99, type: 3}
       propertyPath: m_RootOrder
