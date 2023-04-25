@@ -602,7 +602,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 78edaad083e0b448a9b30df33c484cde, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 1.25
+  speed: 0.4
   radius: 5.5
 --- !u!1 &375098003 stripped
 GameObject:
